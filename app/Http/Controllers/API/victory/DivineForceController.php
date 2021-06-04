@@ -1,0 +1,83 @@
+<?php
+
+namespace App\Http\Controllers\API\victory;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\YearChart;
+
+class DivineForceController extends Controller
+{
+    public function force($force,$from,$to){
+        request()->force = $force;
+        $monthChart = array();
+        if(request()->force == 'SE'){
+            $palace = "se";
+            $charts = YearChart::with('monthChart.se','dayChart.se','dayChart.element','dayChart.english')->whereBetween('id',[$from,$to])
+                        ->get();
+        }
+
+        if(request()->force == 'S'){
+            $palace = "s";
+            $charts = YearChart::with('monthChart.s','dayChart.s','dayChart.element','dayChart.english')->whereBetween('id',[$from,$to])
+                        ->get();
+        }
+
+        if(request()->force == 'SW'){
+            $palace = "sw";
+            $charts = YearChart::with('monthChart.sw','dayChart.sw','dayChart.element','dayChart.english')->whereBetween('id',[$from,$to])
+                        ->get();
+        }
+
+        if(request()->force == 'E'){
+            $palace = "e";
+            $charts = YearChart::with('monthChart.e','dayChart.e','dayChart.element','dayChart.english')->whereBetween('id',[$from,$to])
+                        ->get();
+        }
+
+        if(request()->force == 'W'){
+            $palace = "w";
+            $charts = YearChart::with('monthChart.w','dayChart.w','dayChart.element','dayChart.english')->whereBetween('id',[$from,$to])
+                        ->get();
+        }
+
+        if(request()->force == 'NE'){
+            $palace = "ne";
+            $charts = YearChart::with('monthChart.ne','dayChart.ne','dayChart.element','dayChart.english')->whereBetween('id',[$from,$to])
+                        ->get();
+        }
+
+        if(request()->force == 'N'){
+            $palace = "n";
+            $charts = YearChart::with('monthChart.n','dayChart.n','dayChart.element','dayChart.english')->whereBetween('id',[$from,$to])
+                        ->get();
+        }
+
+        if(request()->force == 'NW'){
+            $palace = "nw";
+            $charts = YearChart::with('monthChart.nw','dayChart.nw','dayChart.element','dayChart.english')->whereBetween('id',[$from,$to])
+                        ->get();
+        }
+
+
+        foreach($charts as $item){
+            if($item->monthChart->$palace->deitie_id == 1 && $item->dayChart->$palace->deitie_id == 2){
+                if(!in_array($item,$monthChart)){
+                    $item->palace = $palace;
+                    $item->divine = "DF";
+                    $monthChart[] = $item;
+                }
+            }
+
+            if($item->monthChart->$palace->deitie_id == 2 && $item->dayChart->$palace->deitie_id == 1){
+                if(!in_array($item,$monthChart)){
+                    $item->palace = $palace;
+                    $item->divine = "DF";
+                    $monthChart[] = $item;
+                }
+            }
+        }
+
+        return $monthChart;
+    }
+}
