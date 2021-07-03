@@ -6,7 +6,7 @@
         <div class="row justify-content-center m-0" v-show="!loading">
             <div class="col-md-5">
                 <strong>{{stem}} {{branch}}</strong> <h3><strong>{{element}} {{english}}</strong></h3>
-                <img :src="'/'+photo" class="img-fluid" alt="">
+                <img :src="photo" class="img-fluid" alt="">
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
                 axios.post('/api/get-home-chart',{month:this.date.getMonth()+1,day:this.date.getDate(),year:this.date.getFullYear()})
                 .then(response => {
                     this.loading = false;
-                    this.photo = response.data.day_chart.photo;
+                    this.photo = '/chart/'+response.data.day_chart_id+'.PNG';
                     this.stem = response.data.day_chart.stem.value;
                     this.branch = response.data.day_chart.branch.name;
                     this.element = response.data.day_chart.element.name;
