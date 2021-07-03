@@ -50,7 +50,7 @@
                             <label for="">Deity</label>
                         </div>
                         <div class="col-8">
-                            <select class="form-control" autofocus @change="preview" v-model="form.deitie_id">
+                            <select class="form-control" disabled @change="preview" v-model="form.deitie_id">
                                 <option value="" disabled hidden>Select Deity</option>
                                 <option v-for="(item, index) in deities" :key="index" :value="item">{{item.value}}</option>
                             </select>
@@ -72,7 +72,7 @@
                             <label for="">Door</label>
                         </div>
                         <div class="col-8">
-                            <select class="form-control" @change="preview" v-model="form.door_id">
+                            <select class="form-control" autofocus @change="preview" v-model="form.door_id">
                                 <option value="" disabled hidden>Select Door</option>
                                 <option v-for="(item, index) in doors" :key="index" :value="item">{{item.name}}</option>
                             </select>
@@ -439,6 +439,7 @@
                 .then(res => {
                     this.form.heaven_stem_id = res.data.heaven;
                     this.form.star_id = res.data.star;
+                    this.form.deitie_id = res.data.deity;
                     this.preview();
                 });
             }

@@ -135,6 +135,12 @@ Route::middleware('auth:api')->group(function(){
     Route::prefix('diary')->group(function(){
         Route::get('getHourChart/{date}/{hour}','API\Diary\HourChartController@getHourChart');
         Route::get('getVicDay/{email}','API\Diary\HourChartController@getVictoryDay');
+        Route::get('getasker/{date}/{id}','API\Diary\HourChartController@getAsker');
+        Route::get('getOutcome/{id}','API\Diary\HourChartController@getOutcome');
+
+        // Route::get('getDetails/{attri}/{keyword}','API\Diary\HourChartController@getAttribute');
+        Route::get('getDetails/{id}/{attr}','API\Diary\HourChartController@getDetails');
+        
     });
 });
 

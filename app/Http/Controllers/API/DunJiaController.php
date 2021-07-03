@@ -31,6 +31,7 @@ class DunJiaController extends Controller
         $dragonController = new DragonController();
         $yangAusController = new YangAusController();
         $yangInausController = new YangInausController();
+
         if($type == "hour"){
             $ids = $this->getDateIntervel($id,$value,$type);
         }

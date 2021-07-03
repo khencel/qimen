@@ -160,13 +160,13 @@ class HourController extends Controller
 
     public function showPart($id,$structure,$number,$palace){
         $yangController = new YangController();
-        if($structure == "yang"){
+        // if($structure == "yang"){
             return $yangController->yangPart($palace,$number,$id);
-        }
+        // }
 
-        if($structure == "yin"){
+        // if($structure == "yin"){
             
-        }
+        // }
     }
 
     

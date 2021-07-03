@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\API\AutoFetch\YangController;
+use App\Http\Controllers\API\AutoFetch\YinController;
 
 
 class HourChartValidationController extends Controller
@@ -17,7 +18,7 @@ class HourChartValidationController extends Controller
         }
 
         if($structure == "yin"){
-            return "yin";
+            return $this->validateCategoryYin($category,$type);
         }
 
     }
@@ -49,7 +50,38 @@ class HourChartValidationController extends Controller
             return $yangController->eight($type);
         }
         if($category == "nine"){
+            return $yangController->nine($type);
+        }
+    }
 
+    public function validateCategoryYin($category,$type){
+        $yinController = new YinController();
+        if($category == "one"){
+            return $yangController->one($type);
+        }
+        if($category == "two"){
+            return $yangController->two($type);
+        }
+        if($category == "three"){
+            return $yinController->three($type);
+        }
+        if($category == "four"){
+            return $yangController->four($type);
+        }
+        if($category == "five"){
+            return $yangController->five($type);
+        }
+        if($category == "six"){
+            return $yinController->six($type);
+        }
+        if($category == "seven"){
+            return $yangController->seven($type);
+        }
+        if($category == "eight"){
+            return $yangController->eight($type);
+        }
+        if($category == "nine"){
+            return $yinController->nine($type);
         }
     }
 

@@ -327,4 +327,44 @@ class YangController extends Controller
             'earth' => $earth
         ]);
     }
+
+    public function nine($type){
+        if($type == "se"){
+            $num = 8;
+            $earth = Stem::find(9);
+        }
+        if($type == "s"){
+            $num = 4;
+            $earth = Stem::find(5);
+        }
+        if($type == "sw"){
+            $num = 6;
+            $earth = Stem::find(7);
+        }
+        if($type == "e"){
+            $num = 7;
+            $earth = Stem::find(8);
+        }
+        if($type == "w"){
+            $num = 2;
+            $earth = Stem::find(3);
+        }
+        if($type == "ne"){
+            $num = 3;
+            $earth = Stem::find(2);
+        }
+        if($type == "n"){
+            $num = 5;
+            $earth = Stem::find(6);
+        }
+        if($type == "nw"){
+            $num = 1;
+            $earth = Stem::find(4);
+        }
+
+        return response()->json([
+            'num' => $num,
+            'earth' => $earth
+        ]);
+    }
 }

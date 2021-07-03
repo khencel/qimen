@@ -15,22 +15,23 @@
                         <button class="btn btn-success form-control" @click="generateHourChart(item)">{{item}}</button>
                     </div>
                 </div>
-                <div class="pt-5" style="width: 100%;height:755px;background-color:darkcyan">
+             
+                <div class="pt-5" :style="structure == 'yang'?'width: 100%;height:755px;background-color:darkcyan':'width: 100%;height:755px;background-color:maroon'">
                     <div style="height:660px;width:87%;background-image:url('/img/logo.png');background-size: 90% 70%;background-repeat:no-repeat;background-position:center center;margin:0px auto;background-color:white">
                         <div class=" h-100" style="background-color: rgb(255,255,255,0.8)">
                             <div class="row m-0" style="height:220px;">
-                                <div class="col-4 border-right border-bottom p-0 border-info">
+                                <div :class="structure == 'yang'?'col-4 border-right border-bottom p-0 border-info':'col-4 border-right border-bottom p-0 border-yin'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour"  :jiabranch="jiabranch" :jiaformation="jiaformation" palace="SE" text='Zun Wood' :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id"></chart-review-parts>
                                 </div>
-                                <div class="col-4 border-right border-bottom p-0 border-info">
+                                <div :class="structure == 'yang'?'col-4 border-right border-bottom p-0 border-info':'col-4 border-right border-bottom p-0 border-yin'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour"  :jiabranch="jiabranch" :jiaformation="jiaformation" palace="S" text='Li Fire' :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id"></chart-review-parts>
                                 </div>
-                                <div class="col-4 border-right border-bottom p-0 border-info">
+                                <div :class="structure == 'yang'?'col-4 border-right border-bottom p-0 border-info':'col-4 border-right border-bottom p-0 border-yin'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour" :jiabranch="jiabranch" :jiaformation="jiaformation" palace="SW" text='Earth Kun' :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id"></chart-review-parts>
                                 </div>
                             </div>
                             <div class="row m-0" style="height:220px;">
-                                <div class="col-4 p-0 border-right border-info">
+                                <div :class="structure == 'yang'?'col-4 p-0 border-right border-info':'col-4 p-0 border-right border-yin'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour"  :jiabranch="jiabranch" :jiaformation="jiaformation" palace="E" text="Zhen" :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id"></chart-review-parts>
                                 </div>
                                 <div class="col-4 p-0 position-relative" style="color:black">
@@ -45,18 +46,18 @@
                                         {{center}}
                                     </div>
                                 </div>
-                                <div class="col-4 p-0 border-left border-info">
+                                <div :class="structure == 'yang'?'col-4 p-0 border-left border-info':'col-4 p-0 border-left border-yin'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour"  :jiabranch="jiabranch" :jiaformation="jiaformation" palace="W" text="Dui" text2="Metal" :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id"></chart-review-parts>
                                 </div>
                             </div>
                             <div class="row m-0" style="height:220px;">
-                                <div class="col-4 p-0 border-top border-right border-info">
+                                <div :class="structure == 'yang'?'col-4 p-0 border-top border-right border-info':'col-4 p-0 border-top border-right border-yin'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour"  :jiabranch="jiabranch" :jiaformation="jiaformation" palace="NE" text='Gen' text2="Earth" :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id"></chart-review-parts>
                                 </div>
-                                <div class="col-4 p-0 border-top border-right border-info">
+                                <div :class="structure == 'yang'?'col-4 p-0 border-top border-right border-info':'col-4 p-0 border-top border-right border-yin'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour"  :jiabranch="jiabranch" :jiaformation="jiaformation" palace="N" text='Kan Water' :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id"></chart-review-parts>
                                 </div>
-                                <div class="col-4 p-0 border-top border-info">
+                                <div :class="structure == 'yang'?'col-4 p-0 border-top border-info':'col-4 p-0 border-top border-yin'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour" :jiabranch="jiabranch" :jiaformation="jiaformation" palace="NW" text='Metal Qian' :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id"></chart-review-parts>
                                 </div>
                             </div>
@@ -145,3 +146,8 @@
         }
     }
 </script>
+<style scoped>
+    .border-yin{
+        border-color: maroon !important;
+    }
+</style>

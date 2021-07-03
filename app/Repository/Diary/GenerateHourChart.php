@@ -3,14 +3,20 @@
 namespace App\Repository\Diary;
 use App\Calendar;
 use App\HourChart;
+use App\Modelist;
+use App\Stem;
+use App\Star;
 
 class GenerateHourChart
 {
     public function getChart($date,$hour){
+        $folder = "";
         $calendar = $this->getDayStem($date);
+        $jia = $this->getCalendar($date);
+
         return response()->json([
             'chart' => $this->validateHourChart($calendar,$hour),
-            'folder' => '/img/'.$calendar->stem.'/'
+            'folder' => '/img/'.($calendar->stem == "Jia"?$jia->stem.'/'.$jia->branch.'/':$calendar->stem.'/')
         ]);
     }
 
@@ -74,4 +80,168 @@ class GenerateHourChart
                 break;
         }
     }
+
+    public function getAsker($date,$id){
+        $models = Modelist::where('type','hour')->get();
+        $parts = array();
+        $calendar = $this->getCalendar($date);
+
+        $stem = ($calendar->stem == "Jia"?$this->getSixBat($calendar->branch):$calendar->stem);
+
+        foreach ($models as $key => $model) {
+            $chart_parts = $model->model::with('heaven_stem','earth_stem','star','deitie','door','formation1','formation2','formation3','formation4','formation5','formation6','formation7','relationship')
+                                        ->where('chart_id',$id)
+                                        ->whereHas('heaven_stem',function($q) use ($stem){
+                                            $q->where('value',$stem);
+                                        })
+                                        ->first();
+            if($chart_parts != null){
+                $parts[] = $chart_parts;
+            }
+        }
+        return $parts;  
+    }
+
+    public function getCalendar($date){
+        $date = explode(',',$date);
+        return Calendar::where([
+            'month' => $date[0],
+            'day' => $date[1],
+            'year' => $date[2]
+        ])->first();
+    }
+
+    public function getOutcome($id){
+        
+        $models = Modelist::where('type','hour')->get();
+
+        $hourChart = HourChart::with('hourStem')->where('id',$id)->first();
+
+        $stem = ($hourChart->hourStem->id == 1?$this->getSixBatViaId($hourChart->hourBranch->id):$hourChart->hourStem->id);
+
+        $part = $models->map(function($model)use($id,$stem){
+            return $model->model::with('heaven_stem','earth_stem','star','deitie','door','formation1','formation2','formation3','formation4','formation5','formation6','formation7','relationship')
+                                            ->where('chart_id',$id)
+                                            ->where('heaven_stem_id',$stem)
+                                            ->first();
+        })->filter()->first();
+
+        if($part != ""){
+            return $part;
+        }
+        
+        return $models->map(function($model)use($id,$stem){
+            return $model->model::with('heaven_stem','earth_stem','star','deitie','door','formation1','formation2','formation3','formation4','formation5','formation6','formation7','relationship')
+                                            ->where('chart_id',$id)
+                                            ->where('heaven',true)
+                                            ->first();
+        })->filter()->first();
+        
+    }
+
+    public function getSixBat($branch){
+        switch ($branch) {
+            case 'Wu':
+                return "Xin";
+                break;
+                
+            case 'Zi':
+                return "Wu";
+                break;
+
+            case 'Xu':
+                return "Ji";
+                break;
+
+            case 'Shen':
+                return "Yi";
+                break;
+
+            case 'Chen':
+                return "Ren";
+                break;
+
+            case 'Yin':
+                return "Gui";
+                break;
+        }
+    }
+
+    public function getSixBatViaId($id){
+        switch ($id) {
+            case 7:
+                return 8;
+                break;
+            case 1:
+                return 5;
+                break;
+            case 11:
+                return 6;
+                break;
+            case 9:
+                return 2;
+                break;
+            case 5:
+                return 9;
+                break;
+            case 3:
+                return 10;
+                break;
+        }
+    }
+
+    public function getAttribute($attri,$keyword){
+        switch ($attri) {
+            case 'heaven':
+                return Stem::with(
+                                'nameQimen',
+                                'represent',
+                                'month',
+                                'astronomy',
+                                'environment',
+                                'people',
+                                'material',
+                                'building',
+                                'career',
+                                'nourishment',
+                                'characteristic',
+                                'fitness',
+                                'voice',
+                                'organ',
+                                'part',
+                                'taste',
+                                'colour'
+                            )
+                            ->where('id',$keyword)
+                            ->first();        
+                break;
+        }
+    }
+
+    public function getStem($id){
+        return Stem::with(
+            'nameQimen',
+            'represent',
+            'month',
+            'astronomy',
+            'environment',
+            'people',
+            'material',
+            'building',
+            'career',
+            'nourishment',
+            'characteristic',
+            'fitness',
+            'voice',
+            'organ',
+            'part',
+            'taste',
+            'colour'
+            )->find($id);  
+    }
+
+    public function getStar($id){
+        return Star::find($id);  
+    }
+
 }

@@ -384,7 +384,6 @@
             loadPartChart(){
                 axios.get('/api/hour/part/'+this.id+'/'+this.structure+'/'+this.chart_numb+'/'+this.palace+'/?api_token='+window.token)
                 .then(res => {
-                    // console.log(res.data);
                     this.earth_stem = res.data.chart.earth_stem;
                     this.star = res.data.chart.star;
                     this.deitie = res.data.chart.deitie;
@@ -468,7 +467,7 @@
         margin-top:-20%;
     }
     .w-outer{
-        right:-40px;
+        right:-50px;
         width: 20%;
         height: 60%;
         top: 50%;
