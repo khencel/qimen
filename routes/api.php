@@ -116,8 +116,11 @@ Route::middleware('auth:api')->group(function(){
         Route::get('resources/{category}/{id}/{type}/{structure}','HourChartController@fetchResources');
         Route::post('store','API\HourController@store');
         Route::put('show/{id}','API\HourController@show');
+        Route::get('getHourchart/{id}/{structure}/{period}','API\HourController@getChart');
         Route::get('part/{id}/{structure}/{number}/{palace}','API\HourController@showPart');
         Route::get('chart/{day}/{branch}/{period}/{time}/{structure}','HourChartController@all');
+        Route::get('formation','API\HourChart\FormationController@formation');
+        Route::post('addFormation','API\HourChart\FormationController@addFormation');
     });
 
     Route::prefix('search')->group(function(){
@@ -140,14 +143,14 @@ Route::middleware('auth:api')->group(function(){
 
         // Route::get('getDetails/{attri}/{keyword}','API\Diary\HourChartController@getAttribute');
         Route::get('getDetails/{id}/{attr}','API\Diary\HourChartController@getDetails');
-        
     });
 });
 
 
 
 Route::prefix('dunJia')->group(function(){
-    Route::get('/{structure}/{category}/{value}/{id}/{type}','API\DunJiaController@getDunJia');
+    // Route::get('/{structure}/{category}/{value}/{id}/{type}','API\DunJiaController@getDunJia');
+    Route::get('getHourDunJia/{month}/{day}/{year}/{category}/{value}','API\Dunjia\Hour\HourController@getDunjia');
     Route::get('dates/{date}','API\DunJiaController@getDates');
     Route::get('getDate/{id}','API\DunJiaController@getDateIntervel');
     Route::get('dateList/{id}','API\DunJiaController@getDateList');

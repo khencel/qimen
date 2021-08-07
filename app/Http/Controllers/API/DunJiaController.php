@@ -34,6 +34,7 @@ class DunJiaController extends Controller
 
         if($type == "hour"){
             $ids = $this->getDateIntervel($id,$value,$type);
+            
         }
         if($type == "day"){
             $ids = $this->getDayIntervel($id); 
@@ -74,7 +75,7 @@ class DunJiaController extends Controller
     public function getDates($date){
         $date = explode(',',$date);
         $month = $date[0];
-        // $month = 3;
+        // $month = 5;
         $day = $date[1];
         // $day = 1;
         $year = $date[2];
@@ -86,53 +87,6 @@ class DunJiaController extends Controller
         return YearChart::where('id','>=',$yearChart->id)->limit(7)->get();
     }
 
-    public function getDateIntervel($id,$value,$type){
-        $yearCharts = YearChart::with('dayChart')->where('id','>=',$id)->limit(7)->get();
-        $period = ["one","two","three","four","five","six","seven","eight","nine"];
-        $stems = array();
-        $numb = array();
-        $structure = array();
-        $hours = array();
-
-        foreach ($yearCharts as $yearChart) {
-            $stems[] = $yearChart->dayChart->stem_id;
-            $calendars = Calendar::where('month',$yearChart->month)
-                                ->where('day',$yearChart->day)
-                                ->where('year',$yearChart->year)
-                                ->first();
-            $numb[] = $calendars->period;
-            $structure[] = $calendars->structure;
-        } 
-        
-        
-        foreach ($stems as $key => $stem) {
-            $hourcharts = HourChart::where('is_yang',$structure[$key])
-                                ->where('structure',$period[$numb[$key]-1])
-                                ->where(function($que) use ($stem){
-                                    $que->where('day_1_stem',$stem)
-                                        ->orWhere('day_2_stem',$stem);
-                                })->get('id');
-                                if($type == "hour"){
-                                    if($value == "maiden" || $value == "real" || $value == "fall" || $value == "yi" || $value == "zou"){
-                                        $hours[] = $hourcharts;
-                                    }
-                                
-                                    if($value != "maiden" && $value != "real" && $value != "fall" && $value != "yi" && $value != "zou"){
-                                        foreach ($hourcharts as $key => $hour) {
-                                            $hours[] = $hour->id;
-                                        }
-                                    }
-                                }
-                                if($type == "day"){
-                                    foreach ($hourcharts as $key => $hour) {
-                                        $hours[] = $hour->id;
-                                    }
-                                }
-            
-        }
-
-        return $hours;
-    }
 
     public function getDateList($id){
         $yearCharts = YearChart::with('dayChart')->where('id','>=',$id)->limit(7)->get();

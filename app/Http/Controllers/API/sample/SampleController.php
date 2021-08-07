@@ -26,43 +26,67 @@ class SampleController extends Controller
         
     }
 
+    //star
+
+    // assistant       1
+    // Bird            2
+    // Ambassador      3
+    // Grass           4
+    // Grain           5
+    // Destructor      6
+    // Heart           7
+    // Pillar          8
+    // Hero            9
+
+    //deity
+
+    // Chief       1
+    // Heaven      2
+    // Earth       3
+    // Moon        4
+    // Harmony     5
+    // Phoenix     6
+    // Tortoise    7
+    // Tiger       8
+    // Hook        9
+    // Snake       10
 
     public function setFormat($num){
         // yi
         if($num == 1){
-            $format = array(2,8,7);
+            $format = array(2,5,4);
         }
         //bing
         if($num == 2){
-            $format = array(3,3,4);
+            $format = array(3,7,4);
         }
         // ding
         if($num == 3){
-            $format = array(4,9,2);
+            $format = array(4,8,5);
         }
         //wu
         if($num == 4){
-            $format = array(5,7,8);
+            $format = array(5,1,3);
         }
         // Ji
         if($num == 5){
-            $format = array(6,5,10);
+            $format = array(6,6,2);
         }
         // geng
         if($num == 6){
-            $format = array(7,1,1);
+            $format = array(7,6,3);
         }
         // xin
         if($num == 7){
-            $format = array(8,6,10);
+            $format = array(8,4,10);
         }
         // ren
         if($num == 8){
-            $format = array(9,5,3);
+            $format = array(9,9,7);
         }
         //gui
         if($num == 9){
-            $format = array(10,4,5);
+            $format = array(10,3,1);
         }
         
         return $format;

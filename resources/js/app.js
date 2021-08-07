@@ -23,6 +23,10 @@ const options = {
     ]
 }
 
+//yijing
+window.yijing = "https://yijing.jennelcheng.com/";
+window.yijingToken = "3ShmbY9MB2FjyJ94zUzTeUTTbgJAn9JTurTjyVV7SHS1o8lpa5J3LnCeFMcW";
+
 
 window.Vue = require('vue');
 window.Form = Form;

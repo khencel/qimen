@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\HourChart;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\HourChart;
+use App\Formation;
 
 class YangController extends Controller
 {
@@ -49,10 +50,14 @@ class YangController extends Controller
                     ->first();
 
         $center = Hourchart::with('center')->find($id);
-        
+
+        $formation = Formation::whereIn('id',explode(',',$chart->formation_aus))->get();
+
         return response()->json([
             'chart' => $chart,
-            'center' => $center
+            'center' => $center,
+            'formation' => $formation
         ]);
     }
+
 }

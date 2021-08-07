@@ -97,16 +97,6 @@
                             </select>
                         </div>
                     </div>
-
-                    <div class="row mt-2">
-                        <div class="col-4">
-                            <label for="">Formation</label>
-                        </div>
-                        <div class="col-8">
-                            <textarea cols="30" rows="3" class="form-control" v-model="form.formation"></textarea>
-                        </div>
-                    </div>
-
                     <div class="row mt-2">
                         <div class="col-4">
                             <label for="">Explanation</label>
@@ -169,106 +159,44 @@
                         </div>
                     </div>
                     <div>
-                        <div>
-                            <strong>
-                                <small class="text-danger">Left Formation</small>
-                            </strong>
-                        </div>
+                        <strong>Formation</strong>
                         <div class="row mt-2">
                             <div class="col-4">
-                                <label for="">Formation 1</label>
+                                <label for="">Others:</label>
                             </div>
                             <div class="col-8">
-                                <select class="form-control" @change="preview" v-model="form.position_1">
-                                    <option value="" disabled hidden>Select position</option>
-                                    <option value="">None</option>
-                                    <option v-for="(item, index) in positions1" :key="index" :value="item">{{item.first_word}} {{item.second_word}}</option>
-                                </select>
+                                <input type="text" class="form-control" v-model="test.formation">
+                                <span class="ml-auto text-primary" style="cursor:pointer" @click="addFormation">Add Formation</span> 
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col-4">
-                                <label for="">Formation 2</label>
+                                <label for="">Formation List:</label>
                             </div>
                             <div class="col-8">
-                                <select class="form-control" @change="preview" v-model="form.position_2">
-                                    <option value="" disabled hidden>Select position</option>
-                                    <option value="">None</option>
-                                    <option v-for="(item, index) in positions1" :key="index" :value="item">{{item.first_word}} {{item.second_word}}</option>
+                                <select v-model="form.formationAus" @change="formationList" class="form-control">
+                                    <option disabled hidden value="">Select formation</option>
+                                    <option v-for="(item, index) in listFormation" :key="index"  :value="item">{{item.formation}}</option>
                                 </select>
                             </div>
                         </div>
-                        <div>
-                            <strong>
-                                <small class="text-danger">Middle Formation</small>
-                            </strong>
+                    </div>
+                    <div>
+                        <div v-for="(item, index) in this.form.formationList" :key="index" >
+                            <div class="row mt-1">
+                                <div class="col-md-10">
+                                    {{item.formation}}
+                                </div>
+                                <div class="col-md-2">
+                                    <button @click="deleteFormation(item)" class="btn btn-danger">x</button>
+                                </div>
+                            </div>
+                             
                         </div>
-                        <div class="row mt-2">
-                            <div class="col-4">
-                                <label for="">Formation 3</label>
-                            </div>
-                            <div class="col-8">
-                                <select class="form-control" @change="preview" v-model="form.position_3">
-                                    <option value="" disabled hidden>Select position</option>
-                                    <option value="">None</option>
-                                    <option v-for="(item, index) in positions" :key="index" :value="item">{{item.first_word}} {{item.second_word}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-4">
-                                <label for="">Formation 4</label>
-                            </div>
-                            <div class="col-8">
-                                <select class="form-control" @change="preview" v-model="form.position_4">
-                                    <option value="" disabled hidden>Select position</option>
-                                    <option value="">None</option>
-                                    <option v-for="(item, index) in positions" :key="index" :value="item">{{item.first_word}} {{item.second_word}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-4">
-                                <label for="">Formation 5</label>
-                            </div>
-                            <div class="col-8">
-                                <select class="form-control" @change="preview" v-model="form.position_5">
-                                    <option value="" disabled hidden>Select position</option>
-                                    <option value="">None</option>
-                                    <option v-for="(item, index) in positions" :key="index" :value="item">{{item.first_word}} {{item.second_word}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div>
-                            <strong>
-                                <small class="text-danger">Right Formation</small>
-                            </strong>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-4">
-                                <label for="">Formation 6</label>
-                            </div>
-                            <div class="col-8">
-                                <select class="form-control" @change="preview" v-model="form.position_6">
-                                    <option value="" disabled hidden>Select position</option>
-                                    <option value="">None</option>
-                                    <option v-for="(item, index) in positions2" :key="index" :value="item">{{item.first_word}} {{item.second_word}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-4">
-                                <label for="">Formation 7</label>
-                            </div>
-                            <div class="col-8">
-                                <select class="form-control" @change="preview" v-model="form.position_7">
-                                    <option value="" disabled hidden>Select position</option>
-                                    <option value="">None</option>
-                                    <option v-for="(item, index) in positions2" :key="index" :value="item">{{item.first_word}} {{item.second_word}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button class="form-control mt-2 btn btn-primary mb-2" @click="submit">Save</button>
+                    </div>
+
+                    <div class="mt-2">
+                        <button class="btn btn-primary w-100" @click="submit">Update</button>
                     </div>
                 </div>
             </div>
@@ -289,6 +217,7 @@
                 outsideFormation:[
                     "HS",'DE',"HS DE"
                 ],
+                listFormation:{},
                 doors:{},
                 stars:{},
                 heaven_stems:{},
@@ -299,6 +228,7 @@
                 positions2:{},
                 relationships:{},
                 check_3:false,
+                
                 form:new Form({
                     outside_top:'',
                     outside_left_right:'',
@@ -316,7 +246,10 @@
                     position_6:'',
                     position_7:'',
                     relationship_id:'',
-                    formation:'',
+                    formationAus:'',
+                    formationIn:'',
+                    formationList:[],
+                    formationListIn:[],
                     explanation:'',
                     type:this.type,
                     category:this.category,
@@ -324,6 +257,9 @@
                     heaven:false,
                     earth:false,
                     other:false,
+                }),
+                test:new Form({
+                    formation:'',
                 })
             }
         },
@@ -358,20 +294,15 @@
                     this.form.star_id = res.data.chart == null?'':res.data.chart.star;
                     this.form.heaven_stem_id = res.data.chart == null?'':res.data.chart.heaven_stem;
                     this.form.deitie_id = res.data.chart == null?'':res.data.chart.deitie;
-                    this.form.formation = res.data.chart == null?'':res.data.chart.formation;
                     this.form.explanation = res.data.chart == null?'':res.data.chart.explanation;
                     this.form.outside_top = res.data.chart == null?'':res.data.chart.top_bottom;
                     this.form.outside_left_right = res.data.chart == null?'':res.data.chart.left_right;
                     this.form.heaven = res.data.chart == null?'':res.data.chart.heaven == null?'':res.data.chart.heaven == 0?false:true;
                     this.form.earth = res.data.chart == null?'':res.data.chart.earth == null?'':res.data.chart.earth == 0?false:true;
                     this.form.other = res.data.chart == null?'':res.data.chart.other == null?'':res.data.chart.other == 0?false:true;
-                    this.form.position_1 = res.data.chart == null?'':res.data.chart.formation1 == null?'':res.data.chart.formation1;
-                    this.form.position_2 = res.data.chart == null?'':res.data.chart.formation2 == null?'':res.data.chart.formation2;
-                    this.form.position_3 = res.data.chart == null?'':res.data.chart.formation3 == null?'':res.data.chart.formation3;
-                    this.form.position_4 = res.data.chart == null?'':res.data.chart.formation4 == null?'':res.data.chart.formation4;
-                    this.form.position_5 = res.data.chart == null?'':res.data.chart.formation5 == null?'':res.data.chart.formation5;
-                    this.form.position_6 = res.data.chart == null?'':res.data.chart.formation6 == null?'':res.data.chart.formation6;
-                    this.form.position_7 = res.data.chart == null?'':res.data.chart.formation7 == null?'':res.data.chart.formation7;
+                    this.form.formationList = res.data.formation_left;
+                    this.form.formationListIn = res.data.formation_right;
+                    console.log(res.data);
                     this.preview();
                 })
             },
@@ -408,16 +339,11 @@
                 this.$refs.partChart.earth_stem = this.form.earth_stem_id;
                 this.$refs.partChart.deitie = this.form.deitie_id;
                 this.$refs.partChart.number = this.form.number;
-                this.$refs.partChart.formation_1 = this.form.position_1;
-                this.$refs.partChart.formation_2 = this.form.position_2;
-                this.$refs.partChart.formation_3 = this.form.position_3;
-                this.$refs.partChart.formation_4 = this.form.position_4;
-                this.$refs.partChart.formation_5 = this.form.position_5;
-                this.$refs.partChart.formation_6 = this.form.position_6;
-                this.$refs.partChart.formation_7 = this.form.position_7;  
                 this.$refs.partChart.center_top = this.form.heaven;  
                 this.$refs.partChart.center_bottom = this.form.earth;  
                 this.$refs.partChart.qin_bird = this.form.other;  
+                this.$refs.partChart.auspicious = this.form.formationList;
+                this.$refs.partChart.inauspicious = this.form.formationListIn;
                 this.populatePreview();
                 this.populatePreviewLeftRight();                             
             },
@@ -442,12 +368,60 @@
                     this.form.deitie_id = res.data.deity;
                     this.preview();
                 });
+            },
+            formation(){
+                axios.get('/api/hour/formation?api_token='+window.token)
+                .then(res => {
+                    this.listFormation = res.data;
+                })
+            },
+            formationList(){
+                this.form.formationList.push(this.form.formationAus);
+                this.$refs.partChart.auspicious = this.form.formationList;
+                
+            },
+
+            formationListIn(){
+                this.form.formationListIn.push(this.form.formationIn);    
+                this.$refs.partChart.inauspicious = this.form.formationListIn;
+            },
+
+            deleteFormation(index){
+                this.form.formationList.splice(this.form.formationList.indexOf(index),1);
+            },
+
+            deleteFormationIn(index){
+                this.form.formationListIn.splice(this.form.formationListIn.indexOf(index),1);
+            },
+
+            addFormation(){
+               
+                this.test.post('/api/hour/addFormation?api_token='+window.token)
+                .then(res => {
+                    this.$notify({
+                        group: 'notification',
+                        type:'success',
+                        title: 'Formation Added',
+                        text: 'Formation has been added'
+                    });
+                    this.test.formation = "";
+                    this.formation();
+                })
+                .catch(erro => {
+                    this.$notify({
+                        group: 'notification',
+                        type:'error',
+                        title: 'Invalid formation',
+                        text: 'Formation fields is required or formation already exist'
+                    });
+                });
             }
         },
         mounted() {
             this.$refs.partChart.type = this.type;
             this.fetchResources();
             this.show();
+            this.formation();
         }
     }
 </script>

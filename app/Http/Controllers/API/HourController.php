@@ -11,12 +11,23 @@ use App\HourChartW;
 use App\HourChartSW;
 use App\HourChartSouth;
 use App\HourChartSE;
+use App\HourChart;
 use App\Door;
+use App\Formation;
 
 
 class HourController extends Controller
 {
     public function store(Request $request){
+        // $test = array(1,2,3,4,5,6);
+       
+        $auspicious_id = array();
+       
+        
+        foreach ($request->formationList as $key => $value) {
+            $auspicious_id[] = $value['id'];
+        }
+
         $hourChartValidationController = new HourChartValidationController();
         if($request->type == "se"){
             $modelName = 'App\HourChartSe';
@@ -75,20 +86,13 @@ class HourController extends Controller
             'earth_stem_id' => $request->earth_stem_id != null?$request->earth_stem_id['id']:null,
             'number_id' => $request->number,
             'deitie_id' => $request->deitie_id != null?$request->deitie_id['id']:null,
-            'formation' => $request->formation,
             'explanation' => $request->explanation,
             $formation1 => $request->outside_top,
             $formation2 => $request->outside_left_right,
             'heaven' => $request->heaven,
             'earth' => $request->earth,
             'other' => $request->other,
-            'formation_1' => $request->position_1 == null?null:$request->position_1['id'],
-            'formation_2' => $request->position_2 == null?null:$request->position_2['id'],
-            'formation_3' => $request->position_3 == null?null:$request->position_3['id'],
-            'formation_4' => $request->position_4 == null?null:$request->position_4['id'],
-            'formation_5' => $request->position_5 == null?null:$request->position_5['id'],
-            'formation_6' => $request->position_6 == null?null:$request->position_6['id'],
-            'formation_7' => $request->position_7 == null?null:$request->position_7['id'],
+            'formation_aus' => implode(',',$auspicious_id),
         ]);
     }
 
@@ -147,27 +151,39 @@ class HourController extends Controller
         $door = Door::find($doorID);
 
         $model = app($modelName);
-        $chart = $model->with('door','relationship','star','heaven_stem','earth_stem','number','deitie','formation1','formation2','formation3','formation4','formation5','formation6','formation7')
+        $chart = $model->with('door','relationship','star','heaven_stem','earth_stem','number','deitie')
                     ->where('chart_id',$id)
                     ->where('category',$request->category)
                     ->first();
+
+        $formation = $chart != null?$chart->formation_aus:'';
+
+        $formation_aus =  explode(',',$formation);
+        
+        $formation_left = Formation::whereIn('id',$formation_aus)->get();
+        
+       
         return response()->json([
             'door' => $door,
-            'chart' => $chart
+            'chart' => $chart,
+            'formation_left' => $formation_left
         ]);
       
     }
 
     public function showPart($id,$structure,$number,$palace){
         $yangController = new YangController();
-        // if($structure == "yang"){
-            return $yangController->yangPart($palace,$number,$id);
-        // }
-
-        // if($structure == "yin"){
-            
-        // }
+        return $yangController->yangPart($palace,$number,$id);
     }
 
-    
+    public function getChart($id,$structure,$period){
+        
+        return HourChart::where('day_1_stem', $id)
+                            ->where('is_yang' , $structure)
+                            ->where('structure', $period)
+                            ->orWhere('day_2_stem', $id)
+                            ->where('is_yang' , $structure)
+                            ->where('structure', $period)
+                            ->get()->pluck('id');
+    }    
 }

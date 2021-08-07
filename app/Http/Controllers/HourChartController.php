@@ -11,6 +11,7 @@ use App\Number;
 use App\Deitie;
 use App\Position;
 use App\Relationship;
+use App\HourChartNW;
 use App\Http\Controllers\API\AutoFetch\HourChartValidationController;
 
 class HourChartController extends Controller
@@ -27,6 +28,7 @@ class HourChartController extends Controller
                             ->where('structure',$structure)
                             ->where('is_yang',$basename)
                             ->get();
+        
         return view('chart.hour_chart.yang_one.index',compact('basename','structure','charts'));
     }
 

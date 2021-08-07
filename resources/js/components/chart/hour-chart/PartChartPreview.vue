@@ -69,108 +69,12 @@
                     </div>
                 </div>
             </div>
-            <div class="middle-div w-100 text-center">
-                <div style="width:26%;margin-left:4%;" class=" float-left">
-                    <div class="row m-0 justify-content-center" style="height:200px;">
-                        <div v-show="formation_1.first_word != null" class="col-6 position-relative">
-                            <div class="position-absolute pt-4" style="height:100px;top:50%;margin-top:-50px">
-                                <p style="line-height:15px;">
-                                    <i class="fas fa-align-justify"></i>
-                                    <br>
-                                    <small>
-                                    {{formation_1.first_word}}
-                                    <br>
-                                    {{formation_1.second_word}}
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
-                        <div v-show="formation_2.first_word != null" class="col-6 position-relative">
-                            <div class="position-absolute pt-4" style="height:100px;top:50%;margin-top:-50px">
-                                <p style="line-height:15px;">
-                                    <i class="fas fa-align-justify"></i>
-                                    <br>
-                                    <small>
-                                    {{formation_2.first_word}}
-                                    <br>
-                                    {{formation_2.second_word}}
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="width:40%;" class=" float-left">
-                    <div :class="formation_3.first_word != null && formation_4.first_word != null?'row m-0 justify-content-center':'row m-0'" style="height:200px;">
-                        <div class="col-4 position-relative" v-show="formation_3.first_word != null">
-                            <div class="position-absolute pt-4" style="height:100px;top:50%;margin-top:-50px">
-                                <p :class="check_3 == false?'text-danger':''" style="line-height:15px;">
-                                    <i class="fas fa-align-justify"></i>
-                                    <br>
-                                    <small>
-                                    {{formation_3.first_word}}
-                                    <br>
-                                    {{formation_3.second_word}}
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-4 position-relative" v-show="formation_4.first_word != null">
-                            <div class="position-absolute pt-4" style="height:100px;top:50%;margin-top:-50px">
-                                <p :class="check_4 == false?'text-danger':''" style="line-height:15px;">
-                                    <i class="fas fa-align-justify"></i>
-                                    <br>
-                                    <small>
-                                    {{formation_4.first_word}}
-                                    <br>
-                                    {{formation_4.second_word}}
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-4 position-relative" v-show="formation_5.first_word != null">
-                            <div class="position-absolute pt-4" style="height:100px;top:50%;margin-top:-50px">
-                                <p :class="check_5 == false?'text-danger':''" style="line-height:15px;">
-                                    <i class="fas fa-align-justify"></i>
-                                    <br>
-                                    <small>
-                                    {{formation_5.first_word}}
-                                    <br>
-                                    {{formation_5.second_word}}
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="width:26%;margin-right:4%;" class=" float-right">
-                    <div class="row m-0" style="height:200px;">
-                        <div class="col-6 position-relative">
-                            <div class="position-absolute pt-4" style="height:100px;top:50%;margin-top:-50px">
-                                <p v-show="formation_6.first_word != null" style="line-height:15px;">
-                                    <i class="fas fa-align-justify"></i>
-                                    <br>
-                                    <small>
-                                    {{formation_6.first_word}}
-                                    <br>
-                                    {{formation_6.second_word}}
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-6 position-relative">
-                            <div class="position-absolute pt-4" style="height:100px;top:50%;margin-top:-50px">
-                                <p v-show="formation_7.first_word != null" style="line-height:15px;">
-                                    <i class="fas fa-align-justify"></i>
-                                    <br>
-                                    <small>
-                                    {{formation_7.first_word}}
-                                    <br>
-                                    {{formation_7.second_word}}
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
+            <div class="middle-div w-100 pt-5">
+                <div class="row justify-content-center">
+                    <div v-for="(item, index) in auspicious" :key="index" class="col-md-4 text-center">
+                        <p>
+                            {{item.formation}}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -238,7 +142,9 @@
                 center:'',
                 center_top:false,
                 center_bottom:false,
-                qin_bird:false
+                qin_bird:false,
+                auspicious:[],
+                inauspicious:[]
             }
         },
         methods: {

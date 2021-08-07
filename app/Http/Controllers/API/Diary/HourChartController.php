@@ -46,5 +46,12 @@ class HourChartController extends Controller
             return $this->hourChart->getStar($id);
         }
         
+        if($attr == 'door'){
+            return $this->hourChart->getDoor($id);
+        }
+
+        if($attr == 'deity'){
+            return $this->hourChart->getDeity($id);
+        }
     }
 }

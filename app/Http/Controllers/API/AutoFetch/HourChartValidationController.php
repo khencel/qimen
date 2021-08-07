@@ -57,28 +57,28 @@ class HourChartValidationController extends Controller
     public function validateCategoryYin($category,$type){
         $yinController = new YinController();
         if($category == "one"){
-            return $yangController->one($type);
+            return $yinController->one($type);
         }
         if($category == "two"){
-            return $yangController->two($type);
+            return $yinController->two($type);
         }
         if($category == "three"){
             return $yinController->three($type);
         }
         if($category == "four"){
-            return $yangController->four($type);
+            return $yinController->four($type);
         }
         if($category == "five"){
-            return $yangController->five($type);
+            return $yinController->five($type);
         }
         if($category == "six"){
             return $yinController->six($type);
         }
         if($category == "seven"){
-            return $yangController->seven($type);
+            return $yinController->seven($type);
         }
         if($category == "eight"){
-            return $yangController->eight($type);
+            return $yinController->eight($type);
         }
         if($category == "nine"){
             return $yinController->nine($type);

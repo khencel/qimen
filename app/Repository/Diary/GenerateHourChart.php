@@ -6,6 +6,8 @@ use App\HourChart;
 use App\Modelist;
 use App\Stem;
 use App\Star;
+use App\Door;
+use App\Deitie;
 
 class GenerateHourChart
 {
@@ -16,7 +18,7 @@ class GenerateHourChart
 
         return response()->json([
             'chart' => $this->validateHourChart($calendar,$hour),
-            'folder' => '/img/'.($calendar->stem == "Jia"?$jia->stem.'/'.$jia->branch.'/':$calendar->stem.'/')
+            'folder' => '/diary/'.($calendar->stem == "Jia"?$jia->stem.'/'.$jia->branch.'/':$calendar->stem.'/'),
         ]);
     }
 
@@ -83,10 +85,29 @@ class GenerateHourChart
 
     public function getAsker($date,$id){
         $models = Modelist::where('type','hour')->get();
+        $hourChart = HourChart::with('center')->find($id);
+
         $parts = array();
         $calendar = $this->getCalendar($date);
+    
+        
 
         $stem = ($calendar->stem == "Jia"?$this->getSixBat($calendar->branch):$calendar->stem);
+
+        if($hourChart->center->value == $stem){
+            foreach ($models as $key => $model) {
+                $chart_parts = $model->model::with('heaven_stem','earth_stem','star','deitie','door','formation1','formation2','formation3','formation4','formation5','formation6','formation7','relationship')
+                                            ->where('chart_id',$id)
+                                            ->whereHas('heaven_stem',function($q) use ($stem){
+                                                $q->where('heaven',true);
+                                            })
+                                            ->first();
+                if($chart_parts != null){
+                    $parts[] = $chart_parts;    
+                }
+            }
+            return $parts;  
+        }
 
         foreach ($models as $key => $model) {
             $chart_parts = $model->model::with('heaven_stem','earth_stem','star','deitie','door','formation1','formation2','formation3','formation4','formation5','formation6','formation7','relationship')
@@ -96,7 +117,7 @@ class GenerateHourChart
                                         })
                                         ->first();
             if($chart_parts != null){
-                $parts[] = $chart_parts;
+                $parts[] = $chart_parts;    
             }
         }
         return $parts;  
@@ -241,7 +262,78 @@ class GenerateHourChart
     }
 
     public function getStar($id){
-        return Star::find($id);  
+        return Star::with(
+            'branch',
+            'attribute',
+            'characteristic',
+            'represents',
+            'weather',
+            'appearance',
+            'geography',
+            'people',
+            'material',
+            'property',
+            'career',
+            'part',
+            'temperament',
+            'nourishment',
+            'illness',
+            'marriage'
+            )->find($id);   
+    }
+
+    public function getDoor($id){
+        return Door::with(
+            'description',
+            'attribute',
+            'branch',
+            'envoy',
+            'achievement',
+            'weather',
+            'personality',
+            'geography',
+            'people',
+            'material',
+            'property',
+            'career',
+            'part',
+            'temperament',
+            'nourishment',
+            'birth',
+            'marriage',
+            'illness',
+            'litigation',
+            )->find($id);   
+    }
+
+    public function getDeity($id){
+        return Deitie::with(
+            'represents',
+            'suitable',
+            'characteristic',
+            'colour',
+            'number',
+            'shape',
+            'weather',
+            'personality',
+            'environment',
+            'people',
+            'material',
+            'property',
+            'career',
+            'parts',
+            'temperament',
+            'nourishment',
+            'birth',
+            'unsuitable',
+            'marriage',
+            'illness',
+            'litigation',
+            'features',
+            'animal',
+            'communication',
+            'plants',
+            )->find($id);   
     }
 
 }
