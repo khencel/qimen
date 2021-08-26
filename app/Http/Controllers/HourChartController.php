@@ -317,6 +317,10 @@ class HourChartController extends Controller
         
         $structure = $this->numbConvert($period);
         $time = $time;
+        if($time == 0){
+            $time = 24;
+        }
+        
         $stem = Stem::where('value',$day)->first();
         $stem_id = $stem->id;
         

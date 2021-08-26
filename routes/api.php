@@ -151,6 +151,7 @@ Route::middleware('auth:api')->group(function(){
 Route::prefix('dunJia')->group(function(){
     // Route::get('/{structure}/{category}/{value}/{id}/{type}','API\DunJiaController@getDunJia');
     Route::get('getHourDunJia/{month}/{day}/{year}/{category}/{value}','API\Dunjia\Hour\HourController@getDunjia');
+    Route::get('formation','API\Dunjia\Hour\HourController@formation');
     Route::get('dates/{date}','API\DunJiaController@getDates');
     Route::get('getDate/{id}','API\DunJiaController@getDateIntervel');
     Route::get('dateList/{id}','API\DunJiaController@getDateList');

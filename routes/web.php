@@ -110,7 +110,9 @@ Route::group(['middleware' => ['auth']],function(){
 
     Route::prefix('user')->group(function(){
         Route::get('list',function(){
-            return view('users.index');
+            return view('users.index',[
+                't' => request('t')
+            ]);
         });
     });
     // user 

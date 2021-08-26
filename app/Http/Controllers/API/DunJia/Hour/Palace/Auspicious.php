@@ -89,6 +89,21 @@ class Auspicious extends Controller
             $type = $category.$value;
             return $this->$type($part,$stems);
         }
+
+        if($category == "quan"){
+            $type = $category.$value;
+            return $this->$type($part,$stems);
+        }
+
+        if($category == "xiang"){
+            $type = $category.$value;
+            return $this->$type($part,$stems);
+        }
+
+        if($category == "jade"){
+            $type = $category.$value;
+            return $this->$type($part,$stems);
+        }
     }
 
     public function nineDunHeaven($part){
@@ -535,6 +550,66 @@ class Auspicious extends Controller
                         ) &&
                         $items->heaven_stem_id == 3
                          
+                    ){
+                        $result = $items;
+                    } 
+                    return $result;
+                })->filter();
+    }
+
+    public function quanyi($part,$stems){
+        return collect($part)
+                ->map(function($items) use ($stems){
+                    $result = array();
+                    if(
+                        ($items->earth_stem_id == $stems[0] || 
+                        $items->earth_stem_id == $stems[1]
+                        ) &&
+                        (
+                        $items->heaven_stem_id == 2 ||
+                        $items->heaven_stem_id == 3 ||
+                        $items->heaven_stem_id == 4 
+                        )
+                         
+                    ){
+                        $result = $items;
+                    } 
+                    return $result;
+                })->filter();
+    }
+
+    public function xiangzou($part,$stems){
+        return collect($part)
+                ->map(function($items) use ($stems){
+                    $result = array();
+                    if(
+                        ($items->heaven_stem_id == $stems[0] || 
+                        $items->heaven_stem_id == $stems[1]
+                        ) &&
+                        (
+                        $items->earth_stem_id == 2 ||
+                        $items->earth_stem_id == 3 ||
+                        $items->earth_stem_id == 4 
+                        )
+                    ){
+                        $result = $items;
+                    } 
+                    return $result;
+                })->filter();
+    }
+
+    public function jademaiden($part,$stems){
+        return collect($part)
+                ->map(function($items) use ($stems){
+                    $result = array();
+                    if(
+                        ($items->heaven_stem_id == 4 || 
+                        $items->earth_stem_id == 4
+                        ) &&
+                        (
+                        $items->door_id == $stems[0] ||
+                        $items->door_id == $stems[1]
+                        )
                     ){
                         $result = $items;
                     } 

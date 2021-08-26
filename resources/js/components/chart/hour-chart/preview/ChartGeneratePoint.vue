@@ -21,34 +21,34 @@
                     
                     <!-- SE,S,SW -->
                     <div class="position-absolute" style="top:0;margin-top:7px;margin-left:7px">
-                        <img class="mb-2" src="/img/xun.png" width="80" height="35" alt="">
+                        <img class="mb-2" src="/img/xun.png" width="80" height="35" alt=""><span style="color:white;font-weight:bold;position:relative;top:-12px">4</span>
                     </div>
                     <div class="position-absolute" style="left:50%;top:0;margin-left:-25px;margin-top:7px;">
-                        <img class="mb-2" src="/img/li.png" width="60" height="35" alt="">
+                        <span style="color:white;font-weight:bold;position:relative;top:-12px">9</span><img class="mb-2" src="/img/li.png" width="60" height="35" alt="">
                     </div>
                     <div class="position-absolute" style="right:0;top:0;margin-top:7px;margin-right:7px">
-                        <img class="mb-2" src="/img/kun.png" width="80" height="35" alt="">
+                        <span style="color:white;font-weight:bold;position:relative;top:-12px">2</span><img class="mb-2" src="/img/kun.png" width="80" height="35" alt="">
                     </div>
                     <!-- --- -->
 
                     <!-- E,W -->
                         <div class="position-absolute" style="top:0;top:50%;margin-top:-25px">
-                            <img class="mb-2" src="/img/zhen.png" width="50" height="80" alt="">
+                            <span style="color:white;font-weight:bold;position:absolute;left:3px;">3</span><img class="mb-2" src="/img/zhen.png" width="50" height="80" alt="">
                         </div>
                         <div class="position-absolute" style="top:0;top:50%;margin-top:-25px;right:0">
-                            <img class="mb-2" src="/img/dui.png" width="50" height="80" alt="">
+                            <img class="mb-2" src="/img/dui.png" width="50" height="80" alt=""><span style="color:white;font-weight:bold;position:absolute;right:3px;">7</span>
                         </div>
                     <!-- --- -->
 
                     <!-- NE,N,NW -->
                         <div class="position-absolute" style="bottom:0;margin-bottom:7px;margin-left:7px;">
-                            <img src="/img/gen.png" width="80" height="35" alt="">
+                            <img src="/img/gen.png" width="80" height="35" alt=""><span style="color:white;font-weight:bold;position:relative;top:-10px">8</span>
                         </div>
                         <div class="position-absolute" style="bottom:0;right:50%;margin-right:-25px;margin-bottom:7px">
-                            <img src="/img/kan.png" width="60" height="35" alt="">
+                            <span style="color:white;font-weight:bold;position:relative;top:-10px">1</span><img src="/img/kan.png" width="60" height="35" alt="">
                         </div>
                         <div class="position-absolute" style="bottom:0;right:0;margin-bottom:7px;margin-right:7px;">
-                            <img src="/img/qian.png" width="80" height="35" alt="">
+                            <span style="color:white;font-weight:bold;position:relative;top:-10px">6</span><img src="/img/qian.png" width="80" height="35" alt="">
                         </div>
                     <!-- --- -->
                     <div style="height:660px;width:87%;background-image:url('/img/logo.png');background-size: 90% 70%;background-repeat:no-repeat;background-position:center center;margin:0px auto;background-color:white">

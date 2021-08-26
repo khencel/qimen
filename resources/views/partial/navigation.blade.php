@@ -343,13 +343,32 @@
         </ul>
       </li>
 
-      <li class="nav-item">
-        <a href="{{url('user/list')}}" class="nav-link {{request()->is('user/list')?'active':''}}">
-          <i class="nav-icon fas fa-th"></i>
+      <li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-tachometer-alt"></i>
           <p>
             User Management
+            <i class="right fas fa-angle-left"></i>
           </p>
         </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{{url('user/list?t=qimen')}}" class="nav-link {{request()->is('user/list')?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Qimen
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('user/list?t=forecast')}}" class="nav-link {{request()->is('user/list')?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Forecasting
+              </p>
+            </a>
+          </li>
+        </ul>
       </li>
 
       <li class="nav-item">

@@ -8,6 +8,7 @@ use App\Calendar;
 use App\Stem;
 use App\HourChart;
 use App\Modelist;
+use App\Formation;
 
 use App\Http\Controllers\API\DunJia\Hour\Palace\SEController;
 
@@ -26,67 +27,73 @@ class HourController extends Controller
         $stems = "";
         // return $ids;
         if($category == "nine-dun" && $value == "dragon"){
-            $result[] = $this->SE->getN($ids,$category,$value);
+            $result[] = $this->SE->getN($ids,$category,$value,$stems);
+            
             return $result;
         }
 
         if($category == "nine-dun" && $value == "tiger"){
-            $result[] = $this->SE->getNE($ids,$category,$value);
+            $result[] = $this->SE->getNE($ids,$category,$value,$stems);
             return $result;
         }
 
         if($category == "nine-dun" && $value == "wind"){
-            $result[] = $this->SE->getSe($ids,$category,$value);
+            $result[] = $this->SE->getSe($ids,$category,$value,$stems);
             return $result;
         }
 
         if($category == "palace" && $value == "noble1"){
-            $result[] = $this->SE->getE($ids,$category,$value);
+            $result[] = $this->SE->getE($ids,$category,$value,$stems);
             return $result;
         }
         if($category == "palace" && $value == "noble2"){
-            $result[] = $this->SE->getS($ids,$category,$value);
+            $result[] = $this->SE->getS($ids,$category,$value,$stems);
             return $result;
         }
         if($category == "palace" && $value == "noble3"){
-            $result[] = $this->SE->getW($ids,$category,$value);
+            $result[] = $this->SE->getW($ids,$category,$value,$stems);
             return $result;
         }
 
         if($category == "envoy" && $value == "yi"){
-            $result[] = $this->SE->getS($ids,$category,$value);
-            $result[] = $this->SE->getNW($ids,$category,$value);
+            $result[] = $this->SE->getS($ids,$category,$value,$stems);
+            $result[] = $this->SE->getNW($ids,$category,$value,$stems);
             return $result;
         }
         if($category == "envoy" && $value == "bing"){
-            $result[] = $this->SE->getSW($ids,$category,$value);
-            $result[] = $this->SE->getN($ids,$category,$value);
+            $result[] = $this->SE->getSW($ids,$category,$value,$stems);
+            $result[] = $this->SE->getN($ids,$category,$value,$stems);
             return $result;
         }
         if($category == "envoy" && $value == "ding"){
-            $result[] = $this->SE->getSe($ids,$category,$value);
-            $result[] = $this->SE->getNE($ids,$category,$value);
+            $result[] = $this->SE->getSe($ids,$category,$value,$stems);
+            $result[] = $this->SE->getNE($ids,$category,$value,$stems);
             return $result;
         }
 
         if($category == "wanders" && $value == "sun"){
-            $result[] = $this->SE->getSe($ids,$category,$value);
-            $result[] = $this->SE->getN($ids,$category,$value);
+            $result[] = $this->SE->getSe($ids,$category,$value,$stems);
+            $result[] = $this->SE->getN($ids,$category,$value,$stems);
             return $result;
         }
         if($category == "wanders" && $value == "moon"){
-            $result[] = $this->SE->getSe($ids,$category,$value);
-            $result[] = $this->SE->getE($ids,$category,$value);
+            $result[] = $this->SE->getSe($ids,$category,$value,$stems);
+            $result[] = $this->SE->getE($ids,$category,$value,$stems);
             return $result;
         }
         if($category == "wanders" && $value == "star"){
-            $result[] = $this->SE->getSe($ids,$category,$value);
-            $result[] = $this->SE->getS($ids,$category,$value);
+            $result[] = $this->SE->getSe($ids,$category,$value,$stems);
+            $result[] = $this->SE->getS($ids,$category,$value,$stems);
             return $result;
         }
 
-        if($category == "dragon" || $category == "bird"){
-            $stems = $this->getLeadStem($ids);
+        if($category == "dragon" || $category == "xiang" || $category == "bird" || $category == "quan"){
+            $stems = $this->getLeadStemHeaven($ids);
+            // return $stems;
+        }
+
+        if($category == "jade"){
+            $stems = $this->envoyList($ids);
             // return $stems;
         }
         
@@ -101,7 +108,7 @@ class HourController extends Controller
         return $result;
     }
 
-    public function getLeadStem($ids){
+    public function getLeadStemHeaven($ids){
         $stems = array();
         $models = Modelist::where('type','hour')->get();
         foreach ($models as $model) {
@@ -120,6 +127,55 @@ class HourController extends Controller
         return $test;
     }
 
+    public function envoyList($ids){
+        $chart = array();
+        $starID = array();
+        $door = array();
+        $models = Modelist::where('type','hour')->get();
+        foreach ($models as $key => $value) {
+            $partChart = $value->model::whereIn('chart_id',$ids)
+                                ->where('deitie_id',1)
+                                ->get();
+            foreach ($partChart as $hourChart) {
+                $chart[] = $hourChart;
+                $door[] = $this->checkStar($hourChart->star_id);
+            }
+            
+        }   
+        $result = array_unique($door);
+        foreach ($result as $key => $value) {
+            $test[] = $value;
+        }
+
+        return $test;
+    }
+
+    public function checkStar($id){
+        if($id == 1){
+            return 5;
+        }
+        if($id == 9){
+            return 8;
+        }
+        if($id == 5){
+            return 7;
+        }
+        if($id == 6){
+            return 4;
+        }
+        if($id == 8){
+            return 6;
+        }
+        if($id == 3){
+            return 1;
+        }
+        if($id == 4){
+            return 3;
+        }
+        if($id == 7){
+            return 2;
+        }
+    }
 
     public function getCalendarValidation($month,$day,$year){
         $calendar = Calendar::where([
@@ -215,6 +271,10 @@ class HourController extends Controller
                 return "nine";
                 break;
         }
+    }
+
+    public function formation(){
+        return Formation::all();
     }
 
 }

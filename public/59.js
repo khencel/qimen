@@ -28,22 +28,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['type'],
   data: function data() {
     return {
       users: {}
     };
   },
   mounted: function mounted() {
-    this.userList();
+    this.index();
   },
   methods: {
+    index: function index() {
+      if (this.type == "qimen") {
+        this.userList();
+      }
+
+      if (this.type == "forecast") {
+        this.forecastingUser();
+      }
+    },
     userList: function userList() {
       var _this = this;
 
       axios.get('/api/user').then(function (response) {
         _this.users = response.data;
       });
+    },
+    forecastingUser: function forecastingUser() {
+      var _this2 = this;
+
+      axios.get(window.forecast + '/api/user/index?api_token=' + window.forecastToken).then(function (res) {
+        _this2.users = res.data.data;
+      });
+    },
+    changeStatus: function changeStatus(id) {
+      var _this3 = this;
+
+      if (this.type == "forecast") {
+        axios.get(window.forecast + '/api/user/update?id=' + id + '&api_token=' + window.forecastToken).then(function (res) {
+          _this3.index();
+
+          _this3.$notify({
+            group: 'notification',
+            type: res.data.code == 200 ? 'success' : error,
+            title: 'Update Status',
+            text: res.data.message
+          });
+        });
+      }
     }
   }
 });
@@ -65,25 +107,82 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "card" }, [
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.users, function(user, index) {
-            return _c("tr", { key: index }, [
-              _c("td", [_vm._v(_vm._s(user.name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(user.email))])
-            ])
-          }),
-          0
-        )
+  return _c(
+    "div",
+    [
+      _c("notifications", {
+        attrs: { group: "notification", position: "bottom right" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "card" }, [
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.users, function(user, index) {
+              return _c(
+                "tr",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: user.first_name != "api",
+                      expression: "user.first_name  != 'api'"
+                    }
+                  ],
+                  key: index
+                },
+                [
+                  _c("td", { staticClass: "text-capitalize" }, [
+                    _vm._v(_vm._s(user.first_name))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-capitalize" }, [
+                    _vm._v(_vm._s(user.last_name))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(user.email))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "span",
+                      {
+                        class:
+                          user.is_subscribed == null
+                            ? "badge badge-primary p-1"
+                            : "badge badge-danger p-1",
+                        staticStyle: { cursor: "pointer" },
+                        on: {
+                          click: function($event) {
+                            return _vm.changeStatus(user.id)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                           " +
+                            _vm._s(
+                              user.is_subscribed == null
+                                ? "Subscribe Now"
+                                : "Unsubscribe"
+                            ) +
+                            "\n                       "
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              )
+            }),
+            0
+          )
+        ])
       ])
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -91,9 +190,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("th", [_vm._v("Name")]),
+      _c("th", [_vm._v("First Name")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Email")])
+      _c("th", [_vm._v("Last Name")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Email")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Action")])
     ])
   }
 ]
