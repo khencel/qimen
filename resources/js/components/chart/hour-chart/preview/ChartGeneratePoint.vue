@@ -1,23 +1,27 @@
 <template>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" id="cons-chart">
 
             <div class="col-md-2 p-2" v-show="disableDay">
                 <div>
-                    <div class="w-100 text-center border-bottom"><strong>Day Batallions</strong></div>
+                    <div class="w-100 text-center border-bottom" ><strong>Day Batallions</strong></div>
                     <div v-for="(item, index) in sixBatallions" :key="index">
                         <span style="cursor:pointer" @click="dayGenerate(item)">{{item}}</span>
                     </div>
                 </div>
             </div>
 
-            <div class="col-6 p-0 ">
-                <div class="row p-2" style="margin-bottom:20%">
-                    <div class="w-100 text-center border-bottom"><strong>Day Option</strong></div>
-                    <div class="col-md-6 text-center" v-for="(item, index) in chart.split(',')" :key="index">
-                        <button class="btn btn-success form-control" @click="generateHourChart(item)">{{item}}</button>
+            <div class="col-6 p-0 position-relative">
+                <div class=""  style="margin-bottom:20%">
+                    <div id="dayoption" class="row p-2">
+                        <div class="w-100 text-center border-bottom"><strong>Day Option</strong></div>
+                        <div class="col-md-6 text-center "  v-for="(item, index) in chart.split(',')" :key="index">
+                            <button class="btn btn-success form-control " @click="generateHourChart(item)">{{item}}</button>
+                        </div>
                     </div>
+                        
                 </div>
-                <div class="pt-5 position-relative " :style="structure == 'yang'?'width: 100%;height:755px;background-color:darkcyan':'width: 100%;height:755px;background-color:maroon;margin-bottom:20%;'">
+                
+                <div class="pt-5 position-relative " id="capture" :style="structure == 'yang'?'width: 100%;height:755px;background-color:darkcyan;margin-bottom:20%;':'width: 100%;height:755px;background-color:maroon;margin-bottom:20%;'">
                     
                     <!-- SE,S,SW -->
                     <div class="position-absolute" style="top:0;margin-top:7px;margin-left:7px">
@@ -54,13 +58,13 @@
                     <div style="height:660px;width:87%;background-image:url('/img/logo.png');background-size: 90% 70%;background-repeat:no-repeat;background-position:center center;margin:0px auto;background-color:white">
                         <div class=" h-100" style="background-color: rgb(255,255,255,0.8)">
                             <div class="row m-0" style="height:220px;">
-                                <div :class="structure == 'yang'?'col-4 p-0 border-top border-info':'col-4 p-0 border-top border-yin border-bottom border-right yin-box'">
+                                <div :class="structure == 'yang'?'col-4 p-0 border-top border-info border-bottom border-right':'col-4 p-0 border-top border-yin border-bottom border-right yin-box'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour"  :jiabranch="jiabranch" :jiaformation="jiaformation" palace="SE" text='Zun Wood' :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id" :img="image"></chart-review-parts>
                                 </div>
-                                <div :class="structure == 'yang'?'col-4 p-0 border-top border-info':'col-4 p-0 border-top border-yin border-bottom border-right'">
+                                <div :class="structure == 'yang'?'col-4 p-0 border-top border-info border-bottom border-right yang-box':'col-4 p-0 border-top border-yin border-bottom border-right'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour"  :jiabranch="jiabranch" :jiaformation="jiaformation" palace="S" text='Li Fire' :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id" :img="image"></chart-review-parts>
                                 </div>
-                                <div :class="structure == 'yang'?'col-4 p-0 border-top border-info':'col-4 p-0 border-top border-yin border-bottom'">
+                                <div :class="structure == 'yang'?'col-4 p-0 border-top border-info border-bottom yang-box':'col-4 p-0 border-top border-yin border-bottom'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour" :jiabranch="jiabranch" :jiaformation="jiaformation" palace="SW" text='Earth Kun' :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id" :img="image"></chart-review-parts>
                                 </div>
                             </div>
@@ -68,7 +72,7 @@
                                 <div :class="structure == 'yang'?'col-4 p-0 border-right border-info':'col-4 p-0 border-right border-yin yin-box'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour"  :jiabranch="jiabranch" :jiaformation="jiaformation" palace="E" text="Zhen" :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id" :img="image"></chart-review-parts>
                                 </div>
-                                <div class="col-4 p-0 position-relative border-right border-yin" style="color:black">
+                                <div :class="structure == 'yang'?'col-4 p-0 position-relative border-right border-info':'col-4 p-0 position-relative border-right border-yin'" style="color:black">
                                     <div class=" pt-1 pl-3">
                                         <img :src="'/img/'+image" width="20" alt="">
                                         <br>
@@ -84,7 +88,7 @@
                                     </div>
                                     
                                 </div>
-                                <div :class="structure == 'yang'?'col-4 p-0 border-info':'col-4 p-0 border-yin'">
+                                <div :class="structure == 'yang'?'col-4 p-0 border-info yang-box':'col-4 p-0 border-yin'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour"  :jiabranch="jiabranch" :jiaformation="jiaformation" palace="W" text="Dui" text2="Metal" :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id" :img="image"></chart-review-parts>
                                 </div>
                             </div>
@@ -95,11 +99,19 @@
                                 <div :class="structure == 'yang'?'col-4 p-0 border-top border-right border-info':'col-4 p-0 border-top border-right border-yin yin-box'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour"  :jiabranch="jiabranch" :jiaformation="jiaformation" palace="N" text='Kan Water' :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id" :img="image"></chart-review-parts>
                                 </div>
-                                <div :class="structure == 'yang'?'col-4 p-0 border-top border-info':'col-4 p-0 border-top border-yin'">
+                                <div :class="structure == 'yang'?'col-4 p-0 border-top border-info yang-box':'col-4 p-0 border-top border-yin'">
                                     <chart-review-parts :stemday="stemDay" :jiachief="jia" :stemhour="stemHour" :jiabranch="jiabranch" :jiaformation="jiaformation" palace="NW" text='Metal Qian' :day="day" :type="type" :stem="stem" :structure="structure" :chart_numb="chart_numb" :id="id" :img="image"></chart-review-parts>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                
+                <div class="row" id="bottonBot">
+                    <div class="col-md-8">
+                        <button @click="downloadChart" class="btn btn-success">Download Chart</button>
+                        <button @click="downloadCons" class="btn btn-success">Download Cons Chart</button>
+                        <input type="hidden" :value="id" id="chartid">
                     </div>
                 </div>
             </div>
@@ -107,8 +119,10 @@
 </template>
 
 <script>
+    import html2canvas from 'html2canvas';
     export default {
         props:['palace','text','text2','structure','chart_numb','id','stem','type','day','jiabranch','jiaformation','center','image','chart'],
+       
         data(){
             return{
                 sixBatallions: ['Wu','Zi','Xu','Shen','Chen','Yin'],
@@ -120,6 +134,64 @@
             }
         },
         methods: {
+            downloadCons(){
+                
+                html2canvas(document.querySelector("#cons-chart")).then(function(canvas) {
+                    var id = document.getElementById('chartid').value;
+                    
+                    simulateDownloadImageClick(canvas.toDataURL(), id+'.PNG');
+                });
+            
+                function simulateDownloadImageClick(uri, filename) {
+                var link = document.createElement('a');
+                if (typeof link.download !== 'string') {
+                    window.open(uri);
+                } else {
+                    link.href = uri;
+                    link.download = filename;
+                    accountForFirefox(clickLink, link);
+                }
+                }
+
+                function clickLink(link) {
+                link.click();
+                }
+
+                function accountForFirefox(click) { // wrapper function
+                let link = arguments[1];
+                document.body.appendChild(link);
+                click(link);
+                document.body.removeChild(link);
+                }
+            },
+            downloadChart(){
+                html2canvas(document.querySelector("#capture")).then(function(canvas) {
+                    var id = document.getElementById('chartid').value;
+                    simulateDownloadImageClick(canvas.toDataURL(), id+'.PNG');
+                });
+            
+                function simulateDownloadImageClick(uri, filename) {
+                var link = document.createElement('a');
+                if (typeof link.download !== 'string') {
+                    window.open(uri);
+                } else {
+                    link.href = uri;
+                    link.download = filename;
+                    accountForFirefox(clickLink, link);
+                }
+                }
+
+                function clickLink(link) {
+                link.click();
+                }
+
+                function accountForFirefox(click) { // wrapper function
+                let link = arguments[1];
+                document.body.appendChild(link);
+                click(link);
+                document.body.removeChild(link);
+                }
+            },
             dayGenerate(stem){
                 var bat = this.get6BatallionDay(stem)
                 this.stemDay = bat;
@@ -181,9 +253,7 @@
             },
         },
         mounted() {
-            this.checkDayIfJia();
-            this.checkHourIfJia();
-            
+            this.checkDayIfJia(); 
         }
     }
 </script>
@@ -193,5 +263,8 @@
     }
     .yin-box{
         background-color: rgba(255, 196, 196, 0.5);
+    }
+    .yang-box{
+        background-color: rgba(62, 193, 213, 0.2);
     }
 </style>

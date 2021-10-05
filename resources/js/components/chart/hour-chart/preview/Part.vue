@@ -217,38 +217,38 @@
                 var defaultStyle = "position-absolute"
                 if(this.palace == "SE"){
                     this.hexagramStyle = defaultStyle+' se-hex';
-                    this.constilationCont = defaultStyle+" cons-se"
+                    this.constilationCont = this.structure != "yang"?defaultStyle+" cons-se":defaultStyle+" cons-se-yang"
                 }
 
                 if(this.palace == "NE"){
                     this.hexagramStyle = defaultStyle+' se-hex';
-                    this.constilationCont = defaultStyle+" cons-ne"
+                    this.constilationCont = this.structure != "yang"?defaultStyle+" cons-ne":defaultStyle+" cons-ne-yang"
                 }
 
                 if(this.palace == "SW"){
                     this.hexagramStyle = defaultStyle+' sw-hex'
-                    this.constilationCont = defaultStyle+" cons-sw"
+                    this.constilationCont = this.structure != "yang"?defaultStyle+" cons-sw":defaultStyle+" cons-sw-yang"
                 }
 
                 if(this.palace == "NW"){
                     this.hexagramStyle = defaultStyle+' sw-hex'
-                    this.constilationCont = defaultStyle+" cons-nw"
+                    this.constilationCont = this.structure != "yang"?defaultStyle+" cons-nw":defaultStyle+" cons-nw-yang"
                 }
                 if(this.palace == "S"){
                     this.hexagramStyle = defaultStyle+' s-hex'
-                    this.constilationCont = defaultStyle+" cons-s"
+                    this.constilationCont = this.structure != "yang"?defaultStyle+" cons-s":defaultStyle+" cons-s-yang"
                 }
                 if(this.palace == "N"){
                     this.hexagramStyle = defaultStyle+' n-hex'
-                    this.constilationCont = defaultStyle+" cons-n"
+                    this.constilationCont = this.structure != "yang"?defaultStyle+" cons-n":defaultStyle+" cons-n-yang"
                 }
                 if(this.palace == "E"){
                     this.hexagramStyle = defaultStyle+' se-hex';
-                    this.constilationCont = defaultStyle+" cons-e"
+                    this.constilationCont = this.structure != "yang"?defaultStyle+" cons-e":defaultStyle+" cons-e-yang"
                 }
                 if(this.palace == "W"){
                     this.hexagramStyle = defaultStyle+' sw-hex'
-                    this.constilationCont = defaultStyle+" cons-w"
+                    this.constilationCont = this.structure != "yang"?defaultStyle+" cons-w":defaultStyle+" cons-w-yang"
                 }
             },
             
@@ -529,9 +529,9 @@
         background-color: #F2BA49;
     }
     .cons-sw{
-        width: 77.3%; 
+        width: 76%; 
         top: -22.5%;
-        right:-100%;
+        right:-98.6%;
         height: 122%;
         background-color: #F2BA49;
     }
@@ -546,9 +546,9 @@
     }
 
     .cons-w{
-        width: 77.3%; 
+        width: 76%;  
         top: 0;
-        right:-100%;
+        right:-98.6%;
         height: 99.3%;
         border: 1px solid;
         background-color: #FFFF9F;
@@ -573,10 +573,79 @@
     }
 
     .cons-nw{
-        width: 77.3%; 
+        width: 76%; 
         bottom: -21%;
-        right:-100%;
+        right:-98.6%;
         height: 122%;
         background-color: #F2BA49;
+    }
+    .cons-se-yang{
+        width: 77.3%; 
+        top: -22.5%;
+        left:-100%;
+        height: 122%;
+        background-color: #3EC1D5;
+    }
+
+    .cons-s-yang{
+        width: 500%; 
+        top: -86%;
+        left:-200%;
+        border-top: 140px solid #D8F2F6;
+        border-left: 158px solid transparent;
+        border-right: 158px solid transparent;
+        background-color: #3EC1D5;
+        /* 3EC1D5 */
+    }
+    .cons-sw-yang{
+        width: 76%; 
+        top: -22.5%;
+        right:-98.6%;
+        height: 122%;
+        background-color: #3EC1D5;
+    }
+
+    .cons-e-yang{
+        width: 77.3%; 
+        top: 0;
+        left:-100%;
+        height: 99.3%;
+        border: 1px solid;
+        background-color: #D8F2F6;
+    }
+
+    .cons-w-yang{
+        width: 76%;  
+        top: 0;
+        right:-98.6%;
+        height: 99.3%;
+        border: 1px solid;
+        background-color: #D8F2F6;
+    }
+
+    .cons-ne-yang{
+        width: 77.3%; 
+        bottom: -21%;
+        left:-100%;
+        height: 122%;
+        background-color: #3EC1D5;
+    }
+
+    .cons-n-yang{
+        width: 500%; 
+        bottom: -84%;
+        left:-200%;
+        border-bottom: 140px solid #D8F2F6;
+        border-left: 158px solid transparent;
+        border-right: 158px solid transparent;
+        background-color: #3EC1D5;
+    }
+
+    .cons-nw-yang{
+        width: 76%; 
+        bottom: -21%;
+        right:-98.6%;
+        height: 122%;
+        background-color: #3EC1D5;
     }
 </style>

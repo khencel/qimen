@@ -8,7 +8,6 @@ import BootstrapVue from 'bootstrap-vue'
 import Form from 'vform'
 import Notifications from 'vue-notification';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
-
 import VueHtmlToPaper from 'vue-html-to-paper';
 
 const options = {
@@ -39,6 +38,8 @@ Vue.component('pulseLoader',PulseLoader);
 Vue.use(BootstrapVue);
 Vue.use(Notifications)
 Vue.use(VueHtmlToPaper, options);
+
+
 
 
 
