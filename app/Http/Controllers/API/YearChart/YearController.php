@@ -167,4 +167,8 @@ class YearController extends Controller
             'year' => $newYear,
         ]);
     }
+
+    public function getMonthChart(){
+        return YearChart::where('year',2021)->get()->unique('month');
+    }
 }

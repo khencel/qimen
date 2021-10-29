@@ -1,6 +1,17 @@
 <template>
     <div>
         <pulse-loader :loading="loading"></pulse-loader>
+        <div style="width:100px" :class="hexagramStyle+' position-absolute'">
+            <div class="text-center">
+                <img :src="topTrigram" width="50" alt="">
+            </div>
+            <div class="mt-1 text-center">
+                <img :src="bottomTrigram" width="50" alt="">
+            </div>
+            <div class="text-center">
+                {{hexagram}}
+            </div>
+        </div>
         <div v-for="se in se" :key="se.id">
             <div class="row m-0 part-chart-t-b">
                 <div  class="col-4 p-0 position-relative">
@@ -29,7 +40,7 @@
                     <div :class="door_red.includes(se.star.id)?'text-danger chart-text':'chart-text'">
                         {{se.star.chinese}}
                         <br>
-                        {{se.star.name}}
+                        {{se.star.name}}{{se.star.code}}
                     </div>
                     <div v-show="se.bird_2 == 1" class="position-absolute text-center" style="width:30px;z-index:1;bottom:0;right:0;margin-right:-15px;">
                         <div class="chart-text" style="line-height:5px;">
@@ -225,20 +236,157 @@
                 star_red:[1,2,3,7,9],
                 date:new Date(),
                 loading:false,
+                hexagram:'',
                 se:{},
+                topTrigram:'',
+                bottomTrigram:'',
+                hexagramStyle:''
             }
         },
         mounted() {
             this.loadChart();
+            this.hexStyle();
         },
         methods:{
+            hexStyle(){
+                console.log(this.chart.type);
+                if(this.chart.type == 'se'){
+                    this.hexagramStyle = 'seStyle';
+                }
+                if(this.chart.type == 'sw'){
+                    this.hexagramStyle = 'swStyle';
+                }
+                if(this.chart.type == 'ne'){
+                    this.hexagramStyle = 'neStyle';
+                }
+                if(this.chart.type == 'nw'){
+                    this.hexagramStyle = 'nwStyle';
+                }
+                if(this.chart.type == 's'){
+                    this.hexagramStyle = 'sStyle';
+                }
+                if(this.chart.type == 'n'){
+                    this.hexagramStyle = 'nStyle';
+                }
+                if(this.chart.type == 'e'){
+                    this.hexagramStyle = 'eStyle';
+                }
+                if(this.chart.type == 'w'){
+                    this.hexagramStyle = 'wStyle';
+                }
+            },
             loadChart(){
                 axios.get('/api/preview/'+this.chart.chart_id+'/'+this.chart.type+'/'+this.chart.chart_type)
                 .then(response => {
                     this.se = response.data.se;
-                    
+                    this.trigramTopValidation(response.data.se[0].star.code);
+                    this.trigramBottomValidation(response.data.se[0].door.code);
+                    this.getHex(response.data.se[0].star.code+response.data.se[0].door.code);
+                });
+            },
+            trigramTopValidation(top){
+                if(top == "011"){
+                    this.topTrigram = "/img/7.png";
+                }
+                if(top == "010"){
+                    this.topTrigram = "/img/1.png";
+                }
+                if(top == "111"){
+                    this.topTrigram = "/img/6.png";
+                }
+                if(top == "100"){
+                    this.topTrigram = "/img/8.png";
+                }
+                if(top == "001"){
+                    this.topTrigram = "/img/3.png";
+                }
+                if(top == "000"){
+                    this.topTrigram = "/img/2.png";
+                }
+                if(top == "110"){
+                    this.topTrigram = "/img/4.png";
+                }
+                if(top == "101"){
+                    this.topTrigram = "/img/9.png";
+                }
+            },
+
+            trigramBottomValidation(bottom){
+                if(bottom == "011"){
+                    this.bottomTrigram = "/img/7.png";
+                }
+                if(bottom == "010"){
+                    this.bottomTrigram = "/img/1.png";
+                }
+                if(bottom == "111"){
+                    this.bottomTrigram = "/img/6.png";
+                }
+                if(bottom == "100"){
+                    this.bottomTrigram = "/img/8.png";
+                }
+                if(bottom == "001"){
+                    this.bottomTrigram = "/img/3.png";
+                }
+                if(bottom == "000"){
+                    this.bottomTrigram = "/img/2.png";
+                }
+                if(bottom == "110"){
+                    this.bottomTrigram = "/img/4.png";
+                }
+                if(bottom == "101"){
+                    this.bottomTrigram = "/img/9.png";
+                }
+            },
+
+            getHex(hexCode){
+                axios.get(window.yijing+'api/getHexagram/'+hexCode+'?api_token='+window.yijingToken)
+                .then(res => {
+                    this.hexagram = res.data.name;
                 });
             }
         }
     }
 </script>
+
+<style scoped>
+   .seStyle{
+       top: 0;
+       left: 0;
+       margin-left: -85%;
+       margin-top: -70%;
+   }
+   .swStyle{
+       top: 0;
+       right: 0;
+       margin-right: -85%;
+       margin-top: -70%;
+   }
+   .neStyle{
+       bottom: 0;
+       left:0; 
+       margin-left: -85%;
+       margin-bottom: -60%;
+   }
+   .nwStyle{
+       bottom: 0;
+       right:0; 
+       margin-right: -85%;
+       margin-bottom: -60%;
+   }
+   .sStyle{
+       top: 0;
+       margin-top: -70%;
+   }
+   .nStyle{
+       bottom: 0;
+       margin-bottom: -75%;
+   }
+   .eStyle{
+       left:0; 
+       margin-left: -85%;
+   }
+   .wStyle{
+       right:0; 
+       margin-right: -85%;
+   }
+</style>

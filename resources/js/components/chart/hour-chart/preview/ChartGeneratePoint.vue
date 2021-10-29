@@ -1,5 +1,6 @@
 <template>
-    <div class="row justify-content-center" id="cons-chart">
+<div>
+     <div class="row justify-content-center" id="">
 
             <div class="col-md-2 p-2" v-show="disableDay">
                 <div>
@@ -20,9 +21,18 @@
                     </div>
                         
                 </div>
-                
-                <div class="pt-5 position-relative " id="capture" :style="structure == 'yang'?'width: 100%;height:755px;background-color:darkcyan;margin-bottom:20%;':'width: 100%;height:755px;background-color:maroon;margin-bottom:20%;'">
-                    
+            </div>
+    </div>
+     <div class="row mb-2 justify-content-center" id="bottonBot">
+        <div class="col-md-8 text-center">
+            <button @click="downloadChart" class="btn btn-success w-25">Download Chart</button>
+            <button @click="downloadCons" class="btn btn-success w-25">Download Cons Chart</button>
+            <input type="hidden" :value="id" id="chartid">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-9" id="cons-chart" style="height:1035px;">
+            <div class="pt-5 position-relative" id="capture" :style="structure == 'yang'?'width: 71%;height:755px;background-color:darkcyan;margin-left:14.6%;top:13.5%;':'width: 71%;height:755px;background-color:maroon;margin-left:14.6%;top:13.5%'">
                     <!-- SE,S,SW -->
                     <div class="position-absolute" style="top:0;margin-top:7px;margin-left:7px">
                         <img class="mb-2" src="/img/xun.png" width="80" height="35" alt=""><span style="color:white;font-weight:bold;position:relative;top:-12px">4</span>
@@ -106,16 +116,11 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="row" id="bottonBot">
-                    <div class="col-md-8">
-                        <button @click="downloadChart" class="btn btn-success">Download Chart</button>
-                        <button @click="downloadCons" class="btn btn-success">Download Cons Chart</button>
-                        <input type="hidden" :value="id" id="chartid">
-                    </div>
-                </div>
-            </div>
         </div>
+    </div>
+   
+</div>
+    
 </template>
 
 <script>
@@ -135,7 +140,6 @@
         },
         methods: {
             downloadCons(){
-                
                 html2canvas(document.querySelector("#cons-chart")).then(function(canvas) {
                     var id = document.getElementById('chartid').value;
                     

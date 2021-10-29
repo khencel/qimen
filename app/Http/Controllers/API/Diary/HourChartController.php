@@ -54,4 +54,12 @@ class HourChartController extends Controller
             return $this->hourChart->getDeity($id);
         }
     }
+
+    public function getNewAsker($id,$point){
+        $data = array(
+            'id' => $id,
+            'point'=> $point
+        );
+        return $this->hourChart->getPart($data);
+    }
 }

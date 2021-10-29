@@ -335,5 +335,48 @@ class GenerateHourChart
             'plants',
             )->find($id);   
     }
+    public function getPart($data){
+        $result = array();
+        $index = 0;
+        $model = Modelist::where('type','hour')->get();
+        
+        switch ($data['point']) {
+            case 1:
+                $index = 2;
+                break;
+            case 2:
+                $index = 6;
+                break;
+            case 3:
+                $index = 1;
+                break;
+            case 4:
+                $index = 0;
+                break;
+            case 5:
+                $result[] = $model->map(function($model)use($data){
+                    return $model->model::with('heaven_stem','earth_stem','star','deitie','door','formation1','formation2','formation3','formation4','formation5','formation6','formation7','relationship')
+                                                    ->where('chart_id',$data['id'])
+                                                    ->where('heaven',true)
+                                                    ->first();
+                })->filter()->first();
+                return $result;
+                break;
+            case 6:
+                $index = 4;
+                break;
+            case 7:
+                $index = 7;
+                break;
+            case 8:
+                $index = 3;
+                break;
+            case 9:
+                $index = 5;
+                break;
+        }
+        $result[] = $model[$index]->model::with('heaven_stem','earth_stem','star','deitie','door','formation1','formation2','formation3','formation4','formation5','formation6','formation7','relationship')->where('chart_id',$data['id'])->first();
+        return $result;
+    }
 
 }

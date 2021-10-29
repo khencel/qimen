@@ -143,10 +143,11 @@ Route::middleware('auth:api')->group(function(){
 
         // Route::get('getDetails/{attri}/{keyword}','API\Diary\HourChartController@getAttribute');
         Route::get('getDetails/{id}/{attr}','API\Diary\HourChartController@getDetails');
+        Route::get('getNewAsker/{id}/{point}','API\Diary\HourChartController@getNewAsker');
     });
 });
 
-
+Route::get('getMonthChart','API\YearChart\YearController@getMonthChart');
 
 Route::prefix('dunJia')->group(function(){
     // Route::get('/{structure}/{category}/{value}/{id}/{type}','API\DunJiaController@getDunJia');
