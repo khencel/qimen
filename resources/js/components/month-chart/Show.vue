@@ -77,7 +77,7 @@
                 a.document.write('<style>#chart-img{width:100%}.se{position:absolute;font-weight: bold;width: 13%;text-align: center;transform: rotate(270deg);background-color: #AE2526;top: 19%;left: 0;color: white;}.e{position:absolute;font-weight: bold;width: 13%;text-align: center;transform: rotate(270deg);background-color: #AE2526;top: 55%;left: 0;color: white;}.ne{position:absolute;font-weight: bold;width: 13%;text-align: center;transform: rotate(270deg);background-color: #AE2526;top: 76%;left: 0;color: white;}.sw{position:absolute;font-weight: bold;width: 13%;text-align: center;transform: rotate(90deg);background-color: #AE2526;top: 19%;right: 0;color: white;}.w{position:absolute;font-weight: bold;width: 13%;text-align: center;transform: rotate(90deg);background-color: #AE2526;top: 55%;right: 0;color: white;}.nw{position:absolute;font-weight: bold;width: 13%;text-align: center;transform: rotate(90deg);background-color: #AE2526;top: 76%;right: 0;color: white;}.s{position:absolute;font-weight: bold;width: 13%;text-align: center;background-color: #AE2526;top: 6%;right: 38%;color: white;}.n{position:absolute;font-weight: bold;width: 13%;text-align: center;background-color: #AE2526;bottom: 9%;right: 38%;color: white;} .level0{top:14.3%!important;width:2.2%} .level7{left:16%!important;width:2.2%} .level6{left:16%!important;width:2.2%} .level5{left:16%!important;width:2.2%} .level1{right:16%!important;width:2.2%} .level2{right:16%!important;width:2.2%} .level3{right:16%!important;width:2.2%} .level4{bottom:14%!important;width:2.2%}</style>')
                 a.document.write('</div>');
                 a.print();
-                // a.close();
+                a.close();
             }
         },
         mounted() {
