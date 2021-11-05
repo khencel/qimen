@@ -145,6 +145,9 @@ Route::middleware('auth:api')->group(function(){
         Route::get('getDetails/{id}/{attr}','API\Diary\HourChartController@getDetails');
         Route::get('getNewAsker/{id}/{point}','API\Diary\HourChartController@getNewAsker');
     });
+
+    Route::get('generate-month-chart/{year}','API\MonthChartGenerate@generate');
+    Route::get('show-month-chart/{id}','API\MonthChartGenerate@getDetails');
 });
 
 Route::get('getMonthChart','API\YearChart\YearController@getMonthChart');

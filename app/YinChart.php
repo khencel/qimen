@@ -53,4 +53,8 @@ class YinChart extends Model
     public function nw(){
         return $this->hasOne(NW::class);
     }
+
+    public function yearChart(){
+        return $this->hasOne(YearChart::class,'month_chart_id');
+    }
 }

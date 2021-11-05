@@ -2,7 +2,7 @@
     <div>
         <div class="row justify-content-center">
             <div class="col-md-7">
-                <button @click="downloadChart" class="btn btn-success w-25">Download Chart</button>
+                <!-- <button @click="downloadChart" class="btn btn-success w-25">Download Chart</button> -->
             </div>
         </div>
         
@@ -271,7 +271,7 @@
                 });
             },
             downloadChart(){
-                html2canvas(document.querySelector("#capture")).then(function(canvas) {
+                html2canvas(document.querySelector("#captureWithCons")).then(function(canvas) {
                     var id = document.getElementById('chartid').value;
                     simulateDownloadImageClick(canvas.toDataURL(), id+'.PNG');
                 });

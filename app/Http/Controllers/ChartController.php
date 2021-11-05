@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\YearChart;
+use App\GenerateMonthChart;
 
 class ChartController extends Controller
 {
@@ -56,5 +57,12 @@ class ChartController extends Controller
         return view('chart.part_chart.preview_chart',compact('id','type'));
     }
 
-   
+    public function redirectToMonthChart(){
+        $chart = GenerateMonthChart::with('chart.stem','chart.branch','chart.element','chart.english','chart.yearChart')
+        ->where('month_chart_id',request()->id)->first();
+        return view('month-chart.show',compact('chart'),[
+            'id' => request()->id,
+            'index' => request()->index
+        ]); 
+    }
 }

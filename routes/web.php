@@ -348,6 +348,12 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/search/{id}/{keyword}/{category}', function(){
         return view('search.show');
     });
+
+    Route::get('monthChart',function(){
+        return view('month-chart.index');
+    });
+
+    Route::get('monthChart/show','ChartController@redirectToMonthChart');
 });
 
 Route::get('/privacy',function(){
@@ -368,6 +374,12 @@ Route::get('/db-seed', function() {
 Route::get('/migrate', function() {
     $output = [];
     \Artisan::call('migrate', $output);
+    dd($output);
+});
+
+Route::get('/month-generate', function() {
+    $output = [];
+    \Artisan::call('generate:month', $output);
     dd($output);
 });
 

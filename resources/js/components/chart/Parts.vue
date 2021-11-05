@@ -374,7 +374,7 @@
        margin-bottom: -60%;
    }
    .sStyle{
-       top: 0;
+       top: -7%;
        margin-top: -70%;
    }
    .nStyle{

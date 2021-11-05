@@ -87,6 +87,10 @@ require('./components/chart/hour-chart/RegisterComponent')
 //search
 require('./components/search/RegisterComponent')
 
+
+//month chart
+require('./components/month-chart/RegisterComponent');
+
 Vue.component(
     'chart-tab',
     ()=>import('./components/TabChart.vue')

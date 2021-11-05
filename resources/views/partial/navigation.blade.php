@@ -25,7 +25,14 @@
           </li>
         </ul>
       </li>
-
+      <li class="nav-item">
+        <a href="{{url('monthChart')}}" class="nav-link {{request()->is('monthChart')?'active':''}}">
+          <i class="nav-icon fas fa-th"></i>
+          <p>
+            Generate Month Chart
+          </p>
+        </a>
+      </li>
       <li class="nav-item has-treeview {{request()->is('trigram/*','stem/*','door/*','star/*','deitie/*','summary/*')?'menu-open':''}}">
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-tachometer-alt"></i>
