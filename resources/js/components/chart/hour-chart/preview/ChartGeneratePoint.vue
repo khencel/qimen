@@ -25,8 +25,8 @@
     </div>
      <div class="row mb-2 justify-content-center" id="bottonBot">
         <div class="col-md-8 text-center">
-            <!-- <button @click="downloadChart" class="btn btn-success w-25">Download Chart</button> -->
-            <!-- <button @click="downloadCons" class="btn btn-success w-25">Download Cons Chart</button> -->
+            <button @click="downloadChart" class="btn btn-success w-25">Download Chart</button>
+            <button @click="downloadCons" class="btn btn-success w-25">Download Cons Chart</button>
             <input type="hidden" :value="id" id="chartid">
         </div>
     </div>
