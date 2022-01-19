@@ -386,6 +386,38 @@
           </p>
         </a>
       </li>
+
+      <li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <p>
+            Best Year Ever
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{{url('best-year/animal/index')}}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Animal Sign Management</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('best-year/day-forecast/index')}}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Personalised 
+                Forecast</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('best-year/code/index')}}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Code 
+                Management</p>
+            </a>
+          </li>
+        </ul>
+      </li>
     </ul>
   </nav>
 

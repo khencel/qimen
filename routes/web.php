@@ -337,6 +337,76 @@ Route::group(['middleware' => ['auth']],function(){
             Route::get('{structure}/n/{id}','HourChartController@showChart');
             Route::get('{structure}/nw/{id}','HourChartController@showChart');
         });
+
+       
+    });
+
+     // Best Year Ever
+    Route::prefix('/best-year')->group(function(){
+        Route::prefix('/animal')->group(function(){
+            Route::get('index',function(){
+                return view('best_year_ever.animal_sign.index');
+            });
+            Route::get('show',function(){
+                return view('best_year_ever.animal_sign.show',[
+                    'animal'    => request('animal'),
+                    'id'        => request('id'),
+                    'page'      => request('page')        
+                ]);
+            })->name('main');
+           
+            Route::get('show-aspects',function(){
+                return view('best_year_ever.animal_sign.show-aspects',[
+                    'animal'    => request('animal'),
+                    'id'        => request('id'),
+                    'page'      => request('page')        
+                ]);
+            })->name('aspects');
+
+            Route::get('show-luck',function(){
+                return view('best_year_ever.animal_sign.show-luck',[
+                    'animal'    => request('animal'),
+                    'id'        => request('id'),
+                    'page'      => request('page')        
+                ]);
+            })->name('luck');
+            
+        });
+        Route::prefix('day-forecast')->group(function(){
+            Route::get('index',function(){
+                return view('best_year_ever.day_forecast.index');
+            });
+
+            Route::get('show',function(){
+                return view('best_year_ever.day_forecast.show',[
+                    'pillar'    => request('pillar'),
+                    'id'        => request('id'),
+                    'page'      => request('page')        
+                ]);
+            })->name('main');
+
+            Route::get('show-aspects',function(){
+                return view('best_year_ever.day_forecast.show-aspects',[
+                    'pillar'    => request('pillar'),
+                    'id'        => request('id'),
+                    'page'      => request('page')        
+                ]);
+            })->name('aspects');
+
+            Route::get('show-luck',function(){
+                return view('best_year_ever.day_forecast.show-luck',[
+                    'pillar'    => request('pillar'),
+                    'id'        => request('id'),
+                    'page'      => request('page')        
+                ]);
+            })->name('luck');
+        });
+
+        Route::prefix('code')->group(function(){
+            Route::get('index',function(){
+                return view('best_year_ever.code.index');
+            });
+        }); 
     });
 
     Route::get('generate','HourChartController@generateChart');

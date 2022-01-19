@@ -51,7 +51,7 @@ class RegistrationController extends Controller
         ]);
     
         Mail::to($userCreated->email)->send(new VerificationEmail($userCreated));
-    }
+    }   
 
     /**
      * Display the specified resource.

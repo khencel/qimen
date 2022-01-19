@@ -10,6 +10,7 @@ import Notifications from 'vue-notification';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import VueHtmlToPaper from 'vue-html-to-paper';
 
+
 const options = {
     name: '_blank',
     specs: [
@@ -31,9 +32,18 @@ window.forecast = "https://forecast.jennelcheng.com";
 window.forecastToken = "6NWx5scrKv2jFdW5hLWBbyRkZzDlboEwBLbX5zgrzyO6GLBA6Sl9BpSepONq";
 
 
+//best ever local
+window.bestever = "http://127.0.0.1:8000/";
+// window.besteverToken = "6NWx5scrKv2jFdW5hLWBbyRkZzDlboEwBLbX5zgrzyO6GLBA6Sl9BpSepONq";
+
+//best ever live
+window.besteverLive = "https://bestyearever2022.jennelcheng.com";
+
 window.Vue = require('vue');
 window.Form = Form;
 
+
+Vue.use(require('vue-moment'));
 Vue.component('pulseLoader',PulseLoader);
 Vue.use(BootstrapVue);
 Vue.use(Notifications)
@@ -90,6 +100,9 @@ require('./components/search/RegisterComponent')
 
 //month chart
 require('./components/month-chart/RegisterComponent');
+
+//best year
+require('./components/best-ever/RegisterComponent');
 
 Vue.component(
     'chart-tab',

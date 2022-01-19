@@ -54,11 +54,11 @@ class SampleController extends Controller
     public function setFormat($num){
         // yi
         if($num == 1){
-            $format = array(2,8,4);
+            $format = array(2,8,5);
         }
         //bing
         if($num == 2){
-            $format = array(3,3,2);
+            $format = array(3,7,9);
         }
         // ding
         if($num == 3){
@@ -66,27 +66,27 @@ class SampleController extends Controller
         }
         //wu
         if($num == 4){
-            $format = array(5,7,10);
+            $format = array(5,3,3);
         }
         // Ji
         if($num == 5){
-            $format = array(6,3,4);
+            $format = array(6,9,10);
         }
         // geng
         if($num == 6){
-            $format = array(7,1,7);
+            $format = array(7,4,6);
         }
         // xin
         if($num == 7){
-            $format = array(8,6,3);
+            $format = array(8,5,4);
         }
         // ren
         if($num == 8){
-            $format = array(9,5,5);
+            $format = array(9,6,2);
         }
         //gui
         if($num == 9){
-            $format = array(10,4,1);
+            $format = array(10,1,1);
         }
         
         return $format;
