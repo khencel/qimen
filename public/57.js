@@ -1,1 +1,1209 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[57],{137:function(t,e,o){"use strict";o.r(e);var i=o(5),a=o.n(i),n={props:["id"],data:function(){return{editMode:!1,loading:!0,hexagrams:{},doorFormation:{},palaces:{},selected_id:"",form:new Form({relationship:"",description:"",door_id:this.id,trigram_id:"",hexagram:""})}},methods:{addDoorStem:function(){var t=this;this.form.post("/api/door/formation/store?api_token="+window.token).then((function(e){t.$notify({group:"notification",type:"success",title:"Add "+t.attribute,text:t.attribute+" has been Added"}),t.form.reset(),t.show()})).catch((function(e){t.$notify({group:"notification",type:"error",title:"Invalid Data",text:"All fields are required"})}))},showPalace:function(){var t=this;axios.post("/api/door/palace/list?api_token="+window.token,{door_id:this.id}).then((function(e){t.palaces=e.data}))},showHexagram:function(){var t=this;axios.get("https://yijing.jennelcheng.com/api/hexagram/list?api_token=1TLxV5nRi60rNhwcaQR5Z4WvXIGNbgu5aSkphU4PvYIrKtg726JSdBu9rUrv").then((function(e){t.hexagrams=e.data,t.loading=!1}))},show:function(){var t=this;axios.get("/api/door/formation/list/"+this.id+"?api_token="+window.token).then((function(e){t.doorFormation=e.data}))},edit:function(t){var e=this;this.editModeFormation(t),axios.post("/api/door/formation/edit?api_token="+window.token,{selected_id:t,id:this.id}).then((function(t){e.palaces=t.data.trigram,e.form.relationship=t.data.formation.relationship,e.form.description=t.data.formation.description,e.form.trigram_id=t.data.formation.trigram.id,e.form.hexagram=t.data.formation.hexagram}))},update:function(){var t=this;this.form.put("/api/door/formation/update/"+this.selected_id+"?api_token="+window.token).then((function(e){t.$notify({group:"notification",type:"success",title:"Update "+t.attribute,text:t.attribute+" has been Updated"}),t.form.reset(),t.show(),t.showPalace(),t.editMode=!1}))},deleteItem:function(t){var e=this;a.a.fire({title:"Are you sure?",text:"You won't be able to revert this!",icon:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Yes, delete it!"}).then((function(o){o.isConfirmed&&e.form.get("/api/door/formation/delete/"+t+"?api_token="+window.token).then((function(t){a.a.fire("Deleted!","Your file has been deleted.","success"),e.show()}))}))},cancelTransaction:function(){this.form.reset(),this.editMode=!1},editModeFormation:function(t){this.editMode=!0,this.selected_id=t,$("html, body").animate({scrollTop:$(document).height()},"slow"),$("#formation").focus()}},mounted:function(){this.showPalace(),this.showHexagram(),this.show()}},r=o(0),s=Object(r.a)(n,(function(){var t=this,e=t.$createElement,o=t._self._c||e;return o("div",[o("notifications",{attrs:{group:"notification",position:"bottom right"}}),t._v(" "),o("table",{staticClass:"table table-hover bg-white"},[t._m(0),t._v(" "),o("tbody",[t._l(t.doorFormation,(function(e,i){return o("tr",{key:i},[o("td",[t._v("\n                        "+t._s(e.trigram.name)+"\n                    ")]),t._v(" "),o("td",[t._v("\n                        "+t._s(e.hexagram)+"\n                    ")]),t._v(" "),o("td",[t._v("\n                        "+t._s(e.relationship)+"\n                    ")]),t._v(" "),o("td",{staticStyle:{width:"35%"}},[t._v("\n                        "+t._s(e.description)+"\n                    ")]),t._v(" "),o("td",[o("span",{staticClass:"badge badge-primary p-2 cursor-pointer",staticStyle:{width:"25%"},on:{click:function(o){return t.edit(e.id)}}},[t._v("Edit")]),t._v(" "),o("span",{staticClass:"badge badge-danger p-2 cursor-pointer",staticStyle:{width:"25%"},on:{click:function(o){return t.deleteItem(e.id)}}},[t._v("X")])])])})),t._v(" "),o("tr",{directives:[{name:"show",rawName:"v-show",value:t.loading,expression:"loading"}]},[o("td",[o("pulse-loader",{attrs:{loading:t.loading}})],1)]),t._v(" "),o("tr",{directives:[{name:"show",rawName:"v-show",value:!t.loading,expression:"!loading"}]},[o("td",[o("select",{directives:[{name:"model",rawName:"v-model",value:t.form.trigram_id,expression:"form.trigram_id"}],staticClass:"form-control",attrs:{id:"formation"},on:{change:function(e){var o=Array.prototype.filter.call(e.target.options,(function(t){return t.selected})).map((function(t){return"_value"in t?t._value:t.value}));t.$set(t.form,"trigram_id",e.target.multiple?o:o[0])}}},[o("option",{attrs:{value:"",selected:"",hidden:""}},[t._v("Select Palace")]),t._v(" "),t._l(t.palaces,(function(e,i){return o("option",{key:i,domProps:{value:e.id}},[t._v(t._s(e.name))])}))],2)]),t._v(" "),o("td",[o("select",{directives:[{name:"model",rawName:"v-model",value:t.form.hexagram,expression:"form.hexagram"}],staticClass:"form-control",on:{change:function(e){var o=Array.prototype.filter.call(e.target.options,(function(t){return t.selected})).map((function(t){return"_value"in t?t._value:t.value}));t.$set(t.form,"hexagram",e.target.multiple?o:o[0])}}},[o("option",{attrs:{value:"",selected:"",hidden:""}},[t._v("Select Gua")]),t._v(" "),t._l(t.hexagrams,(function(e,i){return o("option",{key:i,domProps:{value:e.name}},[t._v(t._s(e.name))])}))],2)]),t._v(" "),o("td",[o("input",{directives:[{name:"model",rawName:"v-model",value:t.form.relationship,expression:"form.relationship"}],staticClass:"form-control",attrs:{type:"text",placeholder:"Relationship"},domProps:{value:t.form.relationship},on:{input:function(e){e.target.composing||t.$set(t.form,"relationship",e.target.value)}}})]),t._v(" "),o("td",[o("textarea",{directives:[{name:"model",rawName:"v-model",value:t.form.description,expression:"form.description"}],staticClass:"form-control",attrs:{placeholder:"Description",cols:"30",rows:"10"},domProps:{value:t.form.description},on:{input:function(e){e.target.composing||t.$set(t.form,"description",e.target.value)}}})]),t._v(" "),o("td",[t.editMode?o("span",{staticClass:"badge badge-warning p-2 cursor-pointer w-50 mb-1",on:{click:t.update}},[t._v("Update")]):o("span",{staticClass:"badge button-success p-2 cursor-pointer w-50 mb-1",on:{click:t.addDoorStem}},[t._v("Add")]),t._v(" "),o("span",{staticClass:"badge badge-danger p-2 cursor-pointer w-50",on:{click:t.cancelTransaction}},[t._v("Cancel")])])])],2)])],1)}),[function(){var t=this,e=t.$createElement,o=t._self._c||e;return o("thead",{staticClass:"thead-dark"},[o("th",[t._v("Palace")]),t._v(" "),o("th",[t._v("Gua")]),t._v(" "),o("th",[t._v("Relationship")]),t._v(" "),o("th",[t._v("Description")]),t._v(" "),o("th",[t._v("Action")])])}],!1,null,null,null);e.default=s.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[57],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/landing-page/PartsLandingPage.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/landing-page/PartsLandingPage.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['chart'],
+  data: function data() {
+    return {
+      deitie_red: [1, 2, 3, 4, 5],
+      door_red: [1, 2, 3, 8],
+      stem_red: [1, 2, 3, 4, 5],
+      star_red: [1, 2, 3, 7, 9],
+      date: new Date(),
+      loading: false,
+      se: {},
+      center: {}
+    };
+  },
+  mounted: function mounted() {
+    this.getChart();
+  },
+  methods: {
+    getChart: function getChart() {
+      var _this = this;
+
+      this.loading = true;
+      axios.post('/api/get-home-chart', {
+        month: this.date.getMonth() + 1,
+        day: this.date.getDate(),
+        year: this.date.getFullYear()
+      }).then(function (response) {
+        axios.get('/api/preview/' + response.data.day_chart_id + '/' + _this.chart.type + '/' + _this.chart.chart_type).then(function (response) {
+          _this.loading = false;
+          _this.se = response.data.se;
+          _this.center = response.data.center.stem.value;
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/landing-page/PartsLandingPage.vue?vue&type=template&id=4a70b875&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/landing-page/PartsLandingPage.vue?vue&type=template&id=4a70b875& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("pulse-loader", { attrs: { loading: _vm.loading } }),
+      _vm._v(" "),
+      _vm._l(_vm.se, function(se) {
+        return _c("div", { key: se.id }, [
+          _c("div", { staticClass: "row m-0 part-chart-t-b" }, [
+            _c("div", { staticClass: "col-4 p-0 position-relative" }, [
+              _c("div", [
+                _c("img", {
+                  staticClass: "icon-img",
+                  attrs: { src: "/img/" + se.stem_top.photo, alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  class: _vm.deitie_red.includes(se.stem_top.id)
+                    ? "text-danger chart-text"
+                    : "chart-text"
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(se.stem_top.value) +
+                      "\n                "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: se.stem_1 == 1,
+                      expression: "se.stem_1 == 1"
+                    }
+                  ],
+                  staticClass: "position-absolute text-center center-part-cont"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "chart-text",
+                      staticStyle: { "line-height": "5px" }
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "img-center",
+                          attrs: { viewBox: "0 0 24 24" }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "currentColor",
+                              d:
+                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.center) +
+                          "\n                    "
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-4 p-0 position-relative" }, [
+              _c("div", [
+                _c("img", {
+                  staticClass: "icon-img",
+                  attrs: { src: "/img/" + se.star.photo, alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  class: _vm.door_red.includes(se.star.id)
+                    ? "text-danger chart-text"
+                    : "chart-text"
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(se.star.chinese) +
+                      "\n                    "
+                  ),
+                  _c("br"),
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(se.star.name) +
+                      "\n                "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: se.bird_2 == 1,
+                      expression: "se.bird_2 == 1"
+                    }
+                  ],
+                  staticClass: "position-absolute text-center",
+                  staticStyle: {
+                    width: "30px",
+                    "z-index": "1",
+                    bottom: "0",
+                    right: "0",
+                    "margin-right": "-15px"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "chart-text",
+                      staticStyle: { "line-height": "5px" }
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "img-center",
+                          attrs: { viewBox: "0 0 24 24" }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "currentColor",
+                              d:
+                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(
+                        "\n                        Qin\n                        "
+                      ),
+                      _c("br"),
+                      _c("br"),
+                      _vm._v(
+                        "\n                        Bird\n                    "
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: se.stem_2 == 1,
+                      expression: "se.stem_2 == 1"
+                    }
+                  ],
+                  staticClass: "position-absolute text-center",
+                  staticStyle: {
+                    width: "30px",
+                    "z-index": "1",
+                    bottom: "0",
+                    right: "0",
+                    "margin-right": "-15px"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "chart-text",
+                      staticStyle: { "line-height": "5px" }
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "img-center",
+                          attrs: { viewBox: "0 0 24 24" }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "currentColor",
+                              d:
+                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.center) +
+                          "\n                    "
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-4 p-0" }, [
+              _c("div", [
+                _c("img", {
+                  staticClass: "icon-img",
+                  attrs: { src: "/img/" + se.deitie.photo, alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  class: _vm.deitie_red.includes(se.deitie.id)
+                    ? "text-danger chart-text"
+                    : "chart-text"
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(se.deitie.chinese) +
+                      "\n                    "
+                  ),
+                  _c("br"),
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(se.deitie.value) +
+                      "\n                "
+                  )
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row text-center m-0 part-chart-middle" }, [
+            _c("div", { staticClass: "col-4 p-0 " }, [
+              _c("div", { staticClass: "row justify-content-center" }, [
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: se.position_1 != null,
+                        expression: "se.position_1 != null"
+                      }
+                    ],
+                    staticClass: "col-5 p-0"
+                  },
+                  [
+                    _c("div", [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "icon-img",
+                          attrs: { viewBox: "0 0 24 24" }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "currentColor",
+                              d:
+                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "chart-text" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_1 == null
+                              ? ""
+                              : se.position_1.first_word
+                          ) +
+                          "\n                            "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_1 == null
+                              ? ""
+                              : se.position_1.second_word
+                          ) +
+                          "\n                        "
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: se.position_2 != null,
+                        expression: "se.position_2 != null"
+                      }
+                    ],
+                    staticClass: "col-5 p-0"
+                  },
+                  [
+                    _c("div", [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "icon-img",
+                          attrs: { viewBox: "0 0 24 24" }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "currentColor",
+                              d:
+                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "chart-text" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_2 == null
+                              ? ""
+                              : se.position_2.first_word
+                          ) +
+                          "\n                            "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_2 == null
+                              ? ""
+                              : se.position_2.second_word
+                          ) +
+                          "\n                        "
+                      )
+                    ])
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-4 p-0" }, [
+              _c("div", { staticClass: "row justify-content-center" }, [
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: se.position_3 != null,
+                        expression: "se.position_3 != null"
+                      }
+                    ],
+                    staticClass: "col-4 p-0"
+                  },
+                  [
+                    _c("div", [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "icon-img",
+                          attrs: { viewBox: "0 0 24 24" }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "currentColor",
+                              d:
+                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "chart-text" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_3 == null
+                              ? ""
+                              : se.position_3.first_word
+                          ) +
+                          "\n                            "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_3 == null
+                              ? ""
+                              : se.position_3.second_word
+                          ) +
+                          "\n                        "
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: se.position_4 != null,
+                        expression: "se.position_4 != null"
+                      }
+                    ],
+                    staticClass: "col-4 p-0"
+                  },
+                  [
+                    _c("div", [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "icon-img",
+                          attrs: { viewBox: "0 0 24 24" }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "currentColor",
+                              d:
+                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "chart-text" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_4 == null
+                              ? ""
+                              : se.position_4.first_word
+                          ) +
+                          "\n                            "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_4 == null
+                              ? ""
+                              : se.position_4.second_word
+                          ) +
+                          "\n                        "
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: se.position_5 != null,
+                        expression: "se.position_5 != null"
+                      }
+                    ],
+                    staticClass: "col-4 p-0"
+                  },
+                  [
+                    _c("div", [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "icon-img",
+                          attrs: { viewBox: "0 0 24 24" }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "currentColor",
+                              d:
+                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "chart-text" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_5 == null
+                              ? ""
+                              : se.position_5.first_word
+                          ) +
+                          "\n                            "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_5 == null
+                              ? ""
+                              : se.position_5.second_word
+                          ) +
+                          "\n                        "
+                      )
+                    ])
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-4 p-0" }, [
+              _c("div", { staticClass: "row justify-content-center" }, [
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: se.position_6 != null,
+                        expression: "se.position_6 != null"
+                      }
+                    ],
+                    staticClass: "col-5 p-0"
+                  },
+                  [
+                    _c("div", [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "icon-img",
+                          attrs: { viewBox: "0 0 24 24" }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "currentColor",
+                              d:
+                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "chart-text" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_6 == null
+                              ? ""
+                              : se.position_6.first_word
+                          ) +
+                          "\n                            "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_6 == null
+                              ? ""
+                              : se.position_6.second_word
+                          ) +
+                          "\n                        "
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: se.position_7 != null,
+                        expression: "se.position_7 != null"
+                      }
+                    ],
+                    staticClass: "col-5 p-0"
+                  },
+                  [
+                    _c("div", [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "icon-img",
+                          attrs: { viewBox: "0 0 24 24" }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "currentColor",
+                              d:
+                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "chart-text" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_7 == null
+                              ? ""
+                              : se.position_7.first_word
+                          ) +
+                          "\n                            "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(
+                            se.position_7 == null
+                              ? ""
+                              : se.position_7.second_word
+                          ) +
+                          "\n                        "
+                      )
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row m-0 part-chart-t-b" }, [
+            _c("div", { staticClass: "col-4 p-0 position-relative" }, [
+              _c("div", {}, [
+                _c("img", {
+                  staticClass: "icon-img",
+                  attrs: { src: "/img/" + se.stem_bottom.photo, alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  class: _vm.deitie_red.includes(se.stem_bottom.id)
+                    ? "text-danger chart-text"
+                    : "chart-text"
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(se.stem_bottom.value) +
+                      "\n                "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: se.stem_3 == 1,
+                      expression: "se.stem_3 == 1"
+                    }
+                  ],
+                  staticClass:
+                    "position-absolute text-center center-chart-bottom"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "chart-text",
+                      staticStyle: { "line-height": "5px" }
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "img-center",
+                          attrs: { viewBox: "0 0 24 24" }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "currentColor",
+                              d:
+                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.center) +
+                          "\n                    "
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-4 p-0 position-relative" }, [
+              _c("div", {}, [
+                _c("img", {
+                  staticClass: "icon-img",
+                  attrs: { src: "/img/" + se.door.photo, alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  class: _vm.door_red.includes(se.door.id)
+                    ? "text-danger chart-text"
+                    : "chart-text"
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(se.door.chinese) +
+                      "\n                    "
+                  ),
+                  _c("br"),
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(se.door.name) +
+                      "\n                "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: se.stem_4 == 1,
+                      expression: "se.stem_4 == 1"
+                    }
+                  ],
+                  staticClass: "position-absolute text-center",
+                  staticStyle: {
+                    height: "30px",
+                    width: "30px",
+                    "z-index": "1",
+                    top: "0",
+                    right: "0",
+                    "margin-right": "-15px",
+                    "margin-top": "-15px"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "chart-text",
+                      staticStyle: { "line-height": "5px" }
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "img-center",
+                          attrs: { viewBox: "0 0 24 24" }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "currentColor",
+                              d:
+                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.center) +
+                          "\n                    "
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-4 p-0 h1 font-weight-bold" }, [
+              _vm._v(
+                "\n                " + _vm._s(se.number) + "\n            "
+              )
+            ])
+          ])
+        ])
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/landing-page/PartsLandingPage.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/landing-page/PartsLandingPage.vue ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PartsLandingPage_vue_vue_type_template_id_4a70b875___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PartsLandingPage.vue?vue&type=template&id=4a70b875& */ "./resources/js/components/landing-page/PartsLandingPage.vue?vue&type=template&id=4a70b875&");
+/* harmony import */ var _PartsLandingPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PartsLandingPage.vue?vue&type=script&lang=js& */ "./resources/js/components/landing-page/PartsLandingPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PartsLandingPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PartsLandingPage_vue_vue_type_template_id_4a70b875___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PartsLandingPage_vue_vue_type_template_id_4a70b875___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/landing-page/PartsLandingPage.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/landing-page/PartsLandingPage.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/landing-page/PartsLandingPage.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PartsLandingPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./PartsLandingPage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/landing-page/PartsLandingPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PartsLandingPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/landing-page/PartsLandingPage.vue?vue&type=template&id=4a70b875&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/landing-page/PartsLandingPage.vue?vue&type=template&id=4a70b875& ***!
+  \**************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PartsLandingPage_vue_vue_type_template_id_4a70b875___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./PartsLandingPage.vue?vue&type=template&id=4a70b875& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/landing-page/PartsLandingPage.vue?vue&type=template&id=4a70b875&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PartsLandingPage_vue_vue_type_template_id_4a70b875___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PartsLandingPage_vue_vue_type_template_id_4a70b875___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

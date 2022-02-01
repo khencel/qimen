@@ -33,11 +33,11 @@ window.forecastToken = "6NWx5scrKv2jFdW5hLWBbyRkZzDlboEwBLbX5zgrzyO6GLBA6Sl9BpSe
 
 
 //best ever local
-window.bestever = "http://127.0.0.1:8000/";
+window.besteverLive = "http://127.0.0.1:8000/";
 // window.besteverToken = "6NWx5scrKv2jFdW5hLWBbyRkZzDlboEwBLbX5zgrzyO6GLBA6Sl9BpSepONq";
 
 //best ever live
-window.besteverLive = "https://bestyearever2022.jennelcheng.com";
+// window.besteverLive = "https://bestyearever2022.jennelcheng.com";
 
 window.Vue = require('vue');
 window.Form = Form;

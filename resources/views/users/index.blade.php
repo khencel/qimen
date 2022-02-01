@@ -30,5 +30,12 @@
         </div>
     @endif
     
+
+    @if ($t == "bestever")
+        <div class="ml-2 mr-2 top-border">
+            <user-list type="{{$t}}"></user-list>
+        </div>
+    @endif
+
 </div>
 @endsection

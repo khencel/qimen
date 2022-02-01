@@ -86,7 +86,7 @@ class SampleController extends Controller
         }
         //gui
         if($num == 9){
-            $format = array(10,1,1);
+            $format = array(10,3,5);
         }
         
         return $format;

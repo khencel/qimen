@@ -375,6 +375,15 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{url('user/list?t=bestever')}}" class="nav-link {{request()->is('user/list')?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Best Ever
+              </p>
+            </a>
+          </li>
         </ul>
       </li>
 
