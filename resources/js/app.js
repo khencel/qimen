@@ -28,12 +28,12 @@ window.yijing = "https://yijing.jennelcheng.com/";
 window.yijingToken = "3ShmbY9MB2FjyJ94zUzTeUTTbgJAn9JTurTjyVV7SHS1o8lpa5J3LnCeFMcW";
 
 //forecasting local
-window.forecast = "https://forecast.jennelcheng.com";
+// window.forecast = "https://forecast.jennelcheng.com";
 window.forecastToken = "6NWx5scrKv2jFdW5hLWBbyRkZzDlboEwBLbX5zgrzyO6GLBA6Sl9BpSepONq";
 
 
 //best ever local
-window.besteverLive = "http://127.0.0.1:8000/";
+window.besteverLive = "http://127.0.0.1:8000";
 // window.besteverToken = "6NWx5scrKv2jFdW5hLWBbyRkZzDlboEwBLbX5zgrzyO6GLBA6Sl9BpSepONq";
 
 //best ever live

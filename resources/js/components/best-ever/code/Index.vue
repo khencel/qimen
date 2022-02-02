@@ -70,7 +70,9 @@
                 codes:{},
                 is_active:'',
                 form:new Form({
-                    currentDate:new Date().getFullYear()+'-'+new Date().getMonth()+1+'-'+new Date().getDate(),
+                    year: new Date().getFullYear(),
+                    month: new Date().getMonth()+1,
+                    day: new Date().getDate(),
                     time: new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds(),
                     exp_date:''
                 }),
@@ -94,6 +96,7 @@
             storeCode(){
                 this.form.post(window.besteverLive+'/api/generate-code/store')
                 .then(res => {
+                    console.log(res.data);
                     if(res.data == "Invalid Expiration Date"){
                         alert(res.data);
                     }else{
