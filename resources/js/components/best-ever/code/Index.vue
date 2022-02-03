@@ -113,6 +113,7 @@
                 this.is_active = res.data;
             },
             createCode(){
+                this.form.id = '';
                 this.form.code = '';
                 this.form.description = '';
                 this.form.exp_date = '';
