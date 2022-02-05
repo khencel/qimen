@@ -407,6 +407,19 @@ Route::group(['middleware' => ['auth']],function(){
                 return view('best_year_ever.code.index');
             });
         }); 
+
+        
+        Route::prefix('notification')->group(function(){
+            Route::get('index',function(){
+                return view('best_year_ever.notification.index');
+            });
+            Route::get('show',function(){
+                return view('best_year_ever.notification.show',[
+                    'id'    =>  request('id'),
+                    'name'  =>  request('name')
+                ]);
+            });
+        }); 
     });
 
     Route::get('generate','HourChartController@generateChart');

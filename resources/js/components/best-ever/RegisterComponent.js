@@ -43,3 +43,12 @@ Vue.component(
     'code-index',
     ()=>import('../best-ever/code/Index.vue')
 );
+
+Vue.component(
+    'notification-index',
+    ()=>import('../best-ever/notification/Index.vue')
+);
+Vue.component(
+    'notification-show',
+    ()=>import('../best-ever/notification/Show.vue')
+);
