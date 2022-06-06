@@ -408,6 +408,11 @@ Route::group(['middleware' => ['auth']],function(){
             });
         }); 
 
+        Route::prefix('user')->group(function(){
+            Route::get('index',function(){
+                return view('best_year_ever.user-management.index');
+            });
+        });
         
         Route::prefix('notification')->group(function(){
             Route::get('index',function(){

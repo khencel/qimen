@@ -1,1 +1,4347 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[39],{1:function(t,e,r){t.exports=r(59)},160:function(t,e,r){"use strict";r.r(e);var n=r(1),o=r.n(n),i=r(5),a=r.n(i);function s(t,e,r,n,o,i,a){try{var s=t[i](a),c=s.value}catch(t){return void r(t)}s.done?e(c):Promise.resolve(c).then(n,o)}var c={props:["id"],data:function(){return{users:{}}},methods:{show:function(){var t,e=this;return(t=o.a.mark((function t(){var r;return o.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return t.next=2,axios.get(window.besteverLive+"/api/contact/show/"+e.id);case 2:r=t.sent,e.users=r.data;case 4:case"end":return t.stop()}}),t)})),function(){var e=this,r=arguments;return new Promise((function(n,o){var i=t.apply(e,r);function a(t){s(i,n,o,a,c,"next",t)}function c(t){s(i,n,o,a,c,"throw",t)}a(void 0)}))})()},deletenotif:function(){var t=this;a.a.fire({icon:"question",title:"Oops...",text:"Are you sure? You want to delete this message?",showCancelButton:!0}).then((function(e){if(e.isConfirmed){axios.get(window.besteverLive+"/api/contact/delete/"+t.id);window.location="/best-year/notification/index"}}))}},mounted:function(){this.show()}},u=r(0),l=Object(u.a)(c,(function(){var t=this,e=t.$createElement,r=t._self._c||e;return r("div",[r("div",{staticClass:"row"},[r("div",{staticClass:"col-md-5"},[r("div",{staticClass:"mt-5"},[r("table",[r("tr",[t._m(0),r("td",{staticClass:"text-capitalize"},[t._v(t._s(t.users.name))])]),t._v(" "),r("tr",[t._m(1),r("td",[t._v(t._s(t.users.email))])]),t._v(" "),r("tr",[t._m(2),r("td",[t._v(t._s(null!=t.users.mobile?t.users.mobile:"none"))])]),t._v(" "),r("tr",[t._m(3),r("td",[t._v(t._s(t.users.country))])])])]),t._v(" "),r("div",{staticClass:"mt-3"},[t._m(4),t._v(" "),r("p",[t._v(t._s(t.users.message))])])])]),t._v(" "),r("div",{staticClass:"row"},[r("div",{staticClass:"col-md-5"},[r("div",{staticClass:"row"},[t._m(5),t._v(" "),r("div",{staticClass:"col-md-6"},[r("button",{staticClass:"btn btn-danger w-100",on:{click:t.deletenotif}},[t._v("Delete")])])])])])])}),[function(){var t=this.$createElement,e=this._self._c||t;return e("td",[e("strong",[this._v("Name:")])])},function(){var t=this.$createElement,e=this._self._c||t;return e("td",[e("strong",[this._v("Email:")])])},function(){var t=this.$createElement,e=this._self._c||t;return e("td",[e("strong",[this._v("Contact No.:")])])},function(){var t=this.$createElement,e=this._self._c||t;return e("td",[e("strong",[this._v("Country:")])])},function(){var t=this.$createElement,e=this._self._c||t;return e("strong",[e("label",{attrs:{for:""}},[this._v("Message:")])])},function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"col-md-6"},[e("a",{staticClass:"btn btn-primary w-100",attrs:{href:"/best-year/notification/index"}},[this._v("Back To Inbox")])])}],!1,null,null,null);e.default=l.exports},59:function(t,e,r){var n=function(t){"use strict";var e=Object.prototype,r=e.hasOwnProperty,n="function"==typeof Symbol?Symbol:{},o=n.iterator||"@@iterator",i=n.asyncIterator||"@@asyncIterator",a=n.toStringTag||"@@toStringTag";function s(t,e,r){return Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}),t[e]}try{s({},"")}catch(t){s=function(t,e,r){return t[e]=r}}function c(t,e,r,n){var o=e&&e.prototype instanceof h?e:h,i=Object.create(o.prototype),a=new E(n||[]);return i._invoke=function(t,e,r){var n="suspendedStart";return function(o,i){if("executing"===n)throw new Error("Generator is already running");if("completed"===n){if("throw"===o)throw i;return C()}for(r.method=o,r.arg=i;;){var a=r.delegate;if(a){var s=_(a,r);if(s){if(s===l)continue;return s}}if("next"===r.method)r.sent=r._sent=r.arg;else if("throw"===r.method){if("suspendedStart"===n)throw n="completed",r.arg;r.dispatchException(r.arg)}else"return"===r.method&&r.abrupt("return",r.arg);n="executing";var c=u(t,e,r);if("normal"===c.type){if(n=r.done?"completed":"suspendedYield",c.arg===l)continue;return{value:c.arg,done:r.done}}"throw"===c.type&&(n="completed",r.method="throw",r.arg=c.arg)}}}(t,r,a),i}function u(t,e,r){try{return{type:"normal",arg:t.call(e,r)}}catch(t){return{type:"throw",arg:t}}}t.wrap=c;var l={};function h(){}function f(){}function v(){}var d={};d[o]=function(){return this};var p=Object.getPrototypeOf,y=p&&p(p(L([])));y&&y!==e&&r.call(y,o)&&(d=y);var m=v.prototype=h.prototype=Object.create(d);function g(t){["next","throw","return"].forEach((function(e){s(t,e,(function(t){return this._invoke(e,t)}))}))}function w(t,e){var n;this._invoke=function(o,i){function a(){return new e((function(n,a){!function n(o,i,a,s){var c=u(t[o],t,i);if("throw"!==c.type){var l=c.arg,h=l.value;return h&&"object"==typeof h&&r.call(h,"__await")?e.resolve(h.__await).then((function(t){n("next",t,a,s)}),(function(t){n("throw",t,a,s)})):e.resolve(h).then((function(t){l.value=t,a(l)}),(function(t){return n("throw",t,a,s)}))}s(c.arg)}(o,i,n,a)}))}return n=n?n.then(a,a):a()}}function _(t,e){var r=t.iterator[e.method];if(void 0===r){if(e.delegate=null,"throw"===e.method){if(t.iterator.return&&(e.method="return",e.arg=void 0,_(t,e),"throw"===e.method))return l;e.method="throw",e.arg=new TypeError("The iterator does not provide a 'throw' method")}return l}var n=u(r,t.iterator,e.arg);if("throw"===n.type)return e.method="throw",e.arg=n.arg,e.delegate=null,l;var o=n.arg;return o?o.done?(e[t.resultName]=o.value,e.next=t.nextLoc,"return"!==e.method&&(e.method="next",e.arg=void 0),e.delegate=null,l):o:(e.method="throw",e.arg=new TypeError("iterator result is not an object"),e.delegate=null,l)}function x(t){var e={tryLoc:t[0]};1 in t&&(e.catchLoc=t[1]),2 in t&&(e.finallyLoc=t[2],e.afterLoc=t[3]),this.tryEntries.push(e)}function b(t){var e=t.completion||{};e.type="normal",delete e.arg,t.completion=e}function E(t){this.tryEntries=[{tryLoc:"root"}],t.forEach(x,this),this.reset(!0)}function L(t){if(t){var e=t[o];if(e)return e.call(t);if("function"==typeof t.next)return t;if(!isNaN(t.length)){var n=-1,i=function e(){for(;++n<t.length;)if(r.call(t,n))return e.value=t[n],e.done=!1,e;return e.value=void 0,e.done=!0,e};return i.next=i}}return{next:C}}function C(){return{value:void 0,done:!0}}return f.prototype=m.constructor=v,v.constructor=f,f.displayName=s(v,a,"GeneratorFunction"),t.isGeneratorFunction=function(t){var e="function"==typeof t&&t.constructor;return!!e&&(e===f||"GeneratorFunction"===(e.displayName||e.name))},t.mark=function(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,v):(t.__proto__=v,s(t,a,"GeneratorFunction")),t.prototype=Object.create(m),t},t.awrap=function(t){return{__await:t}},g(w.prototype),w.prototype[i]=function(){return this},t.AsyncIterator=w,t.async=function(e,r,n,o,i){void 0===i&&(i=Promise);var a=new w(c(e,r,n,o),i);return t.isGeneratorFunction(r)?a:a.next().then((function(t){return t.done?t.value:a.next()}))},g(m),s(m,a,"Generator"),m[o]=function(){return this},m.toString=function(){return"[object Generator]"},t.keys=function(t){var e=[];for(var r in t)e.push(r);return e.reverse(),function r(){for(;e.length;){var n=e.pop();if(n in t)return r.value=n,r.done=!1,r}return r.done=!0,r}},t.values=L,E.prototype={constructor:E,reset:function(t){if(this.prev=0,this.next=0,this.sent=this._sent=void 0,this.done=!1,this.delegate=null,this.method="next",this.arg=void 0,this.tryEntries.forEach(b),!t)for(var e in this)"t"===e.charAt(0)&&r.call(this,e)&&!isNaN(+e.slice(1))&&(this[e]=void 0)},stop:function(){this.done=!0;var t=this.tryEntries[0].completion;if("throw"===t.type)throw t.arg;return this.rval},dispatchException:function(t){if(this.done)throw t;var e=this;function n(r,n){return a.type="throw",a.arg=t,e.next=r,n&&(e.method="next",e.arg=void 0),!!n}for(var o=this.tryEntries.length-1;o>=0;--o){var i=this.tryEntries[o],a=i.completion;if("root"===i.tryLoc)return n("end");if(i.tryLoc<=this.prev){var s=r.call(i,"catchLoc"),c=r.call(i,"finallyLoc");if(s&&c){if(this.prev<i.catchLoc)return n(i.catchLoc,!0);if(this.prev<i.finallyLoc)return n(i.finallyLoc)}else if(s){if(this.prev<i.catchLoc)return n(i.catchLoc,!0)}else{if(!c)throw new Error("try statement without catch or finally");if(this.prev<i.finallyLoc)return n(i.finallyLoc)}}}},abrupt:function(t,e){for(var n=this.tryEntries.length-1;n>=0;--n){var o=this.tryEntries[n];if(o.tryLoc<=this.prev&&r.call(o,"finallyLoc")&&this.prev<o.finallyLoc){var i=o;break}}i&&("break"===t||"continue"===t)&&i.tryLoc<=e&&e<=i.finallyLoc&&(i=null);var a=i?i.completion:{};return a.type=t,a.arg=e,i?(this.method="next",this.next=i.finallyLoc,l):this.complete(a)},complete:function(t,e){if("throw"===t.type)throw t.arg;return"break"===t.type||"continue"===t.type?this.next=t.arg:"return"===t.type?(this.rval=this.arg=t.arg,this.method="return",this.next="end"):"normal"===t.type&&e&&(this.next=e),l},finish:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.finallyLoc===t)return this.complete(r.completion,r.afterLoc),b(r),l}},catch:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.tryLoc===t){var n=r.completion;if("throw"===n.type){var o=n.arg;b(r)}return o}}throw new Error("illegal catch attempt")},delegateYield:function(t,e,r){return this.delegate={iterator:L(t),resultName:e,nextLoc:r},"next"===this.method&&(this.arg=void 0),l}},t}(t.exports);try{regeneratorRuntime=n}catch(t){Function("r","regeneratorRuntime = r")(n)}}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[39],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartE.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartE.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['chart_id', 'type'],
+  data: function data() {
+    return {
+      part: 'e',
+      erros: {},
+      stems: {},
+      stars: {},
+      deities: {},
+      doors: {},
+      positions: {},
+      center: '',
+      outsidePositions: [{
+        value: 'DE'
+      }, {
+        value: 'HS'
+      }],
+      numbers: {},
+      se: new Form({
+        chart_type: this.type,
+        stem_top: {
+          id: '',
+          name: ''
+        },
+        star: {
+          id: '',
+          name: '',
+          chinese: ''
+        },
+        deitie: {
+          id: '',
+          name: '',
+          chinese: ''
+        },
+        stem_bottom: {
+          id: '',
+          name: ''
+        },
+        door: {
+          id: '',
+          name: '',
+          chinese: ''
+        },
+        number: '',
+        stem_1: false,
+        stem_2: false,
+        stem_3: false,
+        stem_4: false,
+        position_1: {
+          id: 0,
+          fword: '',
+          lword: ''
+        },
+        position_2: {
+          id: 0,
+          fword: '',
+          lword: ''
+        },
+        position_3: {
+          id: 0,
+          fword: '',
+          lword: ''
+        },
+        position_4: {
+          id: 0,
+          fword: '',
+          lword: ''
+        },
+        position_5: {
+          id: 0,
+          fword: '',
+          lword: ''
+        },
+        position_6: {
+          id: 0,
+          fword: '',
+          lword: ''
+        },
+        position_7: {
+          id: null,
+          fword: '',
+          lword: ''
+        },
+        eLeft: [],
+        bird_2: false
+      })
+    };
+  },
+  mounted: function mounted() {
+    this.loadContent();
+    this.chartDetails();
+    this.fetchChartStem();
+    this.fetchChartPosition();
+  },
+  methods: {
+    loadContent: function loadContent() {
+      var _this = this;
+
+      axios.get('/api/content/' + this.chart_id + '/' + this.type + '/' + this.part).then(function (response) {
+        _this.stems = response.data.stem;
+        _this.stars = response.data.star;
+        _this.deities = response.data.deitie;
+        _this.doors = response.data.door;
+        _this.positions = response.data.position;
+        _this.numbers = response.data.number;
+      });
+    },
+    chartUpdate: function chartUpdate() {
+      var _this2 = this;
+
+      this.se.put('/api/east/' + this.chart_id).then(function (response) {
+        _this2.$notify({
+          group: 'notification',
+          type: 'success',
+          title: 'Update Chart',
+          text: 'Chart has been updated'
+        });
+
+        _this2.chartDetails();
+      })["catch"](function (error) {
+        _this2.errors = error.response.data.errors;
+      });
+    },
+    chartDetails: function chartDetails() {
+      var _this3 = this;
+
+      this.se.get('/api/east/' + this.chart_id + '/' + this.type).then(function (response) {
+        _this3.center = response.data.center.stem.value;
+        _this3.se.stem_top = {
+          id: response.data.se.stem_top.id,
+          name: response.data.se.stem_top.value
+        };
+        _this3.se.star = {
+          id: response.data.se.star.id,
+          name: response.data.se.star.name,
+          chinese: response.data.se.star.chinese
+        };
+        _this3.se.deitie = {
+          id: response.data.se.deitie.id,
+          name: response.data.se.deitie.value,
+          chinese: response.data.se.deitie.chinese
+        };
+        _this3.se.stem_bottom = {
+          id: response.data.se.stem_bottom.id,
+          name: response.data.se.stem_bottom.value
+        };
+        _this3.se.door = {
+          id: response.data.se.door.id,
+          name: response.data.se.door.name,
+          chinese: response.data.se.door.chinese
+        };
+        _this3.se.number = response.data.se.number;
+        response.data.se.eLeft.split(",").forEach(function (element) {
+          _this3.se.eLeft.push(element);
+        });
+      })["catch"](function (error) {});
+    },
+    fetchChartStem: function fetchChartStem() {
+      var _this4 = this;
+
+      this.se.get('/api/east/' + this.chart_id + '/' + this.type).then(function (response) {
+        _this4.se.stem_1 = response.data.stem.stem_1;
+        _this4.se.stem_2 = response.data.stem.stem_2;
+        _this4.se.stem_3 = response.data.stem.stem_3;
+        _this4.se.stem_4 = response.data.stem.stem_4;
+      })["catch"](function (error) {});
+    },
+    fetchChartPosition: function fetchChartPosition() {
+      var _this5 = this;
+
+      this.se.get('/api/east/' + this.chart_id + '/' + this.type).then(function (response) {
+        _this5.se.position_1 = response.data.position.position_1 == null ? _this5.se.position_1 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_1.id,
+          fword: response.data.position.position_1.first_word,
+          lword: response.data.position.position_1.second_word
+        };
+        _this5.se.position_2 = response.data.position.position_2 == null ? _this5.se.position_2 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_2.id,
+          fword: response.data.position.position_2.first_word,
+          lword: response.data.position.position_2.second_word
+        };
+        _this5.se.position_3 = response.data.position.position_3 == null ? _this5.se.position_3 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_3.id,
+          fword: response.data.position.position_3.first_word,
+          lword: response.data.position.position_3.second_word
+        };
+        _this5.se.position_4 = response.data.position.position_4 == null ? _this5.se.position_4 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_4.id,
+          fword: response.data.position.position_4.first_word,
+          lword: response.data.position.position_4.second_word
+        };
+        _this5.se.position_5 = response.data.position.position_5 == null ? _this5.se.position_5 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_5.id,
+          fword: response.data.position.position_5.first_word,
+          lword: response.data.position.position_5.second_word
+        };
+        _this5.se.position_6 = response.data.position.position_6 == null ? _this5.se.position_6 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_6.id,
+          fword: response.data.position.position_6.first_word,
+          lword: response.data.position.position_6.second_word
+        };
+        _this5.se.position_7 = response.data.position.position_7 == null ? _this5.se.position_7 = {
+          id: null,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_7.id,
+          fword: response.data.position.position_7.first_word,
+          lword: response.data.position.position_7.second_word
+        };
+      })["catch"](function (error) {});
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartE.vue?vue&type=template&id=5194713a&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartE.vue?vue&type=template&id=5194713a& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("notifications", {
+        attrs: { group: "notification", position: "bottom right" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row mt-2" }, [
+        _c("div", { staticClass: "col-md-5" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "row justify-content-end text-center bg-black position-relative"
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "position-absolute",
+                  staticStyle: {
+                    height: "100px",
+                    "z-index": "1",
+                    top: "60%",
+                    left: "0",
+                    "margin-top": "-50px"
+                  }
+                },
+                _vm._l(_vm.outsidePositions, function(item, index) {
+                  return _c(
+                    "div",
+                    { key: index, staticClass: "h-50 pt-2" },
+                    [
+                      _c("b-badge", {
+                        staticClass: "p-2",
+                        attrs: { variant: "success" },
+                        domProps: { textContent: _vm._s(item.value) }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.se.eLeft,
+                            expression: "se.eLeft"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          value: item.value,
+                          checked: Array.isArray(_vm.se.eLeft)
+                            ? _vm._i(_vm.se.eLeft, item.value) > -1
+                            : _vm.se.eLeft
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.se.eLeft,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = item.value,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  _vm.$set(_vm.se, "eLeft", $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  _vm.$set(
+                                    _vm.se,
+                                    "eLeft",
+                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                  )
+                              }
+                            } else {
+                              _vm.$set(_vm.se, "eLeft", $$c)
+                            }
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "col-md-11",
+                  staticStyle: {
+                    border: "5px solid",
+                    "border-color": "#D68FC6"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "row", staticStyle: { height: "150px" } },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col-md-4 bg-white position-relative" },
+                        [
+                          _c("div", [
+                            _c(
+                              "svg",
+                              {
+                                staticStyle: { width: "50px", height: "50px" },
+                                attrs: { viewBox: "0 0 24 24" }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    fill: "currentColor",
+                                    d:
+                                      "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.se.stem_top,
+                                    expression: "se.stem_top"
+                                  }
+                                ],
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.se,
+                                      "stem_top",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  {
+                                    attrs: { disabled: "", hidden: "" },
+                                    domProps: { value: { id: "", name: "" } }
+                                  },
+                                  [_vm._v("Select Stem")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.stems, function(stem) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: stem.id,
+                                      domProps: {
+                                        value: { id: stem.id, name: stem.value }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        " +
+                                          _vm._s(stem.value) +
+                                          "\n                                    "
+                                      )
+                                    ]
+                                  )
+                                })
+                              ],
+                              2
+                            ),
+                            _vm._v(" "),
+                            _c("br")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "position-absolute bg-white",
+                              staticStyle: {
+                                height: "100px",
+                                width: "100px",
+                                bottom: "0",
+                                right: "0",
+                                "margin-right": "-50px",
+                                "margin-bottom": "-30px",
+                                "z-index": "1"
+                              }
+                            },
+                            [
+                              _c("div", [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "30px",
+                                      height: "30px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("small", [
+                                  _vm._v(
+                                    "\n                                        " +
+                                      _vm._s(_vm.center) +
+                                      "\n                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.se.stem_1,
+                                      expression: "se.stem_1"
+                                    }
+                                  ],
+                                  attrs: { type: "checkbox" },
+                                  domProps: {
+                                    checked: Array.isArray(_vm.se.stem_1)
+                                      ? _vm._i(_vm.se.stem_1, null) > -1
+                                      : _vm.se.stem_1
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = _vm.se.stem_1,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = null,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            _vm.$set(
+                                              _vm.se,
+                                              "stem_1",
+                                              $$a.concat([$$v])
+                                            )
+                                        } else {
+                                          $$i > -1 &&
+                                            _vm.$set(
+                                              _vm.se,
+                                              "stem_1",
+                                              $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1))
+                                            )
+                                        }
+                                      } else {
+                                        _vm.$set(_vm.se, "stem_1", $$c)
+                                      }
+                                    }
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-md-4 bg-white position-relative" },
+                        [
+                          _c("div", [
+                            _c(
+                              "svg",
+                              {
+                                staticStyle: { width: "50px", height: "50px" },
+                                attrs: { viewBox: "0 0 24 24" }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    fill: "currentColor",
+                                    d:
+                                      "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.se.star,
+                                    expression: "se.star"
+                                  }
+                                ],
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.se,
+                                      "star",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  {
+                                    attrs: { disabled: "", hidden: "" },
+                                    domProps: {
+                                      value: { id: "", name: "", chinese: "" }
+                                    }
+                                  },
+                                  [_vm._v("Select Star")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.stars, function(star) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: star.id,
+                                      domProps: {
+                                        value: {
+                                          id: star.id,
+                                          name: star.name,
+                                          chinese: star.chinese
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        " +
+                                          _vm._s(star.name) +
+                                          "\n                                    "
+                                      )
+                                    ]
+                                  )
+                                })
+                              ],
+                              2
+                            ),
+                            _vm._v(" "),
+                            _c("br")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "position-absolute bg-white",
+                              staticStyle: {
+                                height: "100px",
+                                width: "50px",
+                                top: "0",
+                                right: "0",
+                                "margin-right": "-25px",
+                                "z-index": "1"
+                              }
+                            },
+                            [
+                              _c("div", [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "30px",
+                                      height: "30px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("small", [
+                                  _vm._v(
+                                    "\n                                        Qin\n                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("small", [
+                                  _vm._v(
+                                    "\n                                        Bird\n                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.se.bird_2,
+                                      expression: "se.bird_2"
+                                    }
+                                  ],
+                                  attrs: { type: "checkbox" },
+                                  domProps: {
+                                    checked: Array.isArray(_vm.se.bird_2)
+                                      ? _vm._i(_vm.se.bird_2, null) > -1
+                                      : _vm.se.bird_2
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = _vm.se.bird_2,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = null,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            _vm.$set(
+                                              _vm.se,
+                                              "bird_2",
+                                              $$a.concat([$$v])
+                                            )
+                                        } else {
+                                          $$i > -1 &&
+                                            _vm.$set(
+                                              _vm.se,
+                                              "bird_2",
+                                              $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1))
+                                            )
+                                        }
+                                      } else {
+                                        _vm.$set(_vm.se, "bird_2", $$c)
+                                      }
+                                    }
+                                  }
+                                })
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "position-absolute bg-white",
+                              staticStyle: {
+                                height: "100px",
+                                width: "100px",
+                                bottom: "0",
+                                right: "0",
+                                "margin-right": "-50px",
+                                "margin-bottom": "-30px",
+                                "z-index": "1"
+                              }
+                            },
+                            [
+                              _c("div", [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "30px",
+                                      height: "30px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("small", [
+                                  _vm._v(
+                                    "\n                                        " +
+                                      _vm._s(_vm.center) +
+                                      "\n                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.se.stem_2,
+                                      expression: "se.stem_2"
+                                    }
+                                  ],
+                                  attrs: { type: "checkbox" },
+                                  domProps: {
+                                    checked: Array.isArray(_vm.se.stem_2)
+                                      ? _vm._i(_vm.se.stem_2, null) > -1
+                                      : _vm.se.stem_2
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = _vm.se.stem_2,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = null,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            _vm.$set(
+                                              _vm.se,
+                                              "stem_2",
+                                              $$a.concat([$$v])
+                                            )
+                                        } else {
+                                          $$i > -1 &&
+                                            _vm.$set(
+                                              _vm.se,
+                                              "stem_2",
+                                              $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1))
+                                            )
+                                        }
+                                      } else {
+                                        _vm.$set(_vm.se, "stem_2", $$c)
+                                      }
+                                    }
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-4 bg-white" }, [
+                        _c("div", [
+                          _c(
+                            "svg",
+                            {
+                              staticStyle: { width: "50px", height: "50px" },
+                              attrs: { viewBox: "0 0 24 24" }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  fill: "currentColor",
+                                  d:
+                                    "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.se.deitie,
+                                  expression: "se.deitie"
+                                }
+                              ],
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.se,
+                                    "deitie",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "option",
+                                {
+                                  attrs: { disabled: "", hidden: "" },
+                                  domProps: {
+                                    value: { id: "", name: "", chinese: "" }
+                                  }
+                                },
+                                [_vm._v("Select Deitie")]
+                              ),
+                              _vm._v(" "),
+                              _vm._l(_vm.deities, function(deitie) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: deitie.id,
+                                    domProps: {
+                                      value: {
+                                        id: deitie.id,
+                                        name: deitie.value,
+                                        chinese: deitie.chinese
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                        " +
+                                        _vm._s(deitie.value) +
+                                        "\n                                    "
+                                    )
+                                  ]
+                                )
+                              })
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _c("br")
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "row bg-white",
+                      staticStyle: { height: "200px" }
+                    },
+                    [
+                      _c("div", { staticClass: "col-md-4" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "row justify-content-center",
+                            staticStyle: { height: "200px" }
+                          },
+                          [
+                            _c("div", { staticClass: "col-md-6 p-0" }, [
+                              _c("div", { staticClass: "mt-5" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "30px",
+                                      height: "30px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("small", [
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.se.position_1,
+                                          expression: "se.position_1"
+                                        }
+                                      ],
+                                      on: {
+                                        change: function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.$set(
+                                            _vm.se,
+                                            "position_1",
+                                            $event.target.multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        {
+                                          attrs: { disabled: "", hidden: "" },
+                                          domProps: {
+                                            value: {
+                                              id: 0,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("Position")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "option",
+                                        {
+                                          attrs: { selected: "" },
+                                          domProps: {
+                                            value: {
+                                              id: 0,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("None")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.positions, function(position) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: position.id,
+                                            domProps: {
+                                              value: {
+                                                id: position.id,
+                                                fword: position.first_word,
+                                                lword: position.second_word
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                        " +
+                                                _vm._s(position.first_word) +
+                                                " " +
+                                                _vm._s(position.second_word) +
+                                                " \n                                                "
+                                            )
+                                          ]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  )
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-6 p-0" }, [
+                              _c("div", { staticClass: "mt-5" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "30px",
+                                      height: "30px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("small", [
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.se.position_2,
+                                          expression: "se.position_2"
+                                        }
+                                      ],
+                                      on: {
+                                        change: function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.$set(
+                                            _vm.se,
+                                            "position_2",
+                                            $event.target.multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        {
+                                          attrs: { disabled: "", hidden: "" },
+                                          domProps: {
+                                            value: {
+                                              id: 0,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("Position")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "option",
+                                        {
+                                          domProps: {
+                                            value: {
+                                              id: 0,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("None")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.positions, function(position) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: position.id,
+                                            domProps: {
+                                              value: {
+                                                id: position.id,
+                                                fword: position.first_word,
+                                                lword: position.second_word
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                    " +
+                                                _vm._s(position.first_word) +
+                                                " " +
+                                                _vm._s(position.second_word) +
+                                                " \n                                                "
+                                            )
+                                          ]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  )
+                                ])
+                              ])
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-4" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "row",
+                            staticStyle: { height: "200px" }
+                          },
+                          [
+                            _c("div", { staticClass: "col-md-4 p-0" }, [
+                              _c("div", { staticClass: "mt-5" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "30px",
+                                      height: "30px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("small", [
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.se.position_3,
+                                          expression: "se.position_3"
+                                        }
+                                      ],
+                                      on: {
+                                        change: function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.$set(
+                                            _vm.se,
+                                            "position_3",
+                                            $event.target.multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        {
+                                          attrs: { disabled: "", hidden: "" },
+                                          domProps: {
+                                            value: {
+                                              id: 0,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("position")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "option",
+                                        {
+                                          domProps: {
+                                            value: {
+                                              id: 0,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("None")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.positions, function(position) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: position.id,
+                                            domProps: {
+                                              value: {
+                                                id: position.id,
+                                                fword: position.first_word,
+                                                lword: position.second_word
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                    " +
+                                                _vm._s(position.first_word) +
+                                                " " +
+                                                _vm._s(position.second_word) +
+                                                " \n                                                "
+                                            )
+                                          ]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  )
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4 p-0" }, [
+                              _c("div", { staticClass: "mt-5" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "30px",
+                                      height: "30px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("small", [
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.se.position_4,
+                                          expression: "se.position_4"
+                                        }
+                                      ],
+                                      on: {
+                                        change: function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.$set(
+                                            _vm.se,
+                                            "position_4",
+                                            $event.target.multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        {
+                                          attrs: { disabled: "", hidden: "" },
+                                          domProps: {
+                                            value: {
+                                              id: 0,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("position")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "option",
+                                        {
+                                          domProps: {
+                                            value: {
+                                              id: 0,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("None")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.positions, function(position) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: position.id,
+                                            domProps: {
+                                              value: {
+                                                id: position.id,
+                                                fword: position.first_word,
+                                                lword: position.second_word
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                    " +
+                                                _vm._s(position.first_word) +
+                                                " " +
+                                                _vm._s(position.second_word) +
+                                                " \n                                                "
+                                            )
+                                          ]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  )
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4 p-0" }, [
+                              _c("div", { staticClass: "mt-5" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "30px",
+                                      height: "30px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("small", [
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.se.position_5,
+                                          expression: "se.position_5"
+                                        }
+                                      ],
+                                      on: {
+                                        change: function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.$set(
+                                            _vm.se,
+                                            "position_5",
+                                            $event.target.multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        {
+                                          attrs: { disabled: "", hidden: "" },
+                                          domProps: {
+                                            value: {
+                                              id: 0,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("position")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "option",
+                                        {
+                                          domProps: {
+                                            value: {
+                                              id: 0,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("None")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.positions, function(position) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: position.id,
+                                            domProps: {
+                                              value: {
+                                                id: position.id,
+                                                fword: position.first_word,
+                                                lword: position.second_word
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                    " +
+                                                _vm._s(position.first_word) +
+                                                " " +
+                                                _vm._s(position.second_word) +
+                                                " \n                                                "
+                                            )
+                                          ]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  )
+                                ])
+                              ])
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-4" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "row justify-content-center",
+                            staticStyle: { height: "200px" }
+                          },
+                          [
+                            _c("div", { staticClass: "col-md-6 p-0" }, [
+                              _c("div", { staticClass: "mt-5" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "30px",
+                                      height: "30px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("small", [
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.se.position_6,
+                                          expression: "se.position_6"
+                                        }
+                                      ],
+                                      on: {
+                                        change: function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.$set(
+                                            _vm.se,
+                                            "position_6",
+                                            $event.target.multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        {
+                                          attrs: { disabled: "", hidden: "" },
+                                          domProps: {
+                                            value: {
+                                              id: 0,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("position")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "option",
+                                        {
+                                          domProps: {
+                                            value: {
+                                              id: 0,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("None")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.positions, function(position) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: position.id,
+                                            domProps: {
+                                              value: {
+                                                id: position.id,
+                                                fword: position.first_word,
+                                                lword: position.second_word
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                    " +
+                                                _vm._s(position.first_word) +
+                                                " " +
+                                                _vm._s(position.second_word) +
+                                                " \n                                                "
+                                            )
+                                          ]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  )
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-6 p-0" }, [
+                              _c("div", { staticClass: "mt-5" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "30px",
+                                      height: "30px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("small", [
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.se.position_7,
+                                          expression: "se.position_7"
+                                        }
+                                      ],
+                                      on: {
+                                        change: function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.$set(
+                                            _vm.se,
+                                            "position_7",
+                                            $event.target.multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        {
+                                          attrs: { disabled: "", hidden: "" },
+                                          domProps: {
+                                            value: {
+                                              id: null,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("position")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "option",
+                                        {
+                                          domProps: {
+                                            value: {
+                                              id: null,
+                                              fword: "",
+                                              lword: ""
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("None")]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(_vm.positions, function(position) {
+                                        return _c(
+                                          "option",
+                                          {
+                                            key: position.id,
+                                            domProps: {
+                                              value: {
+                                                id: position.id,
+                                                fword: position.first_word,
+                                                lword: position.second_word
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                    " +
+                                                _vm._s(position.first_word) +
+                                                " " +
+                                                _vm._s(position.second_word) +
+                                                " \n                                                "
+                                            )
+                                          ]
+                                        )
+                                      })
+                                    ],
+                                    2
+                                  )
+                                ])
+                              ])
+                            ])
+                          ]
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "row", staticStyle: { height: "150px" } },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col-md-4 bg-white position-relative" },
+                        [
+                          _c("div", [
+                            _c(
+                              "svg",
+                              {
+                                staticStyle: { width: "50px", height: "50px" },
+                                attrs: { viewBox: "0 0 24 24" }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    fill: "currentColor",
+                                    d:
+                                      "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.se.stem_bottom,
+                                    expression: "se.stem_bottom"
+                                  }
+                                ],
+                                attrs: { disabled: "" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.se,
+                                      "stem_bottom",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  {
+                                    attrs: { disabled: "", hidden: "" },
+                                    domProps: { value: { id: "", name: "" } }
+                                  },
+                                  [_vm._v("Select Stem")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.stems, function(stem) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: stem.id,
+                                      domProps: {
+                                        value: { id: stem.id, name: stem.value }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        " +
+                                          _vm._s(stem.value) +
+                                          "\n                                    "
+                                      )
+                                    ]
+                                  )
+                                })
+                              ],
+                              2
+                            ),
+                            _vm._v(" "),
+                            _c("br")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "position-absolute bg-white",
+                              staticStyle: {
+                                height: "100px",
+                                width: "100px",
+                                top: "0",
+                                right: "0",
+                                "margin-right": "-50px",
+                                "margin-top": "-50px",
+                                "z-index": "1"
+                              }
+                            },
+                            [
+                              _c("div", [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "30px",
+                                      height: "30px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("small", [
+                                  _vm._v(
+                                    "\n                                        " +
+                                      _vm._s(_vm.center) +
+                                      "\n                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.se.stem_3,
+                                      expression: "se.stem_3"
+                                    }
+                                  ],
+                                  attrs: { type: "checkbox" },
+                                  domProps: {
+                                    checked: Array.isArray(_vm.se.stem_3)
+                                      ? _vm._i(_vm.se.stem_3, null) > -1
+                                      : _vm.se.stem_3
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = _vm.se.stem_3,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = null,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            _vm.$set(
+                                              _vm.se,
+                                              "stem_3",
+                                              $$a.concat([$$v])
+                                            )
+                                        } else {
+                                          $$i > -1 &&
+                                            _vm.$set(
+                                              _vm.se,
+                                              "stem_3",
+                                              $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1))
+                                            )
+                                        }
+                                      } else {
+                                        _vm.$set(_vm.se, "stem_3", $$c)
+                                      }
+                                    }
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-md-4 bg-white position-relative" },
+                        [
+                          _c("div", [
+                            _c(
+                              "svg",
+                              {
+                                staticStyle: { width: "50px", height: "50px" },
+                                attrs: { viewBox: "0 0 24 24" }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    fill: "currentColor",
+                                    d:
+                                      "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.se.door,
+                                    expression: "se.door"
+                                  }
+                                ],
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.se,
+                                      "door",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  {
+                                    attrs: { disabled: "", hidden: "" },
+                                    domProps: {
+                                      value: { id: "", name: "", chinese: "" }
+                                    }
+                                  },
+                                  [_vm._v("Select Door")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.doors, function(door) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: door.id,
+                                      domProps: {
+                                        value: {
+                                          id: door.id,
+                                          name: door.name,
+                                          chinese: door.chinese
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        " +
+                                          _vm._s(door.name) +
+                                          "\n                                    "
+                                      )
+                                    ]
+                                  )
+                                })
+                              ],
+                              2
+                            ),
+                            _vm._v(" "),
+                            _c("br")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "position-absolute bg-white",
+                              staticStyle: {
+                                height: "100px",
+                                width: "100px",
+                                top: "0",
+                                right: "0",
+                                "margin-right": "-50px",
+                                "margin-top": "-50px",
+                                "z-index": "1"
+                              }
+                            },
+                            [
+                              _c("div", [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "30px",
+                                      height: "30px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("small", [
+                                  _vm._v(
+                                    "\n                                        " +
+                                      _vm._s(_vm.center) +
+                                      "\n                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.se.stem_4,
+                                      expression: "se.stem_4"
+                                    }
+                                  ],
+                                  attrs: { type: "checkbox" },
+                                  domProps: {
+                                    checked: Array.isArray(_vm.se.stem_4)
+                                      ? _vm._i(_vm.se.stem_4, null) > -1
+                                      : _vm.se.stem_4
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = _vm.se.stem_4,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = null,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            _vm.$set(
+                                              _vm.se,
+                                              "stem_4",
+                                              $$a.concat([$$v])
+                                            )
+                                        } else {
+                                          $$i > -1 &&
+                                            _vm.$set(
+                                              _vm.se,
+                                              "stem_4",
+                                              $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1))
+                                            )
+                                        }
+                                      } else {
+                                        _vm.$set(_vm.se, "stem_4", $$c)
+                                      }
+                                    }
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-4 bg-white" }, [
+                        _c("div", [
+                          _c("h2", [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.se.number,
+                                    expression: "se.number"
+                                  }
+                                ],
+                                attrs: { disabled: "" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.se,
+                                      "number",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  {
+                                    attrs: {
+                                      value: "",
+                                      disabled: "",
+                                      hidden: ""
+                                    }
+                                  },
+                                  [_vm._v("#")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.numbers, function(number) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: number.id,
+                                      domProps: { value: number.number }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        " +
+                                          _vm._s(number.number) +
+                                          "\n                                    "
+                                      )
+                                    ]
+                                  )
+                                })
+                              ],
+                              2
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("br")
+                        ])
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "mt-2" },
+            [
+              _c(
+                "b-button",
+                {
+                  staticClass: "float-right",
+                  attrs: { variant: "success" },
+                  on: { click: _vm.chartUpdate }
+                },
+                [_vm._v("Update")]
+              )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-7 border" }, [
+          _c(
+            "div",
+            {
+              staticClass: " pt-4 pb-4 pl-5 pr-5 position-relative",
+              staticStyle: { "background-color": "black" }
+            },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _vm._m(3),
+              _vm._v(" "),
+              _vm._m(4),
+              _vm._v(" "),
+              _vm._m(5),
+              _vm._v(" "),
+              _vm._m(6),
+              _vm._v(" "),
+              _vm._m(7),
+              _vm._v(" "),
+              _vm._m(8),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: " position-absolute",
+                  staticStyle: {
+                    height: "50px",
+                    "z-index": "1",
+                    top: "52%",
+                    left: "0"
+                  }
+                },
+                _vm._l(_vm.se.eLeft, function(item, index) {
+                  return _c(
+                    "div",
+                    { key: index },
+                    [
+                      _c("b-badge", {
+                        attrs: { variant: "success" },
+                        domProps: { textContent: _vm._s(item) }
+                      })
+                    ],
+                    1
+                  )
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _vm._m(9),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row", staticStyle: { height: "200px" } },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "col-md-4 bg-white position-relative",
+                      staticStyle: {
+                        border: "2px solid",
+                        "border-color": "#D68FC6"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "row text-center font-italic",
+                          staticStyle: { height: "60px", "font-size": "12px" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "col-4 p-0 position-relative" },
+                            [
+                              _c("div", [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "25px",
+                                      height: "25px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "chart-text" }, [
+                                _vm._v(
+                                  "\n                                   " +
+                                    _vm._s(_vm.se.stem_top.name) +
+                                    "\n                               "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.se.stem_1,
+                                      expression: "se.stem_1"
+                                    }
+                                  ],
+                                  staticClass: "position-absolute text-center",
+                                  staticStyle: {
+                                    width: "30px",
+                                    "z-index": "1",
+                                    bottom: "0",
+                                    right: "0",
+                                    "margin-right": "-15px"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticStyle: {
+                                        "line-height": "5px",
+                                        "font-size": "9px"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticStyle: {
+                                            width: "20px",
+                                            height: "20px"
+                                          },
+                                          attrs: { viewBox: "0 0 24 24" }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              fill: "currentColor",
+                                              d:
+                                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                        " +
+                                          _vm._s(_vm.center) +
+                                          "\n                                    "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-4 p-0 position-relative" },
+                            [
+                              _c("div", [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "25px",
+                                      height: "25px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "chart-text" }, [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(_vm.se.star.chinese) +
+                                    "\n                                    "
+                                ),
+                                _c("br"),
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(_vm.se.star.name) +
+                                    "\n                                "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.se.bird_2,
+                                      expression: "se.bird_2"
+                                    }
+                                  ],
+                                  staticClass: "position-absolute text-center",
+                                  staticStyle: {
+                                    width: "30px",
+                                    "z-index": "1",
+                                    bottom: "0",
+                                    right: "0",
+                                    "margin-right": "-15px"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticStyle: {
+                                        "line-height": "5px",
+                                        "font-size": "9px"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticStyle: {
+                                            width: "20px",
+                                            height: "20px"
+                                          },
+                                          attrs: { viewBox: "0 0 24 24" }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              fill: "currentColor",
+                                              d:
+                                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                        Qin"
+                                      ),
+                                      _c("br"),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                        Bird\n                                    "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.se.stem_2,
+                                      expression: "se.stem_2"
+                                    }
+                                  ],
+                                  staticClass: "position-absolute text-center",
+                                  staticStyle: {
+                                    width: "30px",
+                                    "z-index": "1",
+                                    bottom: "0",
+                                    right: "0",
+                                    "margin-right": "-15px"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticStyle: {
+                                        "line-height": "5px",
+                                        "font-size": "9px"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticStyle: {
+                                            width: "20px",
+                                            height: "20px"
+                                          },
+                                          attrs: { viewBox: "0 0 24 24" }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              fill: "currentColor",
+                                              d:
+                                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                        " +
+                                          _vm._s(_vm.center) +
+                                          "\n                                    "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-4 p-0" }, [
+                            _c("div", [
+                              _c(
+                                "svg",
+                                {
+                                  staticStyle: {
+                                    width: "25px",
+                                    height: "25px"
+                                  },
+                                  attrs: { viewBox: "0 0 24 24" }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      fill: "currentColor",
+                                      d:
+                                        "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "chart-text" }, [
+                              _vm._v(
+                                "\n                                   " +
+                                  _vm._s(_vm.se.deitie.chinese) +
+                                  "\n                                   "
+                              ),
+                              _c("br"),
+                              _vm._v(
+                                "\n                                   " +
+                                  _vm._s(_vm.se.deitie.name) +
+                                  "\n                               "
+                              )
+                            ])
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "row text-center pt-3",
+                          staticStyle: { height: "80px", "font-size": "12px" }
+                        },
+                        [
+                          _c("div", { staticClass: "col-md-4" }, [
+                            _c(
+                              "div",
+                              { staticClass: "row justify-content-center" },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value: _vm.se.position_1.fword != "",
+                                        expression: "se.position_1.fword != ''"
+                                      }
+                                    ],
+                                    staticClass: "col-4 p-0"
+                                  },
+                                  [
+                                    _c("div", [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticStyle: {
+                                            width: "25px",
+                                            height: "25px"
+                                          },
+                                          attrs: { viewBox: "0 0 24 24" }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              fill: "currentColor",
+                                              d:
+                                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "chart-text" }, [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_1.fword) +
+                                          "\n                                            "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_1.lword) +
+                                          "\n                                        "
+                                      )
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value: _vm.se.position_2.fword != "",
+                                        expression: "se.position_2.fword != ''"
+                                      }
+                                    ],
+                                    staticClass: "col-4 p-0"
+                                  },
+                                  [
+                                    _c("div", [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticStyle: {
+                                            width: "25px",
+                                            height: "25px"
+                                          },
+                                          attrs: { viewBox: "0 0 24 24" }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              fill: "currentColor",
+                                              d:
+                                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "chart-text" }, [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_2.fword) +
+                                          "\n                                            "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_2.lword) +
+                                          "\n                                        "
+                                      )
+                                    ])
+                                  ]
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-4" }, [
+                            _c(
+                              "div",
+                              { staticClass: "row justify-content-center" },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value: _vm.se.position_3.fword != "",
+                                        expression: "se.position_3.fword != ''"
+                                      }
+                                    ],
+                                    staticClass: "col-4 p-0"
+                                  },
+                                  [
+                                    _c("div", [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticStyle: {
+                                            width: "25px",
+                                            height: "25px"
+                                          },
+                                          attrs: { viewBox: "0 0 24 24" }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              fill: "currentColor",
+                                              d:
+                                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "chart-text" }, [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_3.fword) +
+                                          "\n                                            "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_3.lword) +
+                                          "\n                                        "
+                                      )
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value: _vm.se.position_4.fword != "",
+                                        expression: "se.position_4.fword != ''"
+                                      }
+                                    ],
+                                    staticClass: "col-4 p-0"
+                                  },
+                                  [
+                                    _c("div", [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticStyle: {
+                                            width: "25px",
+                                            height: "25px"
+                                          },
+                                          attrs: { viewBox: "0 0 24 24" }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              fill: "currentColor",
+                                              d:
+                                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "chart-text" }, [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_4.fword) +
+                                          "\n                                            "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_4.lword) +
+                                          "\n                                        "
+                                      )
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value: _vm.se.position_5.fword != "",
+                                        expression: "se.position_5.fword != ''"
+                                      }
+                                    ],
+                                    staticClass: "col-4 p-0"
+                                  },
+                                  [
+                                    _c("div", [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticStyle: {
+                                            width: "25px",
+                                            height: "25px"
+                                          },
+                                          attrs: { viewBox: "0 0 24 24" }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              fill: "currentColor",
+                                              d:
+                                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "chart-text" }, [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_5.fword) +
+                                          "\n                                            "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_5.lword) +
+                                          "\n                                        "
+                                      )
+                                    ])
+                                  ]
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-4" }, [
+                            _c(
+                              "div",
+                              { staticClass: "row justify-content-center" },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value: _vm.se.position_6.fword != "",
+                                        expression: "se.position_6.fword != ''"
+                                      }
+                                    ],
+                                    staticClass: "col-4 p-0"
+                                  },
+                                  [
+                                    _c("div", [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticStyle: {
+                                            width: "25px",
+                                            height: "25px"
+                                          },
+                                          attrs: { viewBox: "0 0 24 24" }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              fill: "currentColor",
+                                              d:
+                                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "chart-text" }, [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_6.fword) +
+                                          "\n                                            "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_6.lword) +
+                                          "\n                                        "
+                                      )
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value: _vm.se.position_7.fword != "",
+                                        expression: "se.position_7.fword != ''"
+                                      }
+                                    ],
+                                    staticClass: "col-4 p-0"
+                                  },
+                                  [
+                                    _c("div", [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticStyle: {
+                                            width: "25px",
+                                            height: "25px"
+                                          },
+                                          attrs: { viewBox: "0 0 24 24" }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              fill: "currentColor",
+                                              d:
+                                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "chart-text" }, [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_7.fword) +
+                                          "\n                                            "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.se.position_7.lword) +
+                                          "\n                                        "
+                                      )
+                                    ])
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "row text-center",
+                          staticStyle: { height: "60px", "font-size": "12px" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "col-4 p-0 position-relative" },
+                            [
+                              _c("div", [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "25px",
+                                      height: "25px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "chart-text" }, [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(_vm.se.stem_bottom.name) +
+                                    "\n                                "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.se.stem_3,
+                                      expression: "se.stem_3"
+                                    }
+                                  ],
+                                  staticClass: "position-absolute text-center",
+                                  staticStyle: {
+                                    height: "30px",
+                                    width: "30px",
+                                    "z-index": "1",
+                                    top: "0",
+                                    right: "0",
+                                    "margin-right": "-15px",
+                                    "margin-top": "-15px"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticStyle: {
+                                        "line-height": "5px",
+                                        "font-size": "9px"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticStyle: {
+                                            width: "20px",
+                                            height: "20px"
+                                          },
+                                          attrs: { viewBox: "0 0 24 24" }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              fill: "currentColor",
+                                              d:
+                                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                        " +
+                                          _vm._s(_vm.center) +
+                                          "\n                                    "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-4 p-0 position-relative" },
+                            [
+                              _c("div", [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      width: "25px",
+                                      height: "25px"
+                                    },
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d:
+                                          "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "chart-text" }, [
+                                _vm._v(
+                                  "\n                                   " +
+                                    _vm._s(_vm.se.door.chinese) +
+                                    "\n                                   "
+                                ),
+                                _c("br"),
+                                _vm._v(
+                                  "\n                                   " +
+                                    _vm._s(_vm.se.door.name) +
+                                    "\n                               "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.se.stem_4,
+                                      expression: "se.stem_4"
+                                    }
+                                  ],
+                                  staticClass: "position-absolute text-center",
+                                  staticStyle: {
+                                    height: "30px",
+                                    width: "30px",
+                                    "z-index": "1",
+                                    top: "0",
+                                    right: "0",
+                                    "margin-right": "-15px",
+                                    "margin-top": "-15px"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticStyle: {
+                                        "line-height": "5px",
+                                        "font-size": "9px"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticStyle: {
+                                            width: "20px",
+                                            height: "20px"
+                                          },
+                                          attrs: { viewBox: "0 0 24 24" }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              fill: "currentColor",
+                                              d:
+                                                "M16,20H20V16H16M16,14H20V10H16M10,8H14V4H10M16,8H20V4H16M10,14H14V10H10M4,14H8V10H4M4,20H8V16H4M10,20H14V16H10M4,8H8V4H4V8Z"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                                        " +
+                                          _vm._s(_vm.center) +
+                                          "\n                                    "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-4" }, [
+                            _c("h2", [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(_vm.se.number) +
+                                  "\n                                "
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(10),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "col-md-4 bg-white",
+                    staticStyle: {
+                      border: "2px solid",
+                      "border-color": "#D68FC6"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(11)
+            ]
+          )
+        ])
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "text-white position-absolute m-1",
+        staticStyle: {
+          height: "30px",
+          "z-index": "1",
+          bottom: "50%",
+          left: "0",
+          "margin-bottom": "-15px"
+        }
+      },
+      [_c("h3", [_vm._v("E")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "text-white position-absolute m-1",
+        staticStyle: { "z-index": "1", top: "0", left: "0" }
+      },
+      [_c("strong", [_vm._v("SE")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "text-white position-absolute text-center",
+        staticStyle: {
+          "z-index": "1",
+          top: "0",
+          width: "20px",
+          right: "50%",
+          "margin-right": "-10px"
+        }
+      },
+      [_c("strong", [_vm._v("S")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "text-white position-absolute m-1",
+        staticStyle: { "z-index": "1", top: "0", right: "0" }
+      },
+      [_c("strong", [_vm._v("SW")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "text-white position-absolute ml-1",
+        staticStyle: {
+          height: "20px",
+          "z-index": "1",
+          left: "0",
+          bottom: "50%",
+          "margin-bottom": "-10px"
+        }
+      },
+      [_c("strong", [_vm._v("E")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "text-white position-absolute mr-1",
+        staticStyle: {
+          height: "20px",
+          "z-index": "1",
+          right: "0",
+          bottom: "50%",
+          "margin-bottom": "-10px"
+        }
+      },
+      [_c("strong", [_vm._v("W")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "text-white position-absolute m-1",
+        staticStyle: { "z-index": "1", bottom: "0", left: "0" }
+      },
+      [_c("strong", [_vm._v("NE")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "text-white position-absolute text-center",
+        staticStyle: {
+          "z-index": "1",
+          bottom: "0",
+          width: "20px",
+          right: "50%",
+          "margin-right": "-10px"
+        }
+      },
+      [_c("strong", [_vm._v("N")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "text-white position-absolute m-1",
+        staticStyle: { "z-index": "1", bottom: "0", right: "0" }
+      },
+      [_c("strong", [_vm._v("NW")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row", staticStyle: { height: "200px" } }, [
+      _c("div", {
+        staticClass: "col-md-4 bg-white position-relative",
+        staticStyle: { border: "2px solid", "border-color": "#D68FC6" }
+      }),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-4 bg-white position-relative",
+        staticStyle: { border: "2px solid", "border-color": "#D68FC6" }
+      }),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-4 bg-white",
+        staticStyle: { border: "2px solid", "border-color": "#D68FC6" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "col-md-4 bg-white position-relative",
+        staticStyle: { border: "2px solid", "border-color": "#D68FC6" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "bg-white",
+            staticStyle: { height: "50px", "margin-top": "10px" }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-4 text-center p-0" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4" })
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticStyle: { height: "80px" } }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "bg-white", staticStyle: { height: "50px" } },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-4 text-center p-0" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4" })
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row", staticStyle: { height: "200px" } }, [
+      _c("div", {
+        staticClass: "col-md-4 bg-white position-relative",
+        staticStyle: { border: "2px solid", "border-color": "#D68FC6" }
+      }),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-4 bg-white position-relative",
+        staticStyle: { border: "2px solid", "border-color": "#D68FC6" }
+      }),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-4 bg-white",
+        staticStyle: { border: "2px solid", "border-color": "#D68FC6" }
+      })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/chart/ChartE.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/chart/ChartE.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ChartE_vue_vue_type_template_id_5194713a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChartE.vue?vue&type=template&id=5194713a& */ "./resources/js/components/chart/ChartE.vue?vue&type=template&id=5194713a&");
+/* harmony import */ var _ChartE_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChartE.vue?vue&type=script&lang=js& */ "./resources/js/components/chart/ChartE.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ChartE_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ChartE_vue_vue_type_template_id_5194713a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ChartE_vue_vue_type_template_id_5194713a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/chart/ChartE.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/chart/ChartE.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/chart/ChartE.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartE_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartE.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartE.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartE_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chart/ChartE.vue?vue&type=template&id=5194713a&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/chart/ChartE.vue?vue&type=template&id=5194713a& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartE_vue_vue_type_template_id_5194713a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartE.vue?vue&type=template&id=5194713a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartE.vue?vue&type=template&id=5194713a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartE_vue_vue_type_template_id_5194713a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartE_vue_vue_type_template_id_5194713a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

@@ -52,3 +52,8 @@ Vue.component(
     'notification-show',
     ()=>import('../best-ever/notification/Show.vue')
 );
+
+Vue.component(
+    'user-management-index',
+    ()=>import('../best-ever/user-management/Index.vue')
+);
