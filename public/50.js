@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[50],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartW.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartW.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSW.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartSW.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -646,11 +646,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['chart_id', 'type'],
   data: function data() {
     return {
-      part: 'w',
+      part: 'sw',
       erros: {},
       stems: {},
       stars: {},
@@ -658,12 +704,12 @@ __webpack_require__.r(__webpack_exports__);
       doors: {},
       positions: {},
       center: '',
+      numbers: {},
       outsidePositions: [{
         value: 'DE'
       }, {
         value: 'HS'
       }],
-      numbers: {},
       se: new Form({
         chart_type: this.type,
         stem_top: {
@@ -729,7 +775,8 @@ __webpack_require__.r(__webpack_exports__);
           fword: '',
           lword: ''
         },
-        wRight: [],
+        swTop: [],
+        swRight: [],
         bird_2: false
       })
     };
@@ -756,13 +803,16 @@ __webpack_require__.r(__webpack_exports__);
     chartUpdate: function chartUpdate() {
       var _this2 = this;
 
-      this.se.put('/api/west/' + this.chart_id).then(function (response) {
+      this.se.put('/api/sw/' + this.chart_id).then(function (response) {
         _this2.$notify({
           group: 'notification',
           type: 'success',
           title: 'Update Chart',
           text: 'Chart has been updated'
         });
+
+        _this2.se.swTop = [];
+        _this2.se.swRight = [];
 
         _this2.chartDetails();
       })["catch"](function (error) {
@@ -772,41 +822,44 @@ __webpack_require__.r(__webpack_exports__);
     chartDetails: function chartDetails() {
       var _this3 = this;
 
-      this.se.get('/api/west/' + this.chart_id + '/' + this.type).then(function (response) {
+      this.se.get('/api/sw/' + this.chart_id + '/' + this.type).then(function (response) {
         _this3.center = response.data.center.stem.value;
-        _this3.se.stem_top = response.data.se.stem_top != null ? {
+        _this3.se.stem_top = {
           id: response.data.se.stem_top.id,
           name: response.data.se.stem_top.value
-        } : _this3.se.stem_top;
-        _this3.se.star = response.data.se.star != null ? {
+        };
+        _this3.se.star = {
           id: response.data.se.star.id,
           name: response.data.se.star.name,
           chinese: response.data.se.star.chinese
-        } : _this3.se.star;
-        _this3.se.deitie = response.data.se.deitie != null ? {
+        };
+        _this3.se.deitie = {
           id: response.data.se.deitie.id,
           name: response.data.se.deitie.value,
           chinese: response.data.se.deitie.chinese
-        } : _this3.se.deitie;
-        _this3.se.stem_bottom = response.data.se.stem_bottom != null ? {
+        };
+        _this3.se.stem_bottom = {
           id: response.data.se.stem_bottom.id,
           name: response.data.se.stem_bottom.value
-        } : _this3.se.stem_bottom;
-        _this3.se.number = response.data.se.number != null ? response.data.se.number : _this3.se.number;
+        };
         _this3.se.door = {
           id: response.data.se.door.id,
           name: response.data.se.door.name,
           chinese: response.data.se.door.chinese
         };
-        response.data.se.wRight.split(",").forEach(function (element) {
-          _this3.se.wRight.push(element);
+        _this3.se.number = response.data.se.number;
+        response.data.se.swTop.split(",").forEach(function (element) {
+          _this3.se.swTop.push(element);
+        });
+        response.data.se.swRight.split(",").forEach(function (element) {
+          _this3.se.swRight.push(element);
         });
       })["catch"](function (error) {});
     },
     fetchChartStem: function fetchChartStem() {
       var _this4 = this;
 
-      this.se.get('/api/west/' + this.chart_id + '/' + this.type).then(function (response) {
+      this.se.get('/api/sw/' + this.chart_id + '/' + this.type).then(function (response) {
         _this4.se.stem_1 = response.data.stem.stem_1;
         _this4.se.stem_2 = response.data.stem.stem_2;
         _this4.se.stem_3 = response.data.stem.stem_3;
@@ -817,7 +870,7 @@ __webpack_require__.r(__webpack_exports__);
     fetchChartPosition: function fetchChartPosition() {
       var _this5 = this;
 
-      this.se.get('/api/west/' + this.chart_id + '/' + this.type).then(function (response) {
+      this.se.get('/api/sw/' + this.chart_id + '/' + this.type).then(function (response) {
         _this5.se.position_1 = response.data.position.position_1 == null ? _this5.se.position_1 = {
           id: 0,
           fword: '',
@@ -888,10 +941,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartW.vue?vue&type=template&id=4f992316&":
-/*!***************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartW.vue?vue&type=template&id=4f992316& ***!
-  \***************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSW.vue?vue&type=template&id=29880cb6&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartSW.vue?vue&type=template&id=29880cb6& ***!
+  \****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -916,10 +969,95 @@ var render = function() {
             "div",
             {
               staticClass:
-                "row justify-content-start text-center bg-black position-relative"
+                "row justify-content-start pt-5 text-center bg-black position-relative"
             },
             [
               _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: " position-absolute mt-1",
+                  staticStyle: {
+                    width: "100px",
+                    "z-index": "1",
+                    top: "0",
+                    right: "50%",
+                    "margin-right": "-27px"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "row justify-content-center" },
+                    _vm._l(_vm.outsidePositions, function(item, index) {
+                      return _c(
+                        "div",
+                        { key: index, staticClass: "col-6" },
+                        [
+                          _c("b-badge", {
+                            staticClass: "p-2",
+                            attrs: { variant: "success" },
+                            domProps: { textContent: _vm._s(item.value) }
+                          }),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.se.swTop,
+                                expression: "se.swTop"
+                              }
+                            ],
+                            attrs: { type: "checkbox" },
+                            domProps: {
+                              value: item.value,
+                              checked: Array.isArray(_vm.se.swTop)
+                                ? _vm._i(_vm.se.swTop, item.value) > -1
+                                : _vm.se.swTop
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = _vm.se.swTop,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = item.value,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        _vm.se,
+                                        "swTop",
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        _vm.se,
+                                        "swTop",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(_vm.se, "swTop", $$c)
+                                }
+                              }
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    }),
+                    0
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -928,7 +1066,7 @@ var render = function() {
                   staticStyle: {
                     height: "100px",
                     "z-index": "1",
-                    bottom: "60%",
+                    top: "50%",
                     right: "0",
                     "margin-top": "-50px"
                   }
@@ -938,31 +1076,25 @@ var render = function() {
                     "div",
                     { key: index, staticClass: "h-50 pt-2" },
                     [
-                      _c("b-badge", {
-                        staticClass: "p-2",
-                        attrs: { variant: "success" },
-                        domProps: { textContent: _vm._s(item.value) }
-                      }),
-                      _vm._v(" "),
                       _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.se.wRight,
-                            expression: "se.wRight"
+                            value: _vm.se.swRight,
+                            expression: "se.swRight"
                           }
                         ],
                         attrs: { type: "checkbox" },
                         domProps: {
                           value: item.value,
-                          checked: Array.isArray(_vm.se.wRight)
-                            ? _vm._i(_vm.se.wRight, item.value) > -1
-                            : _vm.se.wRight
+                          checked: Array.isArray(_vm.se.swRight)
+                            ? _vm._i(_vm.se.swRight, item.value) > -1
+                            : _vm.se.swRight
                         },
                         on: {
                           change: function($event) {
-                            var $$a = _vm.se.wRight,
+                            var $$a = _vm.se.swRight,
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
@@ -970,20 +1102,26 @@ var render = function() {
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
                                 $$i < 0 &&
-                                  _vm.$set(_vm.se, "wRight", $$a.concat([$$v]))
+                                  _vm.$set(_vm.se, "swRight", $$a.concat([$$v]))
                               } else {
                                 $$i > -1 &&
                                   _vm.$set(
                                     _vm.se,
-                                    "wRight",
+                                    "swRight",
                                     $$a.slice(0, $$i).concat($$a.slice($$i + 1))
                                   )
                               }
                             } else {
-                              _vm.$set(_vm.se, "wRight", $$c)
+                              _vm.$set(_vm.se, "swRight", $$c)
                             }
                           }
                         }
+                      }),
+                      _vm._v(" "),
+                      _c("b-badge", {
+                        staticClass: "p-2",
+                        attrs: { variant: "success" },
+                        domProps: { textContent: _vm._s(item.value) }
                       })
                     ],
                     1
@@ -2727,7 +2865,6 @@ var render = function() {
                                     expression: "se.door"
                                   }
                                 ],
-                                attrs: { disabled: "" },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -2948,9 +3085,9 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                        " +
+                                        "\n                                            " +
                                           _vm._s(number.number) +
-                                          "\n                                    "
+                                          "\n                                        "
                                       )
                                     ]
                                   )
@@ -3015,15 +3152,59 @@ var render = function() {
               _c(
                 "div",
                 {
+                  staticClass: " position-absolute text-center",
+                  staticStyle: {
+                    width: "60px",
+                    "z-index": "1",
+                    top: "0",
+                    right: "16.3%"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "row justify-content-center text-white" },
+                    _vm._l(_vm.se.swTop, function(item, index) {
+                      return _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: item != "",
+                              expression: "item != ''"
+                            }
+                          ],
+                          key: index,
+                          staticClass: "col-6"
+                        },
+                        [
+                          _c("b-badge", {
+                            attrs: { variant: "success" },
+                            domProps: { textContent: _vm._s(item) }
+                          })
+                        ],
+                        1
+                      )
+                    }),
+                    0
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
                   staticClass: " position-absolute",
                   staticStyle: {
                     height: "50px",
                     "z-index": "1",
-                    bottom: "52%",
+                    top: "16%",
                     right: "0"
                   }
                 },
-                _vm._l(_vm.se.wRight, function(item, index) {
+                _vm._l(_vm.se.swRight, function(item, index) {
                   return _c(
                     "div",
                     { key: index },
@@ -3038,8 +3219,6 @@ var render = function() {
                 }),
                 0
               ),
-              _vm._v(" "),
-              _vm._m(9),
               _vm._v(" "),
               _c(
                 "div",
@@ -4006,6 +4185,8 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
+              _vm._m(9),
+              _vm._v(" "),
               _vm._m(10)
             ]
           )
@@ -4024,15 +4205,9 @@ var staticRenderFns = [
       "div",
       {
         staticClass: "text-white position-absolute m-1",
-        staticStyle: {
-          height: "30px",
-          "z-index": "1",
-          bottom: "50%",
-          right: "0",
-          "margin-bottom": "-15px"
-        }
+        staticStyle: { "z-index": "1", top: "0", right: "0" }
       },
-      [_c("h3", [_vm._v("W")])]
+      [_c("h3", [_vm._v("SW")])]
     )
   },
   function() {
@@ -4173,10 +4348,47 @@ var staticRenderFns = [
         staticStyle: { border: "2px solid", "border-color": "#D68FC6" }
       }),
       _vm._v(" "),
-      _c("div", {
-        staticClass: "col-md-4 bg-white position-relative",
-        staticStyle: { border: "2px solid", "border-color": "#D68FC6" }
-      }),
+      _c(
+        "div",
+        {
+          staticClass: "col-md-4 bg-white position-relative",
+          staticStyle: { border: "2px solid", "border-color": "#D68FC6" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "bg-white",
+              staticStyle: { height: "50px", "margin-top": "10px" }
+            },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-4 text-center p-0" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4" })
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticStyle: { height: "80px" } }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "bg-white", staticStyle: { height: "50px" } },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-4 text-center p-0" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4" })
+              ])
+            ]
+          )
+        ]
+      ),
       _vm._v(" "),
       _c("div", {
         staticClass: "col-md-4 bg-white",
@@ -4212,17 +4424,17 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/components/chart/ChartW.vue":
-/*!**************************************************!*\
-  !*** ./resources/js/components/chart/ChartW.vue ***!
-  \**************************************************/
+/***/ "./resources/js/components/chart/ChartSW.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/chart/ChartSW.vue ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ChartW_vue_vue_type_template_id_4f992316___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChartW.vue?vue&type=template&id=4f992316& */ "./resources/js/components/chart/ChartW.vue?vue&type=template&id=4f992316&");
-/* harmony import */ var _ChartW_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChartW.vue?vue&type=script&lang=js& */ "./resources/js/components/chart/ChartW.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ChartSW_vue_vue_type_template_id_29880cb6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChartSW.vue?vue&type=template&id=29880cb6& */ "./resources/js/components/chart/ChartSW.vue?vue&type=template&id=29880cb6&");
+/* harmony import */ var _ChartSW_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChartSW.vue?vue&type=script&lang=js& */ "./resources/js/components/chart/ChartSW.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -4232,9 +4444,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ChartW_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ChartW_vue_vue_type_template_id_4f992316___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ChartW_vue_vue_type_template_id_4f992316___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ChartSW_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ChartSW_vue_vue_type_template_id_29880cb6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ChartSW_vue_vue_type_template_id_29880cb6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -4244,38 +4456,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/chart/ChartW.vue"
+component.options.__file = "resources/js/components/chart/ChartSW.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/chart/ChartW.vue?vue&type=script&lang=js&":
-/*!***************************************************************************!*\
-  !*** ./resources/js/components/chart/ChartW.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************/
+/***/ "./resources/js/components/chart/ChartSW.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/chart/ChartSW.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartW_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartW.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartW.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartW_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSW_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartSW.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSW.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSW_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/chart/ChartW.vue?vue&type=template&id=4f992316&":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/components/chart/ChartW.vue?vue&type=template&id=4f992316& ***!
-  \*********************************************************************************/
+/***/ "./resources/js/components/chart/ChartSW.vue?vue&type=template&id=29880cb6&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/chart/ChartSW.vue?vue&type=template&id=29880cb6& ***!
+  \**********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartW_vue_vue_type_template_id_4f992316___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartW.vue?vue&type=template&id=4f992316& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartW.vue?vue&type=template&id=4f992316&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartW_vue_vue_type_template_id_4f992316___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSW_vue_vue_type_template_id_29880cb6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartSW.vue?vue&type=template&id=29880cb6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSW.vue?vue&type=template&id=29880cb6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSW_vue_vue_type_template_id_29880cb6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartW_vue_vue_type_template_id_4f992316___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSW_vue_vue_type_template_id_29880cb6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

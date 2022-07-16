@@ -1,29 +1,14 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[48],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSE.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartSE.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartS.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartS.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -700,7 +685,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   props: ['chart_id', 'type'],
   data: function data() {
     return {
-      part: 'se',
+      part: 's',
       erros: {},
       stems: {},
       stars: {},
@@ -775,21 +760,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           lword: ''
         },
         position_7: {
-          id: null,
+          id: 0,
           fword: '',
           lword: ''
         },
-        seTop: [],
-        seLeft: [],
+        sTop: [],
         bird_2: false
       })
     };
-  },
-  mounted: function mounted() {
-    this.loadContent();
-    this.chartDetails();
-    this.fetchChartStem();
-    this.fetchChartPosition();
   },
   methods: {
     loadContent: function loadContent() {
@@ -802,12 +780,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         _this.doors = response.data.door;
         _this.positions = response.data.position;
         _this.numbers = response.data.number;
-      })["catch"](function (error) {});
+      });
     },
     chartUpdate: function chartUpdate() {
       var _this2 = this;
 
-      this.se.put('/api/se/' + this.chart_id).then(function (response) {
+      this.se.put('/api/south/' + this.chart_id).then(function (response) {
         console.log(response.data);
 
         _this2.$notify({
@@ -825,57 +803,44 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     chartDetails: function chartDetails() {
       var _this3 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _this3.se.get('/api/se/' + _this3.chart_id + '/' + _this3.type).then(function (response) {
-                  _this3.center = response.data.center.stem.value;
-                  _this3.se.stem_top = {
-                    id: response.data.se.stem_top.id,
-                    name: response.data.se.stem_top.value
-                  };
-                  _this3.se.star = {
-                    id: response.data.se.star.id,
-                    name: response.data.se.star.name,
-                    chinese: response.data.se.star.chinese
-                  };
-                  _this3.se.deitie = {
-                    id: response.data.se.deitie.id,
-                    name: response.data.se.deitie.value,
-                    chinese: response.data.se.deitie.chinese
-                  };
-                  _this3.se.stem_bottom = {
-                    id: response.data.se.stem_bottom.id,
-                    name: response.data.se.stem_bottom.value
-                  };
-                  _this3.se.door = {
-                    id: response.data.se.door.id,
-                    name: response.data.se.door.name,
-                    chinese: response.data.se.door.chinese
-                  };
-                  _this3.se.number = response.data.se.number;
-                  response.data.se.seTop.split(",").forEach(function (element) {
-                    _this3.se.seTop.push(element);
-                  });
-                  response.data.se.seLeft.split(",").forEach(function (element) {
-                    _this3.se.seLeft.push(element);
-                  });
-                })["catch"](function (error) {});
+      this.se.get('/api/south/' + this.chart_id + '/' + this.type).then(function (response) {
+        console.log(response.data);
+        _this3.center = response.data.center.stem.value;
+        _this3.se.stem_top = {
+          id: response.data.se.stem_top.id,
+          name: response.data.se.stem_top.value
+        };
+        _this3.se.star = {
+          id: response.data.se.star.id,
+          name: response.data.se.star.name,
+          chinese: response.data.se.star.chinese
+        };
+        _this3.se.deitie = {
+          id: response.data.se.deitie.id,
+          name: response.data.se.deitie.value,
+          chinese: response.data.se.deitie.chinese
+        };
+        _this3.se.stem_bottom = {
+          id: response.data.se.stem_bottom.id,
+          name: response.data.se.stem_bottom.value
+        };
+        _this3.se.door = {
+          id: response.data.se.door.id,
+          name: response.data.se.door.name,
+          chinese: response.data.se.door.chinese
+        };
+        _this3.se.number = response.data.se.number;
+        response.data.se.sTop.split(',').forEach(function (element) {
+          _this3.se.sTop.push(element);
+        });
 
-              case 1:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
+        _this3.fetchChartPosition();
+      })["catch"](function (error) {});
     },
     fetchChartStem: function fetchChartStem() {
       var _this4 = this;
 
-      this.se.get('/api/se/' + this.chart_id + '/' + this.type).then(function (response) {
+      this.se.get('/api/south/' + this.chart_id + '/' + this.type).then(function (response) {
         _this4.se.stem_1 = response.data.stem.stem_1;
         _this4.se.stem_2 = response.data.stem.stem_2;
         _this4.se.stem_3 = response.data.stem.stem_3;
@@ -886,94 +851,86 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     fetchChartPosition: function fetchChartPosition() {
       var _this5 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _this5.se.get('/api/se/' + _this5.chart_id + '/' + _this5.type).then(function (response) {
-                  _this5.se.position_1 = response.data.position.position_1 == null ? _this5.se.position_1 = {
-                    id: 0,
-                    fword: '',
-                    lword: ''
-                  } : {
-                    id: response.data.position.position_1.id,
-                    fword: response.data.position.position_1.first_word,
-                    lword: response.data.position.position_1.second_word
-                  };
-                  _this5.se.position_2 = response.data.position.position_2 == null ? _this5.se.position_2 = {
-                    id: 0,
-                    fword: '',
-                    lword: ''
-                  } : {
-                    id: response.data.position.position_2.id,
-                    fword: response.data.position.position_2.first_word,
-                    lword: response.data.position.position_2.second_word
-                  };
-                  _this5.se.position_3 = response.data.position.position_3 == null ? _this5.se.position_3 = {
-                    id: 0,
-                    fword: '',
-                    lword: ''
-                  } : {
-                    id: response.data.position.position_3.id,
-                    fword: response.data.position.position_3.first_word,
-                    lword: response.data.position.position_3.second_word
-                  };
-                  _this5.se.position_4 = response.data.position.position_4 == null ? _this5.se.position_4 = {
-                    id: 0,
-                    fword: '',
-                    lword: ''
-                  } : {
-                    id: response.data.position.position_4.id,
-                    fword: response.data.position.position_4.first_word,
-                    lword: response.data.position.position_4.second_word
-                  };
-                  _this5.se.position_5 = response.data.position.position_5 == null ? _this5.se.position_5 = {
-                    id: 0,
-                    fword: '',
-                    lword: ''
-                  } : {
-                    id: response.data.position.position_5.id,
-                    fword: response.data.position.position_5.first_word,
-                    lword: response.data.position.position_5.second_word
-                  };
-                  _this5.se.position_6 = response.data.position.position_6 == null ? _this5.se.position_6 = {
-                    id: 0,
-                    fword: '',
-                    lword: ''
-                  } : {
-                    id: response.data.position.position_6.id,
-                    fword: response.data.position.position_6.first_word,
-                    lword: response.data.position.position_6.second_word
-                  };
-                  _this5.se.position_7 = response.data.position.position_7 == null ? _this5.se.position_7 = {
-                    id: null,
-                    fword: '',
-                    lword: ''
-                  } : {
-                    id: response.data.position.position_7.id,
-                    fword: response.data.position.position_7.first_word,
-                    lword: response.data.position.position_7.second_word
-                  };
-                })["catch"](function (error) {});
-
-              case 1:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }))();
+      axios.get('/api/south/' + this.chart_id + '/' + this.type).then(function (response) {
+        _this5.se.position_1 = response.data.position.position_1 == null ? _this5.se.position_1 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_1.id,
+          fword: response.data.position.position_1.first_word,
+          lword: response.data.position.position_1.second_word
+        };
+        _this5.se.position_2 = response.data.position.position_2 == null ? _this5.se.position_2 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_2.id,
+          fword: response.data.position.position_2.first_word,
+          lword: response.data.position.position_2.second_word
+        };
+        _this5.se.position_3 = response.data.position.position_3 == null ? _this5.se.position_3 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_3.id,
+          fword: response.data.position.position_3.first_word,
+          lword: response.data.position.position_3.second_word
+        };
+        _this5.se.position_4 = response.data.position.position_4 == null ? _this5.se.position_4 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_4.id,
+          fword: response.data.position.position_4.first_word,
+          lword: response.data.position.position_4.second_word
+        };
+        _this5.se.position_5 = response.data.position.position_5 == null ? _this5.se.position_5 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_5.id,
+          fword: response.data.position.position_5.first_word,
+          lword: response.data.position.position_5.second_word
+        };
+        _this5.se.position_6 = response.data.position.position_6 == null ? _this5.se.position_6 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_6.id,
+          fword: response.data.position.position_6.first_word,
+          lword: response.data.position.position_6.second_word
+        };
+        _this5.se.position_7 = response.data.position.position_7 == null ? _this5.se.position_7 = {
+          id: 0,
+          fword: '',
+          lword: ''
+        } : {
+          id: response.data.position.position_7.id,
+          fword: response.data.position.position_7.first_word,
+          lword: response.data.position.position_7.second_word
+        };
+      });
     }
+  },
+  mounted: function mounted() {
+    this.loadContent();
+    this.chartDetails();
+    this.fetchChartStem();
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSE.vue?vue&type=template&id=288a65a4&":
-/*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartSE.vue?vue&type=template&id=288a65a4& ***!
-  \****************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartS.vue?vue&type=template&id=5009df1e&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartS.vue?vue&type=template&id=5009df1e& ***!
+  \***************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -996,94 +953,107 @@ var render = function() {
         _c("div", { staticClass: "col-md-5" }, [
           _c(
             "div",
-            {
-              staticClass:
-                "row justify-content-end pt-5 text-center bg-black position-relative"
-            },
+            { staticClass: "row pt-5 text-center bg-black position-relative" },
             [
-              _vm._m(0),
-              _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: " position-absolute mt-1",
-                  staticStyle: {
-                    width: "100px",
-                    "z-index": "1",
-                    top: "0",
-                    left: "50%",
-                    "margin-left": "-27px"
-                  }
+                  staticClass: " text-white position-absolute w-100",
+                  staticStyle: { "z-index": "1", top: "0" }
                 },
                 [
                   _c(
                     "div",
-                    { staticClass: "row justify-content-center" },
-                    _vm._l(_vm.outsidePositions, function(item, index) {
-                      return _c(
+                    { staticClass: "row justify-content-center mt-1" },
+                    [
+                      _c(
                         "div",
-                        { key: index, staticClass: "col-6" },
+                        {
+                          staticClass: "col-2",
+                          staticStyle: { "margin-left": "-90px" }
+                        },
                         [
-                          _c("b-badge", {
-                            staticClass: "p-2",
-                            attrs: { variant: "success" },
-                            domProps: { textContent: _vm._s(item.value) }
-                          }),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.se.seTop,
-                                expression: "se.seTop"
-                              }
-                            ],
-                            attrs: { type: "checkbox" },
-                            domProps: {
-                              value: item.value,
-                              checked: Array.isArray(_vm.se.seTop)
-                                ? _vm._i(_vm.se.seTop, item.value) > -1
-                                : _vm.se.seTop
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$a = _vm.se.seTop,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? true : false
-                                if (Array.isArray($$a)) {
-                                  var $$v = item.value,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      _vm.$set(
-                                        _vm.se,
-                                        "seTop",
-                                        $$a.concat([$$v])
-                                      )
-                                  } else {
-                                    $$i > -1 &&
-                                      _vm.$set(
-                                        _vm.se,
-                                        "seTop",
-                                        $$a
-                                          .slice(0, $$i)
-                                          .concat($$a.slice($$i + 1))
-                                      )
-                                  }
-                                } else {
-                                  _vm.$set(_vm.se, "seTop", $$c)
-                                }
-                              }
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    }),
-                    0
+                          _c(
+                            "div",
+                            { staticClass: "row" },
+                            _vm._l(_vm.outsidePositions, function(item, index) {
+                              return _c(
+                                "div",
+                                {
+                                  key: index,
+                                  staticClass: "col-6 text-center p-0"
+                                },
+                                [
+                                  _c("b-badge", {
+                                    staticClass: "p-2",
+                                    attrs: { variant: "success" },
+                                    domProps: {
+                                      textContent: _vm._s(item.value)
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.se.sTop,
+                                        expression: "se.sTop"
+                                      }
+                                    ],
+                                    attrs: { type: "checkbox" },
+                                    domProps: {
+                                      value: item.value,
+                                      checked: Array.isArray(_vm.se.sTop)
+                                        ? _vm._i(_vm.se.sTop, item.value) > -1
+                                        : _vm.se.sTop
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        var $$a = _vm.se.sTop,
+                                          $$el = $event.target,
+                                          $$c = $$el.checked ? true : false
+                                        if (Array.isArray($$a)) {
+                                          var $$v = item.value,
+                                            $$i = _vm._i($$a, $$v)
+                                          if ($$el.checked) {
+                                            $$i < 0 &&
+                                              _vm.$set(
+                                                _vm.se,
+                                                "sTop",
+                                                $$a.concat([$$v])
+                                              )
+                                          } else {
+                                            $$i > -1 &&
+                                              _vm.$set(
+                                                _vm.se,
+                                                "sTop",
+                                                $$a
+                                                  .slice(0, $$i)
+                                                  .concat($$a.slice($$i + 1))
+                                              )
+                                          }
+                                        } else {
+                                          _vm.$set(_vm.se, "sTop", $$c)
+                                        }
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            }),
+                            0
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-1 h3" }, [
+                        _vm._v(
+                          "\n                            S\n                        "
+                        )
+                      ])
+                    ]
                   )
                 ]
               ),
@@ -1091,78 +1061,7 @@ var render = function() {
               _c(
                 "div",
                 {
-                  staticClass: "position-absolute",
-                  staticStyle: {
-                    height: "100px",
-                    "z-index": "1",
-                    top: "50%",
-                    left: "0",
-                    "margin-top": "-50px"
-                  }
-                },
-                _vm._l(_vm.outsidePositions, function(item, index) {
-                  return _c(
-                    "div",
-                    { key: index, staticClass: "h-50 pt-2" },
-                    [
-                      _c("b-badge", {
-                        staticClass: "p-2",
-                        attrs: { variant: "success" },
-                        domProps: { textContent: _vm._s(item.value) }
-                      }),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.se.seLeft,
-                            expression: "se.seLeft"
-                          }
-                        ],
-                        attrs: { type: "checkbox" },
-                        domProps: {
-                          value: item.value,
-                          checked: Array.isArray(_vm.se.seLeft)
-                            ? _vm._i(_vm.se.seLeft, item.value) > -1
-                            : _vm.se.seLeft
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = _vm.se.seLeft,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = item.value,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(_vm.se, "seLeft", $$a.concat([$$v]))
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    _vm.se,
-                                    "seLeft",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
-                              }
-                            } else {
-                              _vm.$set(_vm.se, "seLeft", $$c)
-                            }
-                          }
-                        }
-                      })
-                    ],
-                    1
-                  )
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-md-11",
+                  staticClass: "col-md-12",
                   staticStyle: {
                     border: "5px solid",
                     "border-color": "#D68FC6"
@@ -2604,7 +2503,7 @@ var render = function() {
                                           attrs: { disabled: "", hidden: "" },
                                           domProps: {
                                             value: {
-                                              id: null,
+                                              id: 0,
                                               fword: "",
                                               lword: ""
                                             }
@@ -2618,7 +2517,7 @@ var render = function() {
                                         {
                                           domProps: {
                                             value: {
-                                              id: null,
+                                              id: 0,
                                               fword: "",
                                               lword: ""
                                             }
@@ -3114,9 +3013,9 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                        " +
+                                        "\n                                            " +
                                           _vm._s(number.number) +
-                                          "\n                                    "
+                                          "\n                                        "
                                       )
                                     ]
                                   )
@@ -3162,52 +3061,29 @@ var render = function() {
               staticStyle: { "background-color": "black" }
             },
             [
+              _vm._m(0),
+              _vm._v(" "),
               _vm._m(1),
-              _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._m(3),
-              _vm._v(" "),
-              _vm._m(4),
-              _vm._v(" "),
-              _vm._m(5),
-              _vm._v(" "),
-              _vm._m(6),
-              _vm._v(" "),
-              _vm._m(7),
-              _vm._v(" "),
-              _vm._m(8),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: " position-absolute text-center",
+                  staticClass: " position-absolute",
                   staticStyle: {
-                    width: "60px",
-                    "z-index": "1",
+                    width: "30px",
                     top: "0",
-                    left: "15%"
+                    left: "43%",
+                    "z-index": "1"
                   }
                 },
                 [
                   _c(
                     "div",
-                    { staticClass: "row justify-content-center text-white" },
-                    _vm._l(_vm.se.seTop, function(item, index) {
+                    { staticClass: "row justify-content-center" },
+                    _vm._l(_vm.se.sTop, function(item, index) {
                       return _c(
                         "div",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: item != "",
-                              expression: "item != ''"
-                            }
-                          ],
-                          key: index,
-                          staticClass: "col-6"
-                        },
+                        { key: index, staticClass: "col-6 p-0" },
                         [
                           _c("b-badge", {
                             attrs: { variant: "success" },
@@ -3222,37 +3098,30 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: " position-absolute",
-                  staticStyle: {
-                    height: "50px",
-                    "z-index": "1",
-                    top: "16%",
-                    left: "0"
-                  }
-                },
-                _vm._l(_vm.se.seLeft, function(item, index) {
-                  return _c(
-                    "div",
-                    { key: index },
-                    [
-                      _c("b-badge", {
-                        attrs: { variant: "success" },
-                        domProps: { textContent: _vm._s(item) }
-                      })
-                    ],
-                    1
-                  )
-                }),
-                0
-              ),
+              _vm._m(2),
+              _vm._v(" "),
+              _vm._m(3),
+              _vm._v(" "),
+              _vm._m(4),
+              _vm._v(" "),
+              _vm._m(5),
+              _vm._v(" "),
+              _vm._m(6),
+              _vm._v(" "),
+              _vm._m(7),
               _vm._v(" "),
               _c(
                 "div",
                 { staticClass: "row", staticStyle: { height: "200px" } },
                 [
+                  _c("div", {
+                    staticClass: "col-md-4 bg-white position-relative",
+                    staticStyle: {
+                      border: "2px solid",
+                      "border-color": "#D68FC6"
+                    }
+                  }),
+                  _vm._v(" "),
                   _c(
                     "div",
                     {
@@ -4197,14 +4066,6 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("div", {
-                    staticClass: "col-md-4 bg-white position-relative",
-                    staticStyle: {
-                      border: "2px solid",
-                      "border-color": "#D68FC6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", {
                     staticClass: "col-md-4 bg-white",
                     staticStyle: {
                       border: "2px solid",
@@ -4214,9 +4075,9 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(9),
+              _vm._m(8),
               _vm._v(" "),
-              _vm._m(10)
+              _vm._m(9)
             ]
           )
         ])
@@ -4226,19 +4087,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "text-white position-absolute m-1",
-        staticStyle: { "z-index": "1", top: "0", left: "0" }
-      },
-      [_c("h3", [_vm._v("SE")])]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -4453,17 +4301,17 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/components/chart/ChartSE.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/components/chart/ChartSE.vue ***!
-  \***************************************************/
+/***/ "./resources/js/components/chart/ChartS.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/chart/ChartS.vue ***!
+  \**************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ChartSE_vue_vue_type_template_id_288a65a4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChartSE.vue?vue&type=template&id=288a65a4& */ "./resources/js/components/chart/ChartSE.vue?vue&type=template&id=288a65a4&");
-/* harmony import */ var _ChartSE_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChartSE.vue?vue&type=script&lang=js& */ "./resources/js/components/chart/ChartSE.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ChartS_vue_vue_type_template_id_5009df1e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChartS.vue?vue&type=template&id=5009df1e& */ "./resources/js/components/chart/ChartS.vue?vue&type=template&id=5009df1e&");
+/* harmony import */ var _ChartS_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChartS.vue?vue&type=script&lang=js& */ "./resources/js/components/chart/ChartS.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -4473,9 +4321,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ChartSE_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ChartSE_vue_vue_type_template_id_288a65a4___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ChartSE_vue_vue_type_template_id_288a65a4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ChartS_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ChartS_vue_vue_type_template_id_5009df1e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ChartS_vue_vue_type_template_id_5009df1e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -4485,38 +4333,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/chart/ChartSE.vue"
+component.options.__file = "resources/js/components/chart/ChartS.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/chart/ChartSE.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/components/chart/ChartSE.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
+/***/ "./resources/js/components/chart/ChartS.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/chart/ChartS.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSE_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartSE.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSE.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSE_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartS_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartS.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartS.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartS_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/chart/ChartSE.vue?vue&type=template&id=288a65a4&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/components/chart/ChartSE.vue?vue&type=template&id=288a65a4& ***!
-  \**********************************************************************************/
+/***/ "./resources/js/components/chart/ChartS.vue?vue&type=template&id=5009df1e&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/chart/ChartS.vue?vue&type=template&id=5009df1e& ***!
+  \*********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSE_vue_vue_type_template_id_288a65a4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartSE.vue?vue&type=template&id=288a65a4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSE.vue?vue&type=template&id=288a65a4&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSE_vue_vue_type_template_id_288a65a4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartS_vue_vue_type_template_id_5009df1e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartS.vue?vue&type=template&id=5009df1e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartS.vue?vue&type=template&id=5009df1e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartS_vue_vue_type_template_id_5009df1e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSE_vue_vue_type_template_id_288a65a4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartS_vue_vue_type_template_id_5009df1e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[52],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/DayChartListYinComponent.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/DayChartListYinComponent.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/DayChartListComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/DayChartListComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -53,8 +53,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
+Vue.component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['structure_type', 'cycle'],
   data: function data() {
@@ -91,10 +90,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/DayChartListYinComponent.vue?vue&type=template&id=6723b6fb&":
-/*!*********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/DayChartListYinComponent.vue?vue&type=template&id=6723b6fb& ***!
-  \*********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/DayChartListComponent.vue?vue&type=template&id=765802f1&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/DayChartListComponent.vue?vue&type=template&id=765802f1& ***!
+  \******************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -138,18 +137,16 @@ var render = function() {
                     _c("td", [_vm._v(_vm._s(chart.id))]),
                     _vm._v(" "),
                     chart.cycle_type == "Upper Cycle"
-                      ? _c("td", [_vm._v(_vm._s(chart.id * 2 + 10))])
+                      ? _c("td", [_vm._v(_vm._s(chart.id * 2 + 2))])
                       : chart.cycle_type == "Middle Cycle"
-                      ? _c("td", [_vm._v(_vm._s(chart.id * 2 + 12))])
-                      : chart.cycle_type == "Lower Cycle"
-                      ? _c("td", [_vm._v(_vm._s(chart.id * 2 + 14))])
+                      ? _c("td", [_vm._v(_vm._s(chart.id * 2 + 4))])
                       : _c("td", [_vm._v(_vm._s(chart.id * 2 + 6))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(chart.structure_type))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(chart.cycle_type))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v("Yin " + _vm._s(chart.number))]),
+                    _c("td", [_vm._v("Yang " + _vm._s(chart.number))]),
                     _vm._v(" "),
                     _c("td", [
                       _c("span", { staticClass: "font-italic mr-1" }, [
@@ -214,16 +211,7 @@ var render = function() {
           ])
         ],
         1
-      ),
-      _vm._v(" "),
-      _c("create-day-chart-modal", {
-        ref: "createChart",
-        on: {
-          chart: function($event) {
-            return _vm.loadChart()
-          }
-        }
-      })
+      )
     ],
     1
   )
@@ -242,7 +230,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", [_vm._v("Cycle Type")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Yin Number")]),
+      _c("th", [_vm._v("Yang Number")]),
       _vm._v(" "),
       _c("th", [_vm._v("Chart")]),
       _vm._v(" "),
@@ -256,17 +244,17 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/components/chart/DayChartListYinComponent.vue":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/chart/DayChartListYinComponent.vue ***!
-  \********************************************************************/
+/***/ "./resources/js/components/chart/DayChartListComponent.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/chart/DayChartListComponent.vue ***!
+  \*****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _DayChartListYinComponent_vue_vue_type_template_id_6723b6fb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DayChartListYinComponent.vue?vue&type=template&id=6723b6fb& */ "./resources/js/components/chart/DayChartListYinComponent.vue?vue&type=template&id=6723b6fb&");
-/* harmony import */ var _DayChartListYinComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DayChartListYinComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/chart/DayChartListYinComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _DayChartListComponent_vue_vue_type_template_id_765802f1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DayChartListComponent.vue?vue&type=template&id=765802f1& */ "./resources/js/components/chart/DayChartListComponent.vue?vue&type=template&id=765802f1&");
+/* harmony import */ var _DayChartListComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DayChartListComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/chart/DayChartListComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -276,9 +264,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _DayChartListYinComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _DayChartListYinComponent_vue_vue_type_template_id_6723b6fb___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _DayChartListYinComponent_vue_vue_type_template_id_6723b6fb___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _DayChartListComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DayChartListComponent_vue_vue_type_template_id_765802f1___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DayChartListComponent_vue_vue_type_template_id_765802f1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -288,38 +276,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/chart/DayChartListYinComponent.vue"
+component.options.__file = "resources/js/components/chart/DayChartListComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/chart/DayChartListYinComponent.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************!*\
-  !*** ./resources/js/components/chart/DayChartListYinComponent.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************/
+/***/ "./resources/js/components/chart/DayChartListComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/chart/DayChartListComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DayChartListYinComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DayChartListYinComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/DayChartListYinComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DayChartListYinComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DayChartListComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DayChartListComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/DayChartListComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DayChartListComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/chart/DayChartListYinComponent.vue?vue&type=template&id=6723b6fb&":
-/*!***************************************************************************************************!*\
-  !*** ./resources/js/components/chart/DayChartListYinComponent.vue?vue&type=template&id=6723b6fb& ***!
-  \***************************************************************************************************/
+/***/ "./resources/js/components/chart/DayChartListComponent.vue?vue&type=template&id=765802f1&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/chart/DayChartListComponent.vue?vue&type=template&id=765802f1& ***!
+  \************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DayChartListYinComponent_vue_vue_type_template_id_6723b6fb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DayChartListYinComponent.vue?vue&type=template&id=6723b6fb& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/DayChartListYinComponent.vue?vue&type=template&id=6723b6fb&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DayChartListYinComponent_vue_vue_type_template_id_6723b6fb___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DayChartListComponent_vue_vue_type_template_id_765802f1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DayChartListComponent.vue?vue&type=template&id=765802f1& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/DayChartListComponent.vue?vue&type=template&id=765802f1&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DayChartListComponent_vue_vue_type_template_id_765802f1___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DayChartListYinComponent_vue_vue_type_template_id_6723b6fb___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DayChartListComponent_vue_vue_type_template_id_765802f1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

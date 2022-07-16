@@ -473,4 +473,15 @@ Route::get('/month-generate', function() {
 
 Route::get('email/verify/{id}','EmailVerificationController@verify');
 
+Route::prefix('tong-shu')->group(function(){
+    Route::get('/index',function(){
+        return view('tongshu.index');
+    });
 
+    Route::get('/show',function(){
+        return view('tongshu.show',[
+            'month' =>  request('month'),
+            'id' =>  request('id')
+        ]);
+    });
+});

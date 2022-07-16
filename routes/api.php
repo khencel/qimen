@@ -231,3 +231,12 @@ Route::get('content/{id}/{type}/{part}','API\ContentController@loadContentWithID
 Route::get('sample',function(){
     return 123;
 });
+
+
+Route::prefix('tong-shu')->group(function(){
+    Route::get('/index','API\TongShu\DongGongController@index');
+    Route::get('/dong-gong/{id}','API\TongShu\DongGongController@getDongGong');
+    Route::post('/update','API\TongShu\DongGongController@update');
+
+    Route::post('report/get-chief','API\TongShu\ReportController@getChief');
+});

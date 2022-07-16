@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[29],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/best-ever/animal-sign/ShowLuck.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/best-ever/animal-sign/ShowLuck.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/best-ever/animal-sign/ShowAspect.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/best-ever/animal-sign/ShowAspect.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -59,61 +59,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id'],
@@ -124,18 +69,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       loading: false,
       form: new Form({
-        month_1: '',
-        month_2: '',
-        month_3: '',
-        month_4: '',
-        month_5: '',
-        month_6: '',
-        month_7: '',
-        month_8: '',
-        month_9: '',
-        month_10: '',
-        month_11: '',
-        month_12: '',
+        wealth: '',
+        career: '',
+        relationship: '',
+        health: '',
         animal_id: this.id
       })
     };
@@ -151,24 +88,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get(window.besteverLive + '/api/luck/show/' + _this.id);
+                return axios.get(window.besteverLive + '/api/aspect/show/' + _this.id);
 
               case 2:
                 res = _context.sent;
-                _this.form.month_1 = res.data.month_1;
-                _this.form.month_2 = res.data.month_2;
-                _this.form.month_3 = res.data.month_3;
-                _this.form.month_4 = res.data.month_4;
-                _this.form.month_5 = res.data.month_5;
-                _this.form.month_6 = res.data.month_6;
-                _this.form.month_7 = res.data.month_7;
-                _this.form.month_8 = res.data.month_8;
-                _this.form.month_9 = res.data.month_9;
-                _this.form.month_10 = res.data.month_10;
-                _this.form.month_11 = res.data.month_11;
-                _this.form.month_12 = res.data.month_12;
+                _this.form.wealth = res.data.wealth;
+                _this.form.career = res.data.career;
+                _this.form.relationship = res.data.relationships;
+                _this.form.health = res.data.health;
 
-              case 15:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -176,11 +105,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    storeLuck: function storeLuck() {
+    storeAspect: function storeAspect() {
       var _this2 = this;
 
       this.loading = true;
-      this.form.post(window.besteverLive + '/api/luck/store').then(function (res) {
+      this.form.post(window.besteverLive + '/api/aspect/store').then(function (res) {
         _this2.$notify({
           group: 'notification',
           type: 'success',
@@ -199,10 +128,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/best-ever/animal-sign/ShowLuck.vue?vue&type=template&id=6e9fecbc&":
-/*!*********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/best-ever/animal-sign/ShowLuck.vue?vue&type=template&id=6e9fecbc& ***!
-  \*********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/best-ever/animal-sign/ShowAspect.vue?vue&type=template&id=18620489&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/best-ever/animal-sign/ShowAspect.vue?vue&type=template&id=18620489& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -222,7 +151,7 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "col-md-6" }, [
           _vm._m(0),
           _vm._v(" "),
           _c("textarea", {
@@ -230,30 +159,30 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.form.month_1,
-                expression: "form.month_1"
+                value: _vm.form.wealth,
+                expression: "form.wealth"
               }
             ],
             staticClass: "form-control",
             attrs: {
-              placeholder: "Input text here...",
+              placeholder: "Input wealth here...",
               id: "",
               cols: "30",
               rows: "10"
             },
-            domProps: { value: _vm.form.month_1 },
+            domProps: { value: _vm.form.wealth },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.form, "month_1", $event.target.value)
+                _vm.$set(_vm.form, "wealth", $event.target.value)
               }
             }
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "col-md-6" }, [
           _vm._m(1),
           _vm._v(" "),
           _c("textarea", {
@@ -261,30 +190,32 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.form.month_2,
-                expression: "form.month_2"
+                value: _vm.form.career,
+                expression: "form.career"
               }
             ],
             staticClass: "form-control",
             attrs: {
-              placeholder: "Input text here...",
+              placeholder: "Input career here...",
               id: "",
               cols: "30",
               rows: "10"
             },
-            domProps: { value: _vm.form.month_2 },
+            domProps: { value: _vm.form.career },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.form, "month_2", $event.target.value)
+                _vm.$set(_vm.form, "career", $event.target.value)
               }
             }
           })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-6" }, [
           _vm._m(2),
           _vm._v(" "),
           _c("textarea", {
@@ -292,32 +223,30 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.form.month_3,
-                expression: "form.month_3"
+                value: _vm.form.relationship,
+                expression: "form.relationship"
               }
             ],
             staticClass: "form-control",
             attrs: {
-              placeholder: "Input text here...",
+              placeholder: "Input relationships here...",
               id: "",
               cols: "30",
               rows: "10"
             },
-            domProps: { value: _vm.form.month_3 },
+            domProps: { value: _vm.form.relationship },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.form, "month_3", $event.target.value)
+                _vm.$set(_vm.form, "relationship", $event.target.value)
               }
             }
           })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row mt-2" }, [
-        _c("div", { staticClass: "col-md-4" }, [
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
           _vm._m(3),
           _vm._v(" "),
           _c("textarea", {
@@ -325,276 +254,24 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.form.month_4,
-                expression: "form.month_4"
+                value: _vm.form.health,
+                expression: "form.health"
               }
             ],
             staticClass: "form-control",
             attrs: {
-              placeholder: "Input text here...",
+              placeholder: "Input health here...",
               id: "",
               cols: "30",
               rows: "10"
             },
-            domProps: { value: _vm.form.month_4 },
+            domProps: { value: _vm.form.health },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.form, "month_4", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _vm._m(4),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.month_5,
-                expression: "form.month_5"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              placeholder: "Input text here...",
-              id: "",
-              cols: "30",
-              rows: "10"
-            },
-            domProps: { value: _vm.form.month_5 },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "month_5", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _vm._m(5),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.month_6,
-                expression: "form.month_6"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              placeholder: "Input text here...",
-              id: "",
-              cols: "30",
-              rows: "10"
-            },
-            domProps: { value: _vm.form.month_6 },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "month_6", $event.target.value)
-              }
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row mt-2" }, [
-        _c("div", { staticClass: "col-md-4" }, [
-          _vm._m(6),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.month_7,
-                expression: "form.month_7"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              placeholder: "Input text here...",
-              id: "",
-              cols: "30",
-              rows: "10"
-            },
-            domProps: { value: _vm.form.month_7 },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "month_7", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _vm._m(7),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.month_8,
-                expression: "form.month_8"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              placeholder: "Input text here...",
-              id: "",
-              cols: "30",
-              rows: "10"
-            },
-            domProps: { value: _vm.form.month_8 },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "month_8", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _vm._m(8),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.month_9,
-                expression: "form.month_9"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              placeholder: "Input text here...",
-              id: "",
-              cols: "30",
-              rows: "10"
-            },
-            domProps: { value: _vm.form.month_9 },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "month_9", $event.target.value)
-              }
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row mt-2" }, [
-        _c("div", { staticClass: "col-md-4" }, [
-          _vm._m(9),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.month_10,
-                expression: "form.month_10"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              placeholder: "Input text here...",
-              id: "",
-              cols: "30",
-              rows: "10"
-            },
-            domProps: { value: _vm.form.month_10 },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "month_10", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _vm._m(10),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.month_11,
-                expression: "form.month_11"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              placeholder: "Input text here...",
-              id: "",
-              cols: "30",
-              rows: "10"
-            },
-            domProps: { value: _vm.form.month_11 },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "month_11", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _vm._m(11),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.month_12,
-                expression: "form.month_12"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              placeholder: "Input text here...",
-              id: "",
-              cols: "30",
-              rows: "10"
-            },
-            domProps: { value: _vm.form.month_12 },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "month_12", $event.target.value)
+                _vm.$set(_vm.form, "health", $event.target.value)
               }
             }
           })
@@ -611,7 +288,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "btn btn-success w-25 float-right",
-                    on: { click: _vm.storeLuck }
+                    on: { click: _vm.storeAspect }
                   },
                   [_vm._v("Save")]
                 )
@@ -633,7 +310,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("strong", [
-      _c("label", { attrs: { for: "" } }, [_vm._v("February 4th - March 4th")])
+      _c("label", { attrs: { for: "" } }, [_vm._v("Wealth")])
     ])
   },
   function() {
@@ -641,7 +318,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("strong", [
-      _c("label", { attrs: { for: "" } }, [_vm._v("March 5th - April 4th")])
+      _c("label", { attrs: { for: "" } }, [_vm._v("Career")])
     ])
   },
   function() {
@@ -649,7 +326,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("strong", [
-      _c("label", { attrs: { for: "" } }, [_vm._v("April 5th - May 4th")])
+      _c("label", { attrs: { for: "" } }, [_vm._v("Relationships")])
     ])
   },
   function() {
@@ -657,83 +334,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("strong", [
-      _c("label", { attrs: { for: "" } }, [_vm._v("May 5th - June 5th")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("label", { attrs: { for: "" } }, [_vm._v("June 6th - July 6th")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("label", { attrs: { for: "" } }, [_vm._v("July 7th - August 6th")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("label", { attrs: { for: "" } }, [
-        _vm._v("August 7th - September 6th")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("label", { attrs: { for: "" } }, [
-        _vm._v("September 7th - October 7th")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("label", { attrs: { for: "" } }, [
-        _vm._v("October 8th - November 6th")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("label", { attrs: { for: "" } }, [
-        _vm._v("November 7th - December 6th")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("label", { attrs: { for: "" } }, [
-        _vm._v("December 7th 2022 - January 4th 2023")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("label", { attrs: { for: "" } }, [
-        _vm._v("January 5th - February 3rd 2023")
-      ])
+      _c("label", { attrs: { for: "" } }, [_vm._v("Health")])
     ])
   }
 ]
@@ -743,17 +344,17 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/components/best-ever/animal-sign/ShowLuck.vue":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/best-ever/animal-sign/ShowLuck.vue ***!
-  \********************************************************************/
+/***/ "./resources/js/components/best-ever/animal-sign/ShowAspect.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/best-ever/animal-sign/ShowAspect.vue ***!
+  \**********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ShowLuck_vue_vue_type_template_id_6e9fecbc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ShowLuck.vue?vue&type=template&id=6e9fecbc& */ "./resources/js/components/best-ever/animal-sign/ShowLuck.vue?vue&type=template&id=6e9fecbc&");
-/* harmony import */ var _ShowLuck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ShowLuck.vue?vue&type=script&lang=js& */ "./resources/js/components/best-ever/animal-sign/ShowLuck.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ShowAspect_vue_vue_type_template_id_18620489___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ShowAspect.vue?vue&type=template&id=18620489& */ "./resources/js/components/best-ever/animal-sign/ShowAspect.vue?vue&type=template&id=18620489&");
+/* harmony import */ var _ShowAspect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ShowAspect.vue?vue&type=script&lang=js& */ "./resources/js/components/best-ever/animal-sign/ShowAspect.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -763,9 +364,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ShowLuck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ShowLuck_vue_vue_type_template_id_6e9fecbc___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ShowLuck_vue_vue_type_template_id_6e9fecbc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ShowAspect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ShowAspect_vue_vue_type_template_id_18620489___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ShowAspect_vue_vue_type_template_id_18620489___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -775,38 +376,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/best-ever/animal-sign/ShowLuck.vue"
+component.options.__file = "resources/js/components/best-ever/animal-sign/ShowAspect.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/best-ever/animal-sign/ShowLuck.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************!*\
-  !*** ./resources/js/components/best-ever/animal-sign/ShowLuck.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************/
+/***/ "./resources/js/components/best-ever/animal-sign/ShowAspect.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/best-ever/animal-sign/ShowAspect.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowLuck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ShowLuck.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/best-ever/animal-sign/ShowLuck.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowLuck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowAspect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ShowAspect.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/best-ever/animal-sign/ShowAspect.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowAspect_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/best-ever/animal-sign/ShowLuck.vue?vue&type=template&id=6e9fecbc&":
-/*!***************************************************************************************************!*\
-  !*** ./resources/js/components/best-ever/animal-sign/ShowLuck.vue?vue&type=template&id=6e9fecbc& ***!
-  \***************************************************************************************************/
+/***/ "./resources/js/components/best-ever/animal-sign/ShowAspect.vue?vue&type=template&id=18620489&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/best-ever/animal-sign/ShowAspect.vue?vue&type=template&id=18620489& ***!
+  \*****************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowLuck_vue_vue_type_template_id_6e9fecbc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ShowLuck.vue?vue&type=template&id=6e9fecbc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/best-ever/animal-sign/ShowLuck.vue?vue&type=template&id=6e9fecbc&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowLuck_vue_vue_type_template_id_6e9fecbc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowAspect_vue_vue_type_template_id_18620489___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ShowAspect.vue?vue&type=template&id=18620489& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/best-ever/animal-sign/ShowAspect.vue?vue&type=template&id=18620489&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowAspect_vue_vue_type_template_id_18620489___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowLuck_vue_vue_type_template_id_6e9fecbc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowAspect_vue_vue_type_template_id_18620489___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

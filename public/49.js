@@ -1,18 +1,22 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[49],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSW.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSE.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartSW.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartSE.vue?vue&type=script&lang=js& ***!
   \************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -696,7 +700,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['chart_id', 'type'],
   data: function data() {
     return {
-      part: 'sw',
+      part: 'se',
       erros: {},
       stems: {},
       stars: {},
@@ -771,12 +775,12 @@ __webpack_require__.r(__webpack_exports__);
           lword: ''
         },
         position_7: {
-          id: 0,
+          id: null,
           fword: '',
           lword: ''
         },
-        swTop: [],
-        swRight: [],
+        seTop: [],
+        seLeft: [],
         bird_2: false
       })
     };
@@ -798,21 +802,20 @@ __webpack_require__.r(__webpack_exports__);
         _this.doors = response.data.door;
         _this.positions = response.data.position;
         _this.numbers = response.data.number;
-      });
+      })["catch"](function (error) {});
     },
     chartUpdate: function chartUpdate() {
       var _this2 = this;
 
-      this.se.put('/api/sw/' + this.chart_id).then(function (response) {
+      this.se.put('/api/se/' + this.chart_id).then(function (response) {
+        console.log(response.data);
+
         _this2.$notify({
           group: 'notification',
           type: 'success',
           title: 'Update Chart',
           text: 'Chart has been updated'
         });
-
-        _this2.se.swTop = [];
-        _this2.se.swRight = [];
 
         _this2.chartDetails();
       })["catch"](function (error) {
@@ -822,44 +825,57 @@ __webpack_require__.r(__webpack_exports__);
     chartDetails: function chartDetails() {
       var _this3 = this;
 
-      this.se.get('/api/sw/' + this.chart_id + '/' + this.type).then(function (response) {
-        _this3.center = response.data.center.stem.value;
-        _this3.se.stem_top = {
-          id: response.data.se.stem_top.id,
-          name: response.data.se.stem_top.value
-        };
-        _this3.se.star = {
-          id: response.data.se.star.id,
-          name: response.data.se.star.name,
-          chinese: response.data.se.star.chinese
-        };
-        _this3.se.deitie = {
-          id: response.data.se.deitie.id,
-          name: response.data.se.deitie.value,
-          chinese: response.data.se.deitie.chinese
-        };
-        _this3.se.stem_bottom = {
-          id: response.data.se.stem_bottom.id,
-          name: response.data.se.stem_bottom.value
-        };
-        _this3.se.door = {
-          id: response.data.se.door.id,
-          name: response.data.se.door.name,
-          chinese: response.data.se.door.chinese
-        };
-        _this3.se.number = response.data.se.number;
-        response.data.se.swTop.split(",").forEach(function (element) {
-          _this3.se.swTop.push(element);
-        });
-        response.data.se.swRight.split(",").forEach(function (element) {
-          _this3.se.swRight.push(element);
-        });
-      })["catch"](function (error) {});
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this3.se.get('/api/se/' + _this3.chart_id + '/' + _this3.type).then(function (response) {
+                  _this3.center = response.data.center.stem.value;
+                  _this3.se.stem_top = {
+                    id: response.data.se.stem_top.id,
+                    name: response.data.se.stem_top.value
+                  };
+                  _this3.se.star = {
+                    id: response.data.se.star.id,
+                    name: response.data.se.star.name,
+                    chinese: response.data.se.star.chinese
+                  };
+                  _this3.se.deitie = {
+                    id: response.data.se.deitie.id,
+                    name: response.data.se.deitie.value,
+                    chinese: response.data.se.deitie.chinese
+                  };
+                  _this3.se.stem_bottom = {
+                    id: response.data.se.stem_bottom.id,
+                    name: response.data.se.stem_bottom.value
+                  };
+                  _this3.se.door = {
+                    id: response.data.se.door.id,
+                    name: response.data.se.door.name,
+                    chinese: response.data.se.door.chinese
+                  };
+                  _this3.se.number = response.data.se.number;
+                  response.data.se.seTop.split(",").forEach(function (element) {
+                    _this3.se.seTop.push(element);
+                  });
+                  response.data.se.seLeft.split(",").forEach(function (element) {
+                    _this3.se.seLeft.push(element);
+                  });
+                })["catch"](function (error) {});
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     },
     fetchChartStem: function fetchChartStem() {
       var _this4 = this;
 
-      this.se.get('/api/sw/' + this.chart_id + '/' + this.type).then(function (response) {
+      this.se.get('/api/se/' + this.chart_id + '/' + this.type).then(function (response) {
         _this4.se.stem_1 = response.data.stem.stem_1;
         _this4.se.stem_2 = response.data.stem.stem_2;
         _this4.se.stem_3 = response.data.stem.stem_3;
@@ -870,80 +886,93 @@ __webpack_require__.r(__webpack_exports__);
     fetchChartPosition: function fetchChartPosition() {
       var _this5 = this;
 
-      this.se.get('/api/sw/' + this.chart_id + '/' + this.type).then(function (response) {
-        _this5.se.position_1 = response.data.position.position_1 == null ? _this5.se.position_1 = {
-          id: 0,
-          fword: '',
-          lword: ''
-        } : {
-          id: response.data.position.position_1.id,
-          fword: response.data.position.position_1.first_word,
-          lword: response.data.position.position_1.second_word
-        };
-        _this5.se.position_2 = response.data.position.position_2 == null ? _this5.se.position_2 = {
-          id: 0,
-          fword: '',
-          lword: ''
-        } : {
-          id: response.data.position.position_2.id,
-          fword: response.data.position.position_2.first_word,
-          lword: response.data.position.position_2.second_word
-        };
-        _this5.se.position_3 = response.data.position.position_3 == null ? _this5.se.position_3 = {
-          id: 0,
-          fword: '',
-          lword: ''
-        } : {
-          id: response.data.position.position_3.id,
-          fword: response.data.position.position_3.first_word,
-          lword: response.data.position.position_3.second_word
-        };
-        _this5.se.position_4 = response.data.position.position_4 == null ? _this5.se.position_4 = {
-          id: 0,
-          fword: '',
-          lword: ''
-        } : {
-          id: response.data.position.position_4.id,
-          fword: response.data.position.position_4.first_word,
-          lword: response.data.position.position_4.second_word
-        };
-        _this5.se.position_5 = response.data.position.position_5 == null ? _this5.se.position_5 = {
-          id: 0,
-          fword: '',
-          lword: ''
-        } : {
-          id: response.data.position.position_5.id,
-          fword: response.data.position.position_5.first_word,
-          lword: response.data.position.position_5.second_word
-        };
-        _this5.se.position_6 = response.data.position.position_6 == null ? _this5.se.position_6 = {
-          id: 0,
-          fword: '',
-          lword: ''
-        } : {
-          id: response.data.position.position_6.id,
-          fword: response.data.position.position_6.first_word,
-          lword: response.data.position.position_6.second_word
-        };
-        _this5.se.position_7 = response.data.position.position_7 == 0 ? _this5.se.position_7 = {
-          id: 0,
-          fword: '',
-          lword: ''
-        } : {
-          id: response.data.position.position_7.id,
-          fword: response.data.position.position_7.first_word,
-          lword: response.data.position.position_7.second_word
-        };
-      })["catch"](function (error) {});
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this5.se.get('/api/se/' + _this5.chart_id + '/' + _this5.type).then(function (response) {
+                  _this5.se.position_1 = response.data.position.position_1 == null ? _this5.se.position_1 = {
+                    id: 0,
+                    fword: '',
+                    lword: ''
+                  } : {
+                    id: response.data.position.position_1.id,
+                    fword: response.data.position.position_1.first_word,
+                    lword: response.data.position.position_1.second_word
+                  };
+                  _this5.se.position_2 = response.data.position.position_2 == null ? _this5.se.position_2 = {
+                    id: 0,
+                    fword: '',
+                    lword: ''
+                  } : {
+                    id: response.data.position.position_2.id,
+                    fword: response.data.position.position_2.first_word,
+                    lword: response.data.position.position_2.second_word
+                  };
+                  _this5.se.position_3 = response.data.position.position_3 == null ? _this5.se.position_3 = {
+                    id: 0,
+                    fword: '',
+                    lword: ''
+                  } : {
+                    id: response.data.position.position_3.id,
+                    fword: response.data.position.position_3.first_word,
+                    lword: response.data.position.position_3.second_word
+                  };
+                  _this5.se.position_4 = response.data.position.position_4 == null ? _this5.se.position_4 = {
+                    id: 0,
+                    fword: '',
+                    lword: ''
+                  } : {
+                    id: response.data.position.position_4.id,
+                    fword: response.data.position.position_4.first_word,
+                    lword: response.data.position.position_4.second_word
+                  };
+                  _this5.se.position_5 = response.data.position.position_5 == null ? _this5.se.position_5 = {
+                    id: 0,
+                    fword: '',
+                    lword: ''
+                  } : {
+                    id: response.data.position.position_5.id,
+                    fword: response.data.position.position_5.first_word,
+                    lword: response.data.position.position_5.second_word
+                  };
+                  _this5.se.position_6 = response.data.position.position_6 == null ? _this5.se.position_6 = {
+                    id: 0,
+                    fword: '',
+                    lword: ''
+                  } : {
+                    id: response.data.position.position_6.id,
+                    fword: response.data.position.position_6.first_word,
+                    lword: response.data.position.position_6.second_word
+                  };
+                  _this5.se.position_7 = response.data.position.position_7 == null ? _this5.se.position_7 = {
+                    id: null,
+                    fword: '',
+                    lword: ''
+                  } : {
+                    id: response.data.position.position_7.id,
+                    fword: response.data.position.position_7.first_word,
+                    lword: response.data.position.position_7.second_word
+                  };
+                })["catch"](function (error) {});
+
+              case 1:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSW.vue?vue&type=template&id=29880cb6&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSE.vue?vue&type=template&id=288a65a4&":
 /*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartSW.vue?vue&type=template&id=29880cb6& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chart/ChartSE.vue?vue&type=template&id=288a65a4& ***!
   \****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -969,7 +998,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "row justify-content-start pt-5 text-center bg-black position-relative"
+                "row justify-content-end pt-5 text-center bg-black position-relative"
             },
             [
               _vm._m(0),
@@ -982,8 +1011,8 @@ var render = function() {
                     width: "100px",
                     "z-index": "1",
                     top: "0",
-                    right: "50%",
-                    "margin-right": "-27px"
+                    left: "50%",
+                    "margin-left": "-27px"
                   }
                 },
                 [
@@ -1008,20 +1037,20 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.se.swTop,
-                                expression: "se.swTop"
+                                value: _vm.se.seTop,
+                                expression: "se.seTop"
                               }
                             ],
                             attrs: { type: "checkbox" },
                             domProps: {
                               value: item.value,
-                              checked: Array.isArray(_vm.se.swTop)
-                                ? _vm._i(_vm.se.swTop, item.value) > -1
-                                : _vm.se.swTop
+                              checked: Array.isArray(_vm.se.seTop)
+                                ? _vm._i(_vm.se.seTop, item.value) > -1
+                                : _vm.se.seTop
                             },
                             on: {
                               change: function($event) {
-                                var $$a = _vm.se.swTop,
+                                var $$a = _vm.se.seTop,
                                   $$el = $event.target,
                                   $$c = $$el.checked ? true : false
                                 if (Array.isArray($$a)) {
@@ -1031,21 +1060,21 @@ var render = function() {
                                     $$i < 0 &&
                                       _vm.$set(
                                         _vm.se,
-                                        "swTop",
+                                        "seTop",
                                         $$a.concat([$$v])
                                       )
                                   } else {
                                     $$i > -1 &&
                                       _vm.$set(
                                         _vm.se,
-                                        "swTop",
+                                        "seTop",
                                         $$a
                                           .slice(0, $$i)
                                           .concat($$a.slice($$i + 1))
                                       )
                                   }
                                 } else {
-                                  _vm.$set(_vm.se, "swTop", $$c)
+                                  _vm.$set(_vm.se, "seTop", $$c)
                                 }
                               }
                             }
@@ -1067,7 +1096,7 @@ var render = function() {
                     height: "100px",
                     "z-index": "1",
                     top: "50%",
-                    right: "0",
+                    left: "0",
                     "margin-top": "-50px"
                   }
                 },
@@ -1076,25 +1105,31 @@ var render = function() {
                     "div",
                     { key: index, staticClass: "h-50 pt-2" },
                     [
+                      _c("b-badge", {
+                        staticClass: "p-2",
+                        attrs: { variant: "success" },
+                        domProps: { textContent: _vm._s(item.value) }
+                      }),
+                      _vm._v(" "),
                       _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.se.swRight,
-                            expression: "se.swRight"
+                            value: _vm.se.seLeft,
+                            expression: "se.seLeft"
                           }
                         ],
                         attrs: { type: "checkbox" },
                         domProps: {
                           value: item.value,
-                          checked: Array.isArray(_vm.se.swRight)
-                            ? _vm._i(_vm.se.swRight, item.value) > -1
-                            : _vm.se.swRight
+                          checked: Array.isArray(_vm.se.seLeft)
+                            ? _vm._i(_vm.se.seLeft, item.value) > -1
+                            : _vm.se.seLeft
                         },
                         on: {
                           change: function($event) {
-                            var $$a = _vm.se.swRight,
+                            var $$a = _vm.se.seLeft,
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
@@ -1102,26 +1137,20 @@ var render = function() {
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
                                 $$i < 0 &&
-                                  _vm.$set(_vm.se, "swRight", $$a.concat([$$v]))
+                                  _vm.$set(_vm.se, "seLeft", $$a.concat([$$v]))
                               } else {
                                 $$i > -1 &&
                                   _vm.$set(
                                     _vm.se,
-                                    "swRight",
+                                    "seLeft",
                                     $$a.slice(0, $$i).concat($$a.slice($$i + 1))
                                   )
                               }
                             } else {
-                              _vm.$set(_vm.se, "swRight", $$c)
+                              _vm.$set(_vm.se, "seLeft", $$c)
                             }
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("b-badge", {
-                        staticClass: "p-2",
-                        attrs: { variant: "success" },
-                        domProps: { textContent: _vm._s(item.value) }
                       })
                     ],
                     1
@@ -1745,7 +1774,7 @@ var render = function() {
                             staticStyle: { height: "200px" }
                           },
                           [
-                            _c("div", { staticClass: "col-md-4 p-0" }, [
+                            _c("div", { staticClass: "col-md-6 p-0" }, [
                               _c("div", { staticClass: "mt-5" }, [
                                 _c(
                                   "svg",
@@ -1869,7 +1898,7 @@ var render = function() {
                               ])
                             ]),
                             _vm._v(" "),
-                            _c("div", { staticClass: "col-md-4 p-0" }, [
+                            _c("div", { staticClass: "col-md-6 p-0" }, [
                               _c("div", { staticClass: "mt-5" }, [
                                 _c(
                                   "svg",
@@ -2383,7 +2412,7 @@ var render = function() {
                             staticStyle: { height: "200px" }
                           },
                           [
-                            _c("div", { staticClass: "col-md-4 p-0" }, [
+                            _c("div", { staticClass: "col-md-6 p-0" }, [
                               _c("div", { staticClass: "mt-5" }, [
                                 _c(
                                   "svg",
@@ -2506,7 +2535,7 @@ var render = function() {
                               ])
                             ]),
                             _vm._v(" "),
-                            _c("div", { staticClass: "col-md-4 p-0" }, [
+                            _c("div", { staticClass: "col-md-6 p-0" }, [
                               _c("div", { staticClass: "mt-5" }, [
                                 _c(
                                   "svg",
@@ -2575,7 +2604,7 @@ var render = function() {
                                           attrs: { disabled: "", hidden: "" },
                                           domProps: {
                                             value: {
-                                              id: 0,
+                                              id: null,
                                               fword: "",
                                               lword: ""
                                             }
@@ -2589,7 +2618,7 @@ var render = function() {
                                         {
                                           domProps: {
                                             value: {
-                                              id: 0,
+                                              id: null,
                                               fword: "",
                                               lword: ""
                                             }
@@ -3085,9 +3114,9 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                            " +
+                                        "\n                                        " +
                                           _vm._s(number.number) +
-                                          "\n                                        "
+                                          "\n                                    "
                                       )
                                     ]
                                   )
@@ -3157,14 +3186,14 @@ var render = function() {
                     width: "60px",
                     "z-index": "1",
                     top: "0",
-                    right: "16.3%"
+                    left: "15%"
                   }
                 },
                 [
                   _c(
                     "div",
                     { staticClass: "row justify-content-center text-white" },
-                    _vm._l(_vm.se.swTop, function(item, index) {
+                    _vm._l(_vm.se.seTop, function(item, index) {
                       return _c(
                         "div",
                         {
@@ -3201,10 +3230,10 @@ var render = function() {
                     height: "50px",
                     "z-index": "1",
                     top: "16%",
-                    right: "0"
+                    left: "0"
                   }
                 },
-                _vm._l(_vm.se.swRight, function(item, index) {
+                _vm._l(_vm.se.seLeft, function(item, index) {
                   return _c(
                     "div",
                     { key: index },
@@ -3224,22 +3253,6 @@ var render = function() {
                 "div",
                 { staticClass: "row", staticStyle: { height: "200px" } },
                 [
-                  _c("div", {
-                    staticClass: "col-md-4 bg-white position-relative",
-                    staticStyle: {
-                      border: "2px solid",
-                      "border-color": "#D68FC6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", {
-                    staticClass: "col-md-4 bg-white",
-                    staticStyle: {
-                      border: "2px solid",
-                      "border-color": "#D68FC6"
-                    }
-                  }),
-                  _vm._v(" "),
                   _c(
                     "div",
                     {
@@ -4181,7 +4194,23 @@ var render = function() {
                         ]
                       )
                     ]
-                  )
+                  ),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "col-md-4 bg-white position-relative",
+                    staticStyle: {
+                      border: "2px solid",
+                      "border-color": "#D68FC6"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "col-md-4 bg-white",
+                    staticStyle: {
+                      border: "2px solid",
+                      "border-color": "#D68FC6"
+                    }
+                  })
                 ]
               ),
               _vm._v(" "),
@@ -4205,9 +4234,9 @@ var staticRenderFns = [
       "div",
       {
         staticClass: "text-white position-absolute m-1",
-        staticStyle: { "z-index": "1", top: "0", right: "0" }
+        staticStyle: { "z-index": "1", top: "0", left: "0" }
       },
-      [_c("h3", [_vm._v("SW")])]
+      [_c("h3", [_vm._v("SE")])]
     )
   },
   function() {
@@ -4424,17 +4453,17 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/components/chart/ChartSW.vue":
+/***/ "./resources/js/components/chart/ChartSE.vue":
 /*!***************************************************!*\
-  !*** ./resources/js/components/chart/ChartSW.vue ***!
+  !*** ./resources/js/components/chart/ChartSE.vue ***!
   \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ChartSW_vue_vue_type_template_id_29880cb6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChartSW.vue?vue&type=template&id=29880cb6& */ "./resources/js/components/chart/ChartSW.vue?vue&type=template&id=29880cb6&");
-/* harmony import */ var _ChartSW_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChartSW.vue?vue&type=script&lang=js& */ "./resources/js/components/chart/ChartSW.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ChartSE_vue_vue_type_template_id_288a65a4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChartSE.vue?vue&type=template&id=288a65a4& */ "./resources/js/components/chart/ChartSE.vue?vue&type=template&id=288a65a4&");
+/* harmony import */ var _ChartSE_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChartSE.vue?vue&type=script&lang=js& */ "./resources/js/components/chart/ChartSE.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -4444,9 +4473,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ChartSW_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ChartSW_vue_vue_type_template_id_29880cb6___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ChartSW_vue_vue_type_template_id_29880cb6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ChartSE_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ChartSE_vue_vue_type_template_id_288a65a4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ChartSE_vue_vue_type_template_id_288a65a4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -4456,38 +4485,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/chart/ChartSW.vue"
+component.options.__file = "resources/js/components/chart/ChartSE.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/chart/ChartSW.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/components/chart/ChartSE.vue?vue&type=script&lang=js&":
 /*!****************************************************************************!*\
-  !*** ./resources/js/components/chart/ChartSW.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/components/chart/ChartSE.vue?vue&type=script&lang=js& ***!
   \****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSW_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartSW.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSW.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSW_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSE_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartSE.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSE.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSE_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/chart/ChartSW.vue?vue&type=template&id=29880cb6&":
+/***/ "./resources/js/components/chart/ChartSE.vue?vue&type=template&id=288a65a4&":
 /*!**********************************************************************************!*\
-  !*** ./resources/js/components/chart/ChartSW.vue?vue&type=template&id=29880cb6& ***!
+  !*** ./resources/js/components/chart/ChartSE.vue?vue&type=template&id=288a65a4& ***!
   \**********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSW_vue_vue_type_template_id_29880cb6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartSW.vue?vue&type=template&id=29880cb6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSW.vue?vue&type=template&id=29880cb6&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSW_vue_vue_type_template_id_29880cb6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSE_vue_vue_type_template_id_288a65a4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChartSE.vue?vue&type=template&id=288a65a4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chart/ChartSE.vue?vue&type=template&id=288a65a4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSE_vue_vue_type_template_id_288a65a4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSW_vue_vue_type_template_id_29880cb6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChartSE_vue_vue_type_template_id_288a65a4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

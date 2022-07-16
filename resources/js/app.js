@@ -104,6 +104,10 @@ require('./components/month-chart/RegisterComponent');
 //best year
 require('./components/best-ever/RegisterComponent');
 
+
+// tongshu 
+require('./components/tongshu/RegisterComponent');
+
 Vue.component(
     'chart-tab',
     ()=>import('./components/TabChart.vue')
