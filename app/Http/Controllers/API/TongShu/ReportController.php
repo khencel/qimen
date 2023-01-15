@@ -16,7 +16,10 @@ class ReportController extends Controller
                     ->where('year',$request->year)
                     ->first('day_chart_id');
 
-        return getResultChief($chart_id['day_chart_id']);
+        return response()->json([
+            'chief' => getResultChief($chart_id['day_chart_id']),
+            'life' => getResultLife($chart_id['day_chart_id'])
+        ]); 
         
     }
 }
@@ -99,6 +102,93 @@ function getResultChief($id){
 
     //SW
     $check_sw = $sw->where('deitie_id',1)
+                ->where('yin_chart_id',$id)
+                ->where('chart_type','day')
+                ->first();
+                
+    if($check_sw){
+        return "SW";
+    }
+}
+
+function getResultLife($id){
+    $ne = new \App\NE();
+    $n = new \App\N();
+    $nw = new \App\NW();
+    $e = new \App\E();
+    $w = new \App\W();
+    $se = new \App\SE();
+    $s = new \App\S();
+    $sw = new \App\SW();
+
+    $check_ne = $ne->where('door_id',1)
+                ->where('yin_chart_id',$id)
+                ->where('chart_type','day')
+                ->first();
+
+    if($check_ne){
+        return "NE";
+    }
+
+    $check_n = $n->where('door_id',1)
+                ->where('yin_chart_id',$id)
+                ->where('chart_type','day')
+                ->first();
+                
+    if($check_n){
+        return "N";
+    }
+
+    $check_nw = $nw->where('door_id',1)
+                ->where('yin_chart_id',$id)
+                ->where('chart_type','day')
+                ->first();
+                
+    if($check_nw){
+        return "NW";
+    }
+
+    $check_e = $e->where('door_id',1)
+                ->where('yin_chart_id',$id)
+                ->where('chart_type','day')
+                ->first();
+                
+    if($check_e){
+        return "E";
+    }
+
+    //w
+    $check_w = $w->where('door_id',1)
+                ->where('yin_chart_id',$id)
+                ->where('chart_type','day')
+                ->first();
+                
+    if($check_e){
+        return "W";
+    }
+
+    //se
+    $check_se = $se->where('door_id',1)
+                ->where('yin_chart_id',$id)
+                ->where('chart_type','day')
+                ->first();
+                
+    if($check_se){
+        return "SE";
+    }
+
+    //s
+    $check_s = $s->where('door_id',1)
+                ->where('yin_chart_id',$id)
+                ->where('chart_type','day')
+                ->first();
+                
+    if($check_s){
+        return "S";
+    }
+
+    //SW
+    $check_sw = $sw->where('door_id',1)
                 ->where('yin_chart_id',$id)
                 ->where('chart_type','day')
                 ->first();

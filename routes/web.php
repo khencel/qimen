@@ -478,10 +478,24 @@ Route::prefix('tong-shu')->group(function(){
         return view('tongshu.index');
     });
 
+    Route::get('/suit-avoid/index',function(){
+        return view('tongshu.tongShuIndex');
+    });
+
     Route::get('/show',function(){
         return view('tongshu.show',[
             'month' =>  request('month'),
             'id' =>  request('id')
+        ]);
+    });
+
+    Route::get('timestar/index',function(){
+        return view('tongshu.timestar');
+    });
+
+    Route::get('timestar/update',function(){
+        return view('tongshu.timestarupdate',[
+            'id'    =>  request('id')
         ]);
     });
 });

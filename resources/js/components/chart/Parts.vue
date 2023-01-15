@@ -40,7 +40,8 @@
                     <div :class="door_red.includes(se.star.id)?'text-danger chart-text':'chart-text'">
                         {{se.star.chinese}}
                         <br>
-                        {{se.star.name}}{{se.star.code}}
+                        {{se.star.name}}
+                        <!-- {{se.star.code}} -->
                     </div>
                     <div v-show="se.bird_2 == 1" class="position-absolute text-center" style="width:30px;z-index:1;bottom:0;right:0;margin-right:-15px;">
                         <div class="chart-text" style="line-height:5px;">

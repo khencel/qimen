@@ -236,7 +236,18 @@ Route::get('sample',function(){
 Route::prefix('tong-shu')->group(function(){
     Route::get('/index','API\TongShu\DongGongController@index');
     Route::get('/dong-gong/{id}','API\TongShu\DongGongController@getDongGong');
-    Route::post('/update','API\TongShu\DongGongController@update');
+    
+    Route::post('/dong-gong/suit-avoid','API\TongShu\DongGongController@addSuitAvoid');
+    Route::get('/dong-gong/suit-avoid/list','API\TongShu\DongGongController@suitAvoidList');
+    Route::put('/dong-gong/suit-avoid/update/{id}','API\TongShu\DongGongController@updateSuitAvoid');
+   
 
+    Route::post('/update','API\TongShu\DongGongController@update');
     Route::post('report/get-chief','API\TongShu\ReportController@getChief');
+
+    Route::get('/getDate/{year}/{day}/{month}','API\TongShu\DongGongController@getDate');
+    Route::get('/time-star/index','API\TongShu\DongGongController@timeStar');
+    Route::get('/time-star/show/{id}','API\TongShu\DongGongController@showTimeStar');
+    Route::get('/time-star/value','API\TongShu\DongGongController@showAllTimeStarValue');
+    Route::post('/time-star/store','API\TongShu\DongGongController@showAllTimeStarStore');
 });

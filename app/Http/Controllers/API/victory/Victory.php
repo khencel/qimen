@@ -27,6 +27,8 @@ class Victory extends Controller
         $get_month = \Auth::user()->is_subscribed;
         $timestamp = strtotime($get_month);
 
+        
+
         $month = date('m', $timestamp);
         $year = date('Y', $timestamp);
         $term = \Auth::user()->no_of_terms;
@@ -42,10 +44,10 @@ class Victory extends Controller
                             ->where('year',$year+$term)
                             ->orderBy('day','ASC')
                             ->first();
-  
+        
         $get_month_list = Yearchart::select('month','year')->distinct('year','month')->whereBetween('id',[$monthmin->id,$monthmax->id-1])
         ->get();
-
+        
         $get_days = Yearchart::whereBetween('id',[$monthmin->id,$monthmax->id-1])
         ->get();
 

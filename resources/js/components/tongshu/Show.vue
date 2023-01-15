@@ -97,6 +97,38 @@
                                 </div>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <label for="">Suit</label>
+                                <br>
+                                <select v-model="selected_suit" class="form-control" @change="storeSuit">
+                                    <option value="" selected hidden>Select Suit</option>
+                                    <option v-for="(item, index) in suit_avoid_list" :key="index" :value="item.name" >
+                                        {{item.name}}
+                                    </option>
+                                </select>
+                                <button class="btn btn-danger w-100" @click="clearSuit">Clear</button>
+                                <br>
+                                <div v-for="(item, index) in data.selected_suit_list" :key="index" >
+                                    {{item}}
+                                </div>
+                            </td>
+                            <td>
+                                <label for="">Avoid</label>
+                                <br>
+                                <select v-model="selected_avoid" class="form-control" @change="storeAvoid">
+                                    <option value="" selected hidden>Select Avoid</option>
+                                    <option v-for="(item, index) in suit_avoid_list" :key="index" :value="item.name" >
+                                        {{item.name}}
+                                    </option>
+                                </select>
+                                <button class="btn btn-danger w-100" @click="clearAvoid">Clear</button>
+                                <br>
+                                <div v-for="(item, index) in data.selected_avoid_list" :key="index" >
+                                    {{item}}
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
                 <div class="row justify-content-end">
@@ -137,10 +169,14 @@
                     element:"",
                     rating:[],
                     description:"",
-                    id:""
+                    id:"",
+                    selected_suit_list:[],
+                    selected_avoid_list:[]
                 },
                 ratingList:["Excellent","Auspicious","Fair","Inauspicious","Dire",],
-                
+                suit_avoid_list:[],
+                selected_suit:"",
+                selected_avoid:""
                 
             }
         },
@@ -152,11 +188,13 @@
                 this.branches = JSON.parse(localStorage.getItem('branch'));
                 this.animals = JSON.parse(localStorage.getItem('animal'));
                 this.elements = JSON.parse(localStorage.getItem('element'));
-                
             },
 
             addDetails(index,data){
-                console.log(data);
+                this.data.suitList = [];
+                this.data.avoidList = [];
+                this.data.suitList = data.suit != null?data.suit.split(','):'';
+                this.data.avoidList = data.avoid != null?data.avoid.split(','):'';
                 this.selectedIndex = index;
                 this.data.description = data.description
                 this.data.id = data.id;
@@ -166,7 +204,13 @@
                 this.data.period = data.branch.value.split(' ')[0]
                 this.data.element = data.branch.value.split(' ')[1]
                 this.data.rating = data.rating.split(',');
-                
+                console.log(this.data);
+                this.data.selected_suit_list = this.data.suitList != ""?this.data.suitList:[]
+                this.data.selected_avoid_list = this.data.avoidList != ""?this.data.avoidList:[]
+                this.index();
+                this.suitAvoidList();
+                this.selected_suit_list = "";
+                this.selected_avoid_list = "";
                 
             },
 
@@ -193,14 +237,55 @@
                         });
                         this.loading = false;
                     });
+                }                
+            },
+
+            suitAvoidList(){
+                axios.get('/api/tong-shu/dong-gong/suit-avoid/list')
+                .then(res => {
+                    this.suit_avoid_list = res.data;
+                });
+            },
+            storeSuit(){
+                var data = this.selected_suit;
+                
+                
+                this.suit_avoid_list = this.suit_avoid_list.filter((item)=>{
+                    return item.name != data;
+                });
+                if(data != null){
+                    this.data.selected_suit_list.push(data);
+                }
+            },
+
+            storeAvoid(){
+                var data = this.selected_avoid;
+               
+                this.suit_avoid_list = this.suit_avoid_list.filter((item)=>{
+                    return item.name != data;
+                });
+                if(data != null){
+                    this.data.selected_avoid_list.push(data);
                 }
                 
                 
-                
+            },
+            clearSuit(){
+                this.data.selected_suit_list = [];
+                this.suitAvoidList();
+            },
+            clearAvoid(){
+                this.data.selected_avoid_list = [];
+                this.suitAvoidList();
             }
         },
-        mounted() {
+        beforeMount(){
             this.index();
+            this.suitAvoidList();
+            
+        },
+        mounted() {
+            
         }
     }
 </script>

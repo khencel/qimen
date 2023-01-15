@@ -39,12 +39,13 @@
             </div>
         </div>
     </div> 
-    <create-day-chart-modal ref="createChart" @chart="loadChart()"></create-day-chart-modal>
+    <!-- <create-day-chart-modal ref="createChart" @chart="loadChart()"></create-day-chart-modal> -->
 </div>
     
 </template>
 
 <script>
+    Vue.component('pagination', require('laravel-vue-pagination'));
     export default {
         props:['structure_type','cycle'],
         data(){

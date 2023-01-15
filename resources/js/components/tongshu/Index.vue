@@ -32,6 +32,7 @@
             async index(){
                 const res = await axios.get('/api/tong-shu/index');
                 this.dong_gong = res.data.month;
+                console.log(res.data);
                 localStorage.setItem('animal',JSON.stringify(res.data.animal));
                 localStorage.setItem('branch',JSON.stringify(res.data.branch));
                 localStorage.setItem('element',JSON.stringify(res.data.element));

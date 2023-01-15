@@ -457,9 +457,20 @@
               <p>Dong Gong</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{url('tong-shu/suit-avoid/index')}}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Suit and Avoid</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('tong-shu/timestar/index')}}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Time Star</p>
+            </a>
+          </li>
         </ul>
       </li>
-      
     </ul>
   </nav>
 
