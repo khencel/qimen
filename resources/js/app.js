@@ -28,7 +28,7 @@ window.yijing = "https://yijing.jennelcheng.com/";
 window.yijingToken = "3ShmbY9MB2FjyJ94zUzTeUTTbgJAn9JTurTjyVV7SHS1o8lpa5J3LnCeFMcW";
 
 //forecasting local
-// window.forecast = "https://forecast.jennelcheng.com";
+window.forecast = "https://forecast.jennelcheng.com";
 
 
 
