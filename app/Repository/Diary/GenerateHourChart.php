@@ -157,6 +157,7 @@ class GenerateHourChart
                                             ->where('heaven',true)
                                             ->first();
         })->filter()->first();
+
         
     }
 

@@ -92,12 +92,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 res = _context.sent;
+                console.log("Test");
                 _this.form.wealth = res.data.wealth;
                 _this.form.career = res.data.career;
                 _this.form.relationship = res.data.relationships;
                 _this.form.health = res.data.health;
 
-              case 7:
+              case 8:
               case "end":
                 return _context.stop();
             }

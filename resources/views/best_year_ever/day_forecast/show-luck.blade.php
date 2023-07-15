@@ -20,6 +20,6 @@
         </div>
     @endif  
     @include('best_year_ever.partial.pillar')
-    <pillar-show-luck id="{{$id}}"></pillar-show-luck>  
+    <best-year-show-luck id="{{$id}}"></best-year-show-luck>  
 </div>
 @endsection

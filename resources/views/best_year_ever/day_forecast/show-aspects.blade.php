@@ -21,6 +21,6 @@
     @endif  
     @include('best_year_ever.partial.pillar')
     
-    <pillar-show-aspect id="{{$id}}"></pillar-show-aspect>  
+    <best-year-show-aspect id="{{$id}}"></best-year-show-aspect>  
 </div>
 @endsection

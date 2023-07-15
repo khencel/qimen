@@ -61,6 +61,7 @@
         methods: {
             async show(){
                 const res = await axios.get(window.besteverLive+'/api/aspect/show/'+this.id);
+                console.log("Test");
                 this.form.wealth = res.data.wealth;
                 this.form.career = res.data.career;
                 this.form.relationship = res.data.relationships;
