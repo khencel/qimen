@@ -251,3 +251,21 @@ Route::prefix('tong-shu')->group(function(){
     Route::get('/time-star/value','API\TongShu\DongGongController@showAllTimeStarValue');
     Route::post('/time-star/store','API\TongShu\DongGongController@showAllTimeStarStore');
 });
+
+
+
+
+Route::get('/get-data',function(){
+    $deity = \App\Deitie::all();
+    $door = \App\Door::all();
+    $star = \App\Star::all();
+    $stem = \App\Stem::all();
+    return response()->json([
+        'Deity' =>  $deity,
+        'Door'  =>  $door,
+        'Star'  =>  $star,
+        'Stem'  =>  $stem,
+    ]);
+});
+
+Route::get('/show/{id}/{keyword}/{category}','API\Search\SearchController@show');
