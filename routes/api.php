@@ -269,3 +269,5 @@ Route::get('/get-data',function(){
 });
 
 Route::get('/show/{id}/{keyword}/{category}','API\Search\SearchController@show');
+
+
